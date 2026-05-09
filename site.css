@@ -110,9 +110,17 @@ figure { margin: 0; }
 .hero__photo {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;            /* mobile portrait */
+  height: 100svh;                  /* mobile: full viewport height */
+  height: 100vh;                   /* fallback */
+  min-height: 560px;               /* keep usable on tiny screens */
   background: var(--forest);
   overflow: hidden;
+}
+@media (min-width: 900px) {
+  .hero__photo {
+    height: auto;
+    min-height: 0;
+  }
 }
 .hero__photo img {
   width: 100%;
