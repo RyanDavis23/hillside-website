@@ -18,9 +18,6 @@ function Foundation() {
         <p className="lede">
           Tyler Gwozdz was a son, a brother, and a best friend. We lost him to addiction in January 2020. In the years since, his family and the friends who loved him have kept his memory alive by helping the people still fighting.
         </p>
-        <p>
-          Hillside is the gathering. We bring people together and direct every dollar raised to the partners doing the work — starting with the Tyler G. Foundation, our founding cause and the heart of everything we do.
-        </p>
       </div>
     </section>
   );
