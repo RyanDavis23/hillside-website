@@ -128,10 +128,10 @@ figure { margin: 0; }
 
 .hero__plate {
   background: var(--cream);
-  padding: 40px 24px 56px;
+  padding: 32px 24px 32px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 }
 .hero__eyebrow {
   font-family: var(--font-sans);
@@ -1122,8 +1122,20 @@ figure { margin: 0; }
 
 /* Mobile polish */
 @media (max-width: 720px) {
-  .hero__plate { padding-bottom: var(--space-9); }
+  .hero__plate { padding-bottom: 32px; }
   .recap__bleed figcaption { padding-left: 0; text-align: center; }
+  .about__photo figcaption {
+    padding: 0 24px;
+    text-align: center;
+  }
+  /* Gala dt/dd — tighten left col so dd doesn't wrap awkwardly */
+  .gala__meta > div {
+    grid-template-columns: 100px 1fr;
+    gap: 12px;
+  }
+  /* Section padding compresses on mobile to avoid stacking gaps */
+  .section { padding: 48px 0; }
+  .recap__head { margin-bottom: 16px; }
 }
 
 /* Image fade-in everywhere — default visible, gentle fade only when JS adds .is-loaded */
@@ -1304,8 +1316,8 @@ img { transition: opacity 500ms var(--ease); }
   display: flex;
   flex-direction: column;
   gap: 4px;
-  margin-top: 32px;
-  padding-top: 24px;
+  margin-top: 20px;
+  padding-top: 16px;
   border-top: 1px solid var(--rule);
 }
 .hero__meta-line {

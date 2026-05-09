@@ -13,14 +13,25 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 14px var(--gutter);
   background: rgba(244, 239, 230, 0.92);
   backdrop-filter: saturate(140%) blur(10px);
   -webkit-backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid var(--rule);
+  position: relative;
+  position: sticky;
+}
+.subpage__back { flex: 0 0 auto; }
+.subpage__crumb { flex: 0 0 auto; text-align: right; }
+.subpage__mark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
 }
 @media (min-width: 720px) {
   .subpage__nav { padding: 18px var(--gutter); }
@@ -75,7 +86,6 @@
   color: rgba(244, 239, 230, 0.66);
 }
 @media (max-width: 600px) {
-  .subpage__nav { grid-template-columns: auto 1fr; }
   .subpage__crumb { display: none; }
   .subpage__mark img { height: 20px; }
 }
@@ -215,7 +225,7 @@
    Tyler G. Foundation page
    ============================================================ */
 .tyler {
-  padding: clamp(64px, 8vw, 128px) 0;
+  padding: clamp(40px, 6vw, 96px) 0;
   border-top: 1px solid var(--rule);
 }
 .tyler__inner {
