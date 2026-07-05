@@ -547,7 +547,10 @@ body.menu-open { overflow: hidden; }
   to   { scale: 1.055; }
 }
 
-/* Opening film — plays once, silent, then dissolves to the still */
+/* Opening film — plays once, silent, then dissolves to the still.
+   While the film is "armed" (set synchronously in <head> before first paint),
+   the still, copy and scrim are all held offstage so nothing flashes before
+   the video. Removing .film-armed fades them all in together at the end. */
 .hero__film {
   position: absolute;
   inset: 0;
@@ -555,23 +558,24 @@ body.menu-open { overflow: hidden; }
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 1100ms var(--ease-inout);
+  transition: opacity 900ms var(--ease-inout);
 }
 .hero__film.is-playing { opacity: 1; }
 .hero__film.is-done { opacity: 0; }
 
-/* Copy waits offstage while the film runs */
-.hero__content { transition: opacity 900ms var(--ease-inout), translate 900ms var(--ease-inout); }
-.hero.has-film .hero__content { opacity: 0; translate: 0 14px; }
+.hero__slide img { transition: opacity 800ms var(--ease-inout); }
+.hero__content { transition: opacity 800ms var(--ease-inout), translate 800ms var(--ease-inout); }
+
+.film-armed .hero__slide.is-active img { opacity: 0; }
+.film-armed .hero__content { opacity: 0; translate: 0 14px; }
+.film-armed .hero__scrim { opacity: 0; }
 
 .hero__scrim {
   position: absolute; inset: 0;
   background:
     linear-gradient(to top, rgba(15, 32, 21, 0.82) 0%, rgba(15, 32, 21, 0.28) 38%, rgba(15, 32, 21, 0.12) 60%, rgba(15, 32, 21, 0.38) 100%);
-  transition: opacity 900ms var(--ease-inout);
+  transition: opacity 800ms var(--ease-inout);
 }
-/* no copy on screen while the film runs — let it play untinted */
-.hero.has-film .hero__scrim { opacity: 0; }
 /* Mobile: keep the full-bleed overlay, but thin the stack — fewer elements
    over the photo reads calm; the dates live in the recap section anyway. */
 @media (max-width: 760px) {

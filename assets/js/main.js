@@ -117,24 +117,34 @@
      ------------------------------------------------------------------ */
   const heroEl = document.querySelector(".hero");
   const film = heroEl?.querySelector(".hero__film");
+  const disarm = () => document.documentElement.classList.remove("film-armed");
   if (film && !reduceMotion.matches) {
+    let done = false;
     let guard = null;
     const finish = () => {
+      if (done) return;
+      done = true;
       clearTimeout(guard);
-      heroEl.classList.remove("has-film");
+      disarm();               // still, copy and scrim fade in together
       film.classList.add("is-done");
     };
     film.src = window.matchMedia("(max-width: 760px)").matches
       ? film.dataset.srcMobile
       : film.dataset.srcDesktop;
     film.addEventListener("playing", () => {
-      heroEl.classList.add("has-film");
       film.classList.add("is-playing");
-      guard = setTimeout(finish, 17000); // stall guard: never trap the copy
+      guard = setTimeout(finish, 26000); // stall guard: never trap the hero
     }, { once: true });
+    // Hand off to the still ~1.4s before the end, so it rises as the film
+    // fades to black instead of leaving a dead black gap.
+    film.addEventListener("timeupdate", () => {
+      if (film.duration && film.currentTime >= film.duration - 1.4) finish();
+    });
     film.addEventListener("ended", finish, { once: true });
     film.addEventListener("error", finish, { once: true });
     film.play().catch(finish);
+  } else {
+    disarm(); // no film / reduced motion — reveal the still immediately
   }
 
   /* ------------------------------------------------------------------

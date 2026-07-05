@@ -3,17 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <script>document.documentElement.classList.add("js");</script>
+  <script>
+    document.documentElement.classList.add("js");
+    // Arm the opening film before first paint so the still never flashes
+    // before the video. main.js disarms it when the film ends or can't play;
+    // this backstop guarantees the hero reveals even if the script fails.
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("film-armed");
+      setTimeout(function () {
+        document.documentElement.classList.remove("film-armed");
+      }, 28000);
+    }
+  </script>
 
   <title>Hillside — A New York charity</title>
-  <meta name="description" content="Hillside brings people together and grants every dollar raised to the partners doing the work — beginning with the Tyler G. Foundation.">
+  <meta name="description" content="Hillside is a New York charity run entirely by volunteers. We bring people together to support the partners doing the work — beginning with the Tyler G. Foundation.">
   <link rel="canonical" href="https://ryandavis23.github.io/hillside-website/">
   <meta name="theme-color" content="#1F3D2A">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Hillside">
   <meta property="og:title" content="Hillside — A New York charity">
-  <meta property="og:description" content="A gathering. Given away in full. Every dollar raised goes to the partners doing the work.">
+  <meta property="og:description" content="A New York charity, run entirely by volunteers. Every gift supports the partners doing the work, beginning with the Tyler G. Foundation.">
   <meta property="og:url" content="https://ryandavis23.github.io/hillside-website/">
   <meta property="og:image" content="https://ryandavis23.github.io/hillside-website/assets/logos/og-image.jpg">
   <meta property="og:image:width" content="1200">
@@ -26,7 +37,7 @@
   <link rel="preload" href="assets/fonts/Newsreader-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/photos/hero-bw-speaker.webp" as="image" fetchpriority="high">
-  <link rel="stylesheet" href="assets/css/site.css?v=20260705i">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260705k">
 
   <script type="application/ld+json">
   {
@@ -98,8 +109,8 @@
           <img src="assets/photos/hero-bw-speaker.webp" alt="" style="object-position: center 45%" fetchpriority="high">
         </div>
         <video class="hero__film" muted playsinline preload="auto" tabindex="-1"
-               data-src-mobile="assets/video/hero-mobile.mp4?v=2"
-               data-src-desktop="assets/video/hero-desktop.mp4?v=2"></video>
+               data-src-mobile="assets/video/hero-mobile.mp4?v=3"
+               data-src-desktop="assets/video/hero-desktop.mp4?v=4"></video>
       </div>
       <div class="hero__scrim" aria-hidden="true"></div>
 
@@ -151,7 +162,7 @@
         <div class="strip3__grid" data-reveal-stagger="90">
           <a href="gallery.html#p301" aria-label="Open photograph 301 in the gallery"><img src="assets/gallery/mid/301.webp" alt="Three guests on the terrace at dusk, the downtown skyline behind them." loading="lazy"></a>
           <a href="gallery.html#p134" aria-label="Open photograph 134 in the gallery"><img src="assets/gallery/mid/134.webp" alt="A guest in an emerald dress surrounded by friends in black tie." loading="lazy"></a>
-          <a href="gallery.html#p381" aria-label="Open photograph 381 in the gallery"><img src="assets/gallery/mid/381.webp" alt="Two guests at the red pool table, mid-game." loading="lazy"></a>
+          <a href="gallery.html#p551" aria-label="Open photograph 551 in the gallery"><img src="assets/gallery/mid/551.webp" alt="Five guests in gowns at the red Hillside wall." loading="lazy"></a>
         </div>
       </div>
     </section>
@@ -196,7 +207,7 @@
             <a href="gallery.html#p337"><img src="assets/gallery/full/337.webp" alt="A couple by the green-tiled fireplace, lit by candles." loading="lazy" style="object-position: center 35%"></a>
           </figure>
           <figure class="recap__c4" data-reveal>
-            <a href="gallery.html#p265"><img src="assets/gallery/full/265.webp" alt="The auction reveal — a guest in emerald opens the envelope." loading="lazy"></a>
+            <a href="gallery.html#p281"><img src="assets/gallery/full/281.webp" alt="Guests applaud during the auction, in black and white." loading="lazy"></a>
             <figcaption>The auction</figcaption>
           </figure>
         </div>
@@ -265,7 +276,7 @@
           <a class="arrow-link" href="gallery.html">All 596 photographs <span class="arrow" aria-hidden="true">→</span></a>
         </div>
         <div class="gteaser__strip" data-reveal-stagger="70">
-          <a href="gallery.html#p551" aria-label="Open photograph 551 in the gallery"><img src="assets/gallery/thumb/551.webp" alt="Five guests in gowns at the red Hillside wall." loading="lazy"></a>
+          <a href="gallery.html#p439" aria-label="Open photograph 439 in the gallery"><img src="assets/gallery/thumb/439.webp" alt="A couple dancing close under the party lights." loading="lazy"></a>
           <a href="gallery.html#p476" aria-label="Open photograph 476 in the gallery"><img src="assets/gallery/thumb/476.webp" alt="A guest mid-dance under the scattered disco light." loading="lazy"></a>
           <a href="gallery.html#p335" aria-label="Open photograph 335 in the gallery"><img src="assets/gallery/thumb/335.webp" alt="Guests in candid conversation in the lounge." loading="lazy"></a>
           <a href="gallery.html#p382" aria-label="Open photograph 382 in the gallery"><img src="assets/gallery/thumb/382.webp" alt="A guest racks the balls at the red pool table." loading="lazy"></a>
@@ -299,16 +310,16 @@
     </section>
 
     <!-- ═══════════════ Interlude — the terrace at night ═══════════════ -->
-    <a class="interlude" href="gallery.html#p212" aria-label="Open photograph 212 in the gallery">
-      <img src="assets/gallery/full/212.webp" alt="The terrace at night in black and white, the city skyline beyond." loading="lazy">
+    <a class="interlude" href="gallery.html#p412" aria-label="Open photograph 412 in the gallery">
+      <img src="assets/gallery/full/412.webp" alt="A large group of guests together at the red Hillside wall, mid-celebration." loading="lazy">
     </a>
 
     <!-- ═══════════════ Donate ═══════════════ -->
     <section class="section bg-forest on-forest donate-band" aria-labelledby="donate-h">
       <div class="container" data-reveal-stagger="90">
         <p class="label">Make a gift</p>
-        <h2 class="t-display" id="donate-h">Every dollar leaves<br>the building.</h2>
-        <p class="donate-band__body">Donor gifts are pooled and granted in full to our partners. Operating costs are sponsor-funded — so 100% of proceeds go to charity.</p>
+        <h2 class="t-display" id="donate-h">No one here<br>takes a salary.</h2>
+        <p class="donate-band__body">Hillside is run entirely by volunteers. Gifts are pooled and directed to the partners doing the work — beginning with the Tyler G. Foundation.</p>
         <div class="donate-band__actions">
           <a class="btn btn--cream" href="donate.html">Make a gift</a>
           <a class="arrow-link" href="mailto:events@hillsidenewyork.com">Or write to us directly <span class="arrow" aria-hidden="true">→</span></a>
@@ -346,7 +357,7 @@
           <h3>The charity</h3>
           <ul role="list">
             <li>501(c)(3) public charity</li>
-            <li>100% of proceeds granted</li>
+            <li>Run entirely by volunteers</li>
           </ul>
         </div>
       </div>
@@ -364,6 +375,6 @@
     <video controls playsinline preload="metadata"></video>
   </div>
 
-  <script src="assets/js/main.js?v=20260705i" defer></script>
+  <script src="assets/js/main.js?v=20260705k" defer></script>
 </body>
 </html>
