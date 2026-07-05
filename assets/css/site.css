@@ -997,7 +997,8 @@ body.menu-open { overflow: hidden; }
   padding-top: calc(var(--header-h) + clamp(3rem, 8vw, 6rem));
   padding-bottom: clamp(2.5rem, 6vw, 5rem);
 }
-.subhero .container { display: grid; gap: var(--s5); justify-items: start; }
+/* Match the body's text measure so the hero and content share a left edge */
+.subhero .container { display: grid; gap: var(--s5); justify-items: start; max-width: 68rem; }
 .subhero__lede { max-width: 58ch; }
 
 /* Foundation page */
