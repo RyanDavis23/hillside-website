@@ -111,6 +111,33 @@
   }
 
   /* ------------------------------------------------------------------
+     Hero opening film — silent, plays once, settles on the still.
+     Copy hides only once playback truly starts; any failure (blocked
+     autoplay, error, stall) restores the still hero immediately.
+     ------------------------------------------------------------------ */
+  const heroEl = document.querySelector(".hero");
+  const film = heroEl?.querySelector(".hero__film");
+  if (film && !reduceMotion.matches) {
+    let guard = null;
+    const finish = () => {
+      clearTimeout(guard);
+      heroEl.classList.remove("has-film");
+      film.classList.add("is-done");
+    };
+    film.src = window.matchMedia("(max-width: 760px)").matches
+      ? film.dataset.srcMobile
+      : film.dataset.srcDesktop;
+    film.addEventListener("playing", () => {
+      heroEl.classList.add("has-film");
+      film.classList.add("is-playing");
+      guard = setTimeout(finish, 11000); // stall guard: never trap the copy
+    }, { once: true });
+    film.addEventListener("ended", finish, { once: true });
+    film.addEventListener("error", finish, { once: true });
+    film.play().catch(finish);
+  }
+
+  /* ------------------------------------------------------------------
      Stat count-ups
      ------------------------------------------------------------------ */
   const counters = document.querySelectorAll("[data-count-to]");
