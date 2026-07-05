@@ -546,44 +546,15 @@ body.menu-open { overflow: hidden; }
   background:
     linear-gradient(to top, rgba(15, 32, 21, 0.82) 0%, rgba(15, 32, 21, 0.28) 38%, rgba(15, 32, 21, 0.12) 60%, rgba(15, 32, 21, 0.38) 100%);
 }
-/* Mobile: stop overlaying copy on the photo — split it. The image gets the
-   top of the screen to itself; the text sits below on solid forest-night. */
+/* Mobile: keep the full-bleed overlay, but thin the stack — fewer elements
+   over the photo reads calm; the dates live in the recap section anyway. */
 @media (max-width: 760px) {
-  .hero {
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-  }
-  .hero__slides {
-    position: relative;
-    flex: none;
-    height: 42svh;
-  }
-  .hero__slides::after {
-    /* dissolve the photo's lower edge into the text panel */
-    content: "";
-    position: absolute;
-    inset: 55% 0 0;
-    background: linear-gradient(to bottom, transparent, var(--forest-night));
-  }
   .hero__scrim {
-    /* keep only a light top veil so the wordmark and menu stay legible */
-    inset: 0 0 auto;
-    height: 6rem;
-    background: linear-gradient(to bottom, rgba(15, 32, 21, 0.55), transparent);
+    background:
+      linear-gradient(to top, rgba(15, 32, 21, 0.92) 0%, rgba(15, 32, 21, 0.6) 42%, rgba(15, 32, 21, 0.22) 66%, rgba(15, 32, 21, 0.42) 100%);
   }
-  .hero__content {
-    flex: 1;
-    align-content: start;
-    gap: var(--s4);
-    padding-top: var(--s2);
-    padding-bottom: calc(var(--s6) + env(safe-area-inset-bottom, 0px));
-  }
-  .hero__meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35em 1.25em;
-  }
+  .hero__content { gap: var(--s5); padding-bottom: calc(var(--s7) + env(safe-area-inset-bottom, 0px)); }
+  .t-hero { font-size: clamp(2.5rem, 11.5vw, 2.85rem); }
 }
 
 .hero__content {
@@ -623,7 +594,7 @@ body.menu-open { overflow: hidden; }
 }
 .hero__dot.is-active { background: var(--cream); }
 @media (max-width: 760px) {
-  .hero__meta { text-align: left; }
+  .hero__meta { display: none; }
 }
 
 /* ----------------------------------------------------------------------
