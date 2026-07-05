@@ -808,6 +808,7 @@ body.menu-open { overflow: hidden; }
 
 .film { position: relative; }
 .film__head { display: grid; gap: var(--s5); justify-items: start; margin-bottom: var(--s8); }
+.film__credit { margin-top: var(--s6); color: var(--stone-soft); font-size: var(--fs-small); }
 .film__grid {
   display: grid;
   grid-template-columns: 8fr 4fr;
