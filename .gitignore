@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Source video masters (461MB+ — web versions live in assets/video/)
+/Video/
+
+# Local tooling
+.claude/
