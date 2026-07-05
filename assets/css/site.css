@@ -559,9 +559,15 @@ body.menu-open { overflow: hidden; }
     background:
       linear-gradient(to top, rgba(15, 32, 21, 0.92) 0%, rgba(15, 32, 21, 0.6) 42%, rgba(15, 32, 21, 0.22) 66%, rgba(15, 32, 21, 0.42) 100%);
   }
-  .hero__content { gap: var(--s5); padding-bottom: calc(var(--s7) + env(safe-area-inset-bottom, 0px)); }
+  .hero__content { gap: var(--s4); padding-bottom: calc(var(--s6) + env(safe-area-inset-bottom, 0px)); }
   .t-hero { font-size: clamp(2.5rem, 11.5vw, 2.85rem); }
-  .t-hero--name { font-size: clamp(3.2rem, 16.5vw, 4.2rem); }
+  /* full-width lockup, low in the frame — clear of the subject */
+  .t-hero--name {
+    font-size: clamp(3.4rem, 27vw, 6.75rem);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .hero__sub { font-size: 1rem; }
 }
 
 .hero__content {
