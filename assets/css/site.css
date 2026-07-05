@@ -682,6 +682,44 @@ body.menu-open { overflow: hidden; }
 }
 
 /* ----------------------------------------------------------------------
+   9b · Photo interludes — moments between the words
+   ---------------------------------------------------------------------- */
+
+.strip3 { padding-block: clamp(3rem, 7vw, 6rem); }
+.strip3__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.5rem, 1.4vw, 1.25rem);
+}
+.strip3__grid a {
+  display: block;
+  overflow: clip;
+  aspect-ratio: 3 / 4;
+  background: var(--cream-deep);
+}
+.strip3__grid a:nth-child(2) { translate: 0 clamp(1rem, 3vw, 2.5rem); }
+.strip3__grid img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: scale 1.2s var(--ease-out);
+}
+.strip3__grid a:hover img { scale: 1.04; }
+.strip3__grid { padding-bottom: clamp(1rem, 3vw, 2.5rem); }
+
+.interlude {
+  display: block;
+  position: relative;
+  overflow: clip;
+  height: clamp(320px, 62vh, 640px);
+}
+.interlude img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: scale 1.6s var(--ease-out);
+}
+.interlude:hover img { scale: 1.025; }
+
+/* ----------------------------------------------------------------------
    10 · Home — the 2026 event
    ---------------------------------------------------------------------- */
 
