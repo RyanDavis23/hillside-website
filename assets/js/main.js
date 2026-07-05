@@ -130,7 +130,7 @@
     film.addEventListener("playing", () => {
       heroEl.classList.add("has-film");
       film.classList.add("is-playing");
-      guard = setTimeout(finish, 11000); // stall guard: never trap the copy
+      guard = setTimeout(finish, 17000); // stall guard: never trap the copy
     }, { once: true });
     film.addEventListener("ended", finish, { once: true });
     film.addEventListener("error", finish, { once: true });
