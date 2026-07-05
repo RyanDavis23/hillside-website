@@ -3,47 +3,361 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Hillside</title>
-  <meta name="description" content="Hillside is a New York charity. We bring people together and grant every dollar raised to the partners doing the work — beginning with the Tyler G. Foundation.">
-  <link rel="stylesheet" href="./colors_and_type.css?v=20260509-25">
-  <link rel="stylesheet" href="site.css?v=20260509-25">
-  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script>document.documentElement.classList.add("js");</script>
+
+  <title>Hillside — A New York charity</title>
+  <meta name="description" content="Hillside brings people together and grants every dollar raised to the partners doing the work — beginning with the Tyler G. Foundation.">
+  <link rel="canonical" href="https://darkstarnews.github.io/hillside-website/">
+  <meta name="theme-color" content="#1F3D2A">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Hillside">
+  <meta property="og:title" content="Hillside — A New York charity">
+  <meta property="og:description" content="A gathering. Given away in full. Every dollar raised goes to the partners doing the work.">
+  <meta property="og:url" content="https://darkstarnews.github.io/hillside-website/">
+  <meta property="og:image" content="https://darkstarnews.github.io/hillside-website/assets/logos/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/logos/apple-touch-icon.png">
+
+  <link rel="preload" href="assets/fonts/Newsreader-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/photos/hero-bw-speaker.webp" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="assets/css/site.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "NGO",
+        "name": "Hillside",
+        "url": "https://darkstarnews.github.io/hillside-website/",
+        "email": "events@hillsidenewyork.com",
+        "foundingDate": "2026",
+        "areaServed": "New York, NY",
+        "sameAs": ["https://instagram.com/hillsidenewyork"]
+      },
+      {
+        "@type": "Event",
+        "name": "Hillside 2026 — Inaugural Gathering",
+        "startDate": "2026-05-02",
+        "location": {
+          "@type": "Place",
+          "name": "The Bowery Hotel",
+          "address": "335 Bowery, New York, NY"
+        },
+        "organizer": { "@type": "NGO", "name": "Hillside" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-  <div id="root"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <script type="text/babel" src="Nav.jsx?v=20260509-25"></script>
-  <script type="text/babel" src="Hero.jsx?v=20260509-25"></script>
-  <script type="text/babel" src="Foundation.jsx?v=20260509-25"></script>
-  <script type="text/babel" src="OurWork.jsx?v=20260509-25"></script>
-  <script type="text/babel" src="Gala.jsx?v=20260509-25"></script>
-  <script type="text/babel" src="Recap.jsx?v=20260509-25"></script>
-  <script type="text/babel" src="Archive.jsx?v=20260509-25"></script>
-  <script type="text/babel" src="Donate.jsx?v=20260509-25"></script>
-  <script type="text/babel" src="Footer.jsx?v=20260509-25"></script>
+  <header class="site-header">
+    <div class="container">
+      <a class="site-header__mark" href="index.html" aria-label="Hillside — home">
+        <img class="wordmark--cream" src="assets/logos/hillside-wordmark-white.png" alt="Hillside" width="1024" height="154">
+        <img class="wordmark--ink" src="assets/logos/hillside-wordmark-forest.png" alt="Hillside" width="1024" height="154">
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="tyler-g-foundation.html">The Foundation</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a class="nav-cta" href="donate.html">Donate</a>
+      </nav>
+      <button class="menu-btn" aria-expanded="false" aria-controls="mobile-menu">
+        Menu <span class="menu-btn__icon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
 
-  <script type="text/babel">
-    function Site() {
-      // No scroll animations — sections render fully on mount.
-      React.useEffect(() => {}, []);
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu__close">Close</button>
+    <nav class="mobile-menu__links" aria-label="Menu">
+      <a href="index.html">Home</a>
+      <a href="tyler-g-foundation.html">The Foundation</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="donate.html">Donate</a>
+    </nav>
+    <p class="mobile-menu__foot">A New York charity · est. 2026</p>
+  </div>
 
-      return (
-        <>
-          <Hero />
-          <Foundation />
-          <OurWork />
-          <Gala />
-          <Recap />
-          <Archive />
-          <Donate />
-          <Footer />
-        </>
-      );
-    }
+  <main id="main">
 
-    ReactDOM.createRoot(document.getElementById('root')).render(<Site />);
-  </script>
+    <!-- ═══════════════ Hero ═══════════════ -->
+    <section class="hero" aria-label="Hillside">
+      <div class="hero__slides" aria-hidden="true">
+        <div class="hero__slide is-active">
+          <img src="assets/photos/hero-bw-speaker.webp" alt="" style="object-position: center 28%" fetchpriority="high">
+        </div>
+        <div class="hero__slide">
+          <img src="assets/photos/recap-stage-night.webp" alt="" style="object-position: center 22%" loading="lazy">
+        </div>
+        <div class="hero__slide">
+          <img src="assets/photos/recap-color-2.webp" alt="" style="object-position: center 30%" loading="lazy">
+        </div>
+        <div class="hero__slide">
+          <img src="assets/photos/hero-singer-warm.webp" alt="" style="object-position: center 35%" loading="lazy">
+        </div>
+      </div>
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="hero__dots" aria-hidden="true">
+        <span class="hero__dot is-active"></span>
+        <span class="hero__dot"></span>
+        <span class="hero__dot"></span>
+        <span class="hero__dot"></span>
+      </div>
+
+      <div class="hero__content container">
+        <p class="label hero__eyebrow">A New York charity · est. 2026</p>
+        <h1 class="t-hero">A gathering.<br>Given away in full.</h1>
+        <div class="hero__row">
+          <p class="hero__sub">Hillside brings people together to support the partners doing the work — beginning with the Tyler G.&nbsp;Foundation.</p>
+          <p class="hero__meta num">
+            <span>Inaugural · 02 May 2026</span>
+            <span>The Bowery Hotel · New York</span>
+          </p>
+        </div>
+        <div>
+          <a class="arrow-link" href="#event-2026">The 2026 event <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ About ═══════════════ -->
+    <section class="section" id="about" aria-labelledby="about-h">
+      <div class="container about__grid">
+        <figure class="about__photo" data-reveal>
+          <img src="assets/photos/tyler-portrait.webp" alt="Tyler Gwozdz, smiling." loading="lazy" width="1200" height="1500">
+          <figcaption>Tyler Gwozdz</figcaption>
+        </figure>
+        <div class="about__copy" data-reveal-stagger="90">
+          <p class="label">About</p>
+          <h2 class="t-display" id="about-h">Built in memory of Tyler. Making others a part of his legacy.</h2>
+          <p class="lede">Tyler Gwozdz was a son, a brother, and a best friend. We lost him to addiction in January 2020. In the years since, his family and the friends who loved him have kept his memory alive by helping the people still fighting.</p>
+          <a class="arrow-link" href="tyler-g-foundation.html">The Tyler G. Foundation <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ Founders ═══════════════ -->
+    <section class="section bg-deep" aria-label="From the founders">
+      <div class="container">
+        <blockquote class="pullquote" data-reveal>
+          <p class="pullquote__text">“The name is a bridge — between the Hilltop where the three of us first met and Riverside where the Gwozdz family grew up.”</p>
+          <cite class="pullquote__cite">Coco, Owen &amp; Ryan · Founders</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ═══════════════ The 2026 event ═══════════════ -->
+    <section class="section" id="event-2026" aria-labelledby="recap-h">
+      <div class="container">
+        <div class="recap__head" data-reveal-stagger="90">
+          <p class="label">The 2026 event</p>
+          <h2 class="t-display" id="recap-h">Three hundred and fifty-five people, in one room.</h2>
+          <p class="lede">On the second of May, friends, family and strangers from fourteen states and five countries came to The Bowery Hotel in support of the Tyler G. Foundation — the nonprofit Tyler’s family built in his memory to fund recovery, education and family resources for those fighting addiction.</p>
+        </div>
+
+        <div class="recap__stats" data-reveal>
+          <div class="recap__stat">
+            <span class="recap__stat-num" data-count-to="355">355</span>
+            <span class="recap__stat-label">guests</span>
+          </div>
+          <div class="recap__stat">
+            <span class="recap__stat-num" data-count-to="14">14</span>
+            <span class="recap__stat-label">states represented</span>
+          </div>
+          <div class="recap__stat">
+            <span class="recap__stat-num" data-count-to="5">5</span>
+            <span class="recap__stat-label">countries</span>
+          </div>
+          <div class="recap__stat">
+            <span class="recap__stat-num" data-count-to="30">30</span>
+            <span class="recap__stat-label">vendors</span>
+          </div>
+        </div>
+
+        <div class="recap__collage">
+          <figure class="recap__c1" data-reveal>
+            <a href="gallery.html"><img src="assets/photos/recap-step-repeat.webp" alt="A toast on the terrace at the inaugural Hillside." loading="lazy"></a>
+            <figcaption>On the terrace</figcaption>
+          </figure>
+          <figure class="recap__c2" data-reveal>
+            <a href="gallery.html"><img src="assets/photos/recap-trio.webp" alt="Three guests in formalwear at the inaugural Hillside." loading="lazy"></a>
+          </figure>
+          <figure class="recap__c3" data-reveal>
+            <a href="gallery.html"><img src="assets/photos/recap-terrace.webp" alt="Guests gathered on the terrace under the glass awning." loading="lazy"></a>
+          </figure>
+          <figure class="recap__c4" data-reveal>
+            <a href="gallery.html"><img src="assets/photos/recap-stage-night.webp" alt="A speaker addresses the gathered crowd late in the evening." loading="lazy"></a>
+            <figcaption>Remarks</figcaption>
+          </figure>
+        </div>
+
+        <div class="recap__foot">
+          <a class="arrow-link" href="gallery.html">View the full gallery <span class="arrow" aria-hidden="true">→</span></a>
+          <span class="recap__credit">Photography · Ricky Rodriguez</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ The film ═══════════════ -->
+    <section class="section bg-night on-forest film" aria-labelledby="film-h">
+      <div class="container">
+        <div class="film__head" data-reveal-stagger="90">
+          <p class="label">The film</p>
+          <h2 class="t-display" id="film-h">One evening, <em>on film.</em></h2>
+        </div>
+        <div class="film__grid">
+          <div class="film__main" data-reveal>
+            <button class="film-card film-card--main" data-video="assets/video/hillside-26-film.mp4" data-video-title="Hillside ’26 — the film">
+              <img src="assets/video/film-poster.webp" alt="" loading="lazy" width="1920" height="1080">
+              <span class="film-card__scrim" aria-hidden="true"></span>
+              <span class="play-badge" aria-hidden="true"></span>
+              <span class="film-card__label">
+                <span class="film-card__title">Hillside ’26</span>
+                <span class="film-card__dur">1:50</span>
+              </span>
+              <span class="visually-hidden">Play the Hillside 2026 film</span>
+            </button>
+          </div>
+          <div class="film__shorts" data-reveal-stagger="120">
+            <button class="film-card film-card--short" data-video="assets/video/hillside-26-short-1.mp4" data-video-title="Hillside ’26 — short no. 1">
+              <img src="assets/video/short-1-poster.webp" alt="" loading="lazy" width="810" height="1440">
+              <span class="film-card__scrim" aria-hidden="true"></span>
+              <span class="play-badge" aria-hidden="true"></span>
+              <span class="film-card__label">
+                <span class="film-card__title">Short №1</span>
+                <span class="film-card__dur">0:20</span>
+              </span>
+              <span class="visually-hidden">Play short film one</span>
+            </button>
+            <button class="film-card film-card--short" data-video="assets/video/hillside-26-short-2.mp4" data-video-title="Hillside ’26 — short no. 2">
+              <img src="assets/video/short-2-poster.webp" alt="" loading="lazy" width="810" height="1440">
+              <span class="film-card__scrim" aria-hidden="true"></span>
+              <span class="play-badge" aria-hidden="true"></span>
+              <span class="film-card__label">
+                <span class="film-card__title">Short №2</span>
+                <span class="film-card__dur">0:15</span>
+              </span>
+              <span class="visually-hidden">Play short film two</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ Gallery teaser ═══════════════ -->
+    <section class="section" aria-labelledby="gteaser-h">
+      <div class="container">
+        <div class="gteaser__head" data-reveal>
+          <div>
+            <p class="label">The gallery</p>
+            <h2 class="t-title" id="gteaser-h">Every photograph from the evening.</h2>
+          </div>
+          <a class="arrow-link" href="gallery.html">All 596 photographs <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <div class="gteaser__strip" data-reveal-stagger="70">
+          <a href="gallery.html#p140" aria-label="Open photograph 140 in the gallery"><img src="assets/gallery/thumb/140.webp" alt="A guest in black and white, champagne in hand, looking out over the terrace." loading="lazy"></a>
+          <a href="gallery.html#p30" aria-label="Open photograph 30 in the gallery"><img src="assets/gallery/thumb/030.webp" alt="The magenta Hillside sign at the entry." loading="lazy"></a>
+          <a href="gallery.html#p470" aria-label="Open photograph 470 in the gallery"><img src="assets/gallery/thumb/470.webp" alt="Two guests laughing on the dance floor." loading="lazy"></a>
+          <a href="gallery.html#p175" aria-label="Open photograph 175 in the gallery"><img src="assets/gallery/thumb/175.webp" alt="The green-tiled fireplace lit by candles." loading="lazy"></a>
+          <a href="gallery.html#p330" aria-label="Open photograph 330 in the gallery"><img src="assets/gallery/thumb/330.webp" alt="Three guests on the red Hillside backdrop." loading="lazy"></a>
+          <a href="gallery.html#p530" aria-label="Open photograph 530 in the gallery"><img src="assets/gallery/thumb/530.webp" alt="The band under the disco ball." loading="lazy"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ Stay close ═══════════════ -->
+    <section class="section bg-deep" aria-labelledby="stay-h">
+      <div class="container stay__grid">
+        <div class="stay__col" data-reveal-stagger="90">
+          <p class="label">Stay close</p>
+          <h2 class="t-title" id="stay-h">Be the first to know.</h2>
+          <p>We’ll write when the next gathering is on the calendar. Nothing else, ever.</p>
+          <form class="stay__form" data-stay-form novalidate>
+            <div class="stay__field">
+              <input type="email" name="email" placeholder="Your email" aria-label="Email address" autocomplete="email" required>
+              <button type="submit">Keep me posted <span class="arrow" aria-hidden="true">→</span></button>
+            </div>
+          </form>
+        </div>
+        <dl class="stay__next" data-reveal>
+          <dt>Inaugural</dt>
+          <dd class="num">02 May 2026 · The Bowery Hotel</dd>
+          <dt>What’s next</dt>
+          <dd>New York · to be announced</dd>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ═══════════════ Donate ═══════════════ -->
+    <section class="section bg-forest on-forest donate-band" aria-labelledby="donate-h">
+      <div class="container" data-reveal-stagger="90">
+        <p class="label">Make a gift</p>
+        <h2 class="t-display" id="donate-h">Every dollar leaves<br>the building.</h2>
+        <p class="donate-band__body">Donor gifts are pooled and granted in full to our partners. Operating costs are sponsor-funded — so 100% of proceeds go to charity.</p>
+        <div class="donate-band__actions">
+          <a class="btn btn--cream" href="donate.html">Make a gift</a>
+          <a class="arrow-link" href="mailto:events@hillsidenewyork.com">Or write to us directly <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <p class="donate-band__tax">Hillside is a 501(c)(3) public charity. Gifts are tax-deductible to the extent allowed by law.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════ Footer ═══════════════ -->
+  <footer class="site-footer on-forest">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <img src="assets/logos/hillside-wordmark-white.png" alt="Hillside" width="1024" height="154">
+          <p>A New York charity, built in memory of Tyler Gwozdz. Est. 2026.</p>
+        </div>
+        <div class="site-footer__col">
+          <h3>Explore</h3>
+          <ul role="list">
+            <li><a class="link" href="tyler-g-foundation.html">The Foundation</a></li>
+            <li><a class="link" href="gallery.html">Gallery</a></li>
+            <li><a class="link" href="sponsors.html">Sponsors</a></li>
+            <li><a class="link" href="donate.html">Donate</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h3>Contact</h3>
+          <ul role="list">
+            <li><a class="link" href="mailto:events@hillsidenewyork.com">events@hillsidenewyork.com</a></li>
+            <li><a class="link" href="https://instagram.com/hillsidenewyork" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h3>The charity</h3>
+          <ul role="list">
+            <li>501(c)(3) public charity</li>
+            <li>100% of proceeds granted</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__base">
+        <span>© <span data-year>2026</span> Hillside. All rights reserved.</span>
+        <span>Photography by Ricky Rodriguez</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Video modal -->
+  <div class="video-modal" role="dialog" aria-modal="true" aria-label="Video player">
+    <p class="video-modal__title"></p>
+    <button class="video-modal__close">Close</button>
+    <video controls playsinline preload="metadata"></video>
+  </div>
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

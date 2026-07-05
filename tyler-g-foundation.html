@@ -3,44 +3,79 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script>document.documentElement.classList.add("js");</script>
+
   <title>The Tyler G. Foundation · Hillside</title>
   <meta name="description" content="The Tyler G. Foundation funds education, family resources, and recovery for those fighting addiction. Hillside’s founding partner.">
-  <link rel="stylesheet" href="./colors_and_type.css?v=20260509-25">
-  <link rel="stylesheet" href="site.css?v=20260509-25">
-  <link rel="stylesheet" href="subpage.css?v=20260509-25">
+  <link rel="canonical" href="https://darkstarnews.github.io/hillside-website/tyler-g-foundation.html">
+  <meta name="theme-color" content="#F4EFE6">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Hillside">
+  <meta property="og:title" content="The Tyler G. Foundation · Hillside">
+  <meta property="og:description" content="Education, family resources, and recovery funding for those fighting addiction.">
+  <meta property="og:url" content="https://darkstarnews.github.io/hillside-website/tyler-g-foundation.html">
+  <meta property="og:image" content="https://darkstarnews.github.io/hillside-website/assets/logos/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/logos/apple-touch-icon.png">
+
+  <link rel="preload" href="assets/fonts/Newsreader-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body class="subpage">
-  <header class="subpage__nav">
-    <a href="index.html" class="subpage__back" aria-label="Back to Hillside">
-      <span aria-hidden="true">←</span> <span>Back</span>
-    </a>
-    <a href="index.html" class="subpage__mark" aria-label="Hillside home">
-      <img src="./assets/logos/hillside-wordmark-white.png" alt="Hillside" />
-    </a>
-    <span class="subpage__crumb">Tyler G. Foundation</span>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header is-solid">
+    <div class="container">
+      <a class="site-header__mark" href="index.html" aria-label="Hillside — home">
+        <img class="wordmark--cream" src="assets/logos/hillside-wordmark-white.png" alt="Hillside" width="1024" height="154">
+        <img class="wordmark--ink" src="assets/logos/hillside-wordmark-forest.png" alt="Hillside" width="1024" height="154">
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="tyler-g-foundation.html" aria-current="page">The Foundation</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a class="nav-cta" href="donate.html">Donate</a>
+      </nav>
+      <button class="menu-btn" aria-expanded="false" aria-controls="mobile-menu">
+        Menu <span class="menu-btn__icon" aria-hidden="true"></span>
+      </button>
+    </div>
   </header>
 
-  <main class="subpage__main">
-    <section class="subpage__hero">
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu__close">Close</button>
+    <nav class="mobile-menu__links" aria-label="Menu">
+      <a href="index.html">Home</a>
+      <a href="tyler-g-foundation.html">The Foundation</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="donate.html">Donate</a>
+    </nav>
+    <p class="mobile-menu__foot">A New York charity · est. 2026</p>
+  </div>
+
+  <main id="main">
+    <section class="subhero">
       <div class="container">
-        <span class="label">Founding partner</span>
-        <h1 class="subpage__title">
-          The Tyler G.<br/>Foundation.
-        </h1>
-        <p class="subpage__lede">
-          We lost Tyler in January 2020. The foundation his family built in his memory funds the people and programs still fighting the disease that took him — through education, family resource programs, and direct funding for recovery.
-        </p>
+        <p class="label" data-reveal>Founding partner</p>
+        <h1 class="t-display" data-reveal>The Tyler G.<br>Foundation.</h1>
+        <p class="lede subhero__lede" data-reveal>We lost Tyler in January 2020. The foundation his family built in his memory funds the people and programs still fighting the disease that took him — through education, family resource programs, and direct funding for recovery.</p>
       </div>
     </section>
 
-    <section class="tyler tyler--bio">
-      <div class="container tyler__inner">
-        <figure class="tyler__photo">
-          <img src="./assets/photos/tyler-portrait.webp" alt="Tyler Gwozdz." loading="lazy" />
+    <section class="section" aria-labelledby="bio-h" style="padding-top: clamp(2rem, 5vw, 4rem)">
+      <div class="container bio__grid">
+        <figure class="bio__photo" data-reveal>
+          <img src="assets/photos/tyler-portrait.webp" alt="Tyler Gwozdz." loading="lazy" width="1200" height="1500">
+          <figcaption>Tyler Gwozdz · 1990–2020</figcaption>
         </figure>
-        <div class="tyler__copy">
-          <span class="label">Tyler Gwozdz</span>
-          <h2 class="tyler__h">Son. Brother. Best friend.</h2>
+        <div class="bio__copy" data-reveal-stagger="90">
+          <p class="label">Tyler Gwozdz</p>
+          <h2 class="t-title" id="bio-h">Son. Brother. Best friend.</h2>
           <p>Tyler had an energy that was infectious — you couldn’t help but notice when he entered the room. He made people laugh and feel included. He never met a stranger.</p>
           <p>Tyler was open and honest about his struggles with addiction and his desire to fight the disease. He confided in his family and friends about his good days and bad days, and no matter what, he fought for the energy and fortitude to persevere.</p>
           <p>It’s in his memory that we help those still suffering from the same disease — and honor the impact Tyler had on every person who knew him.</p>
@@ -48,56 +83,56 @@
       </div>
     </section>
 
-    <section class="tyler tyler--final-act">
-      <div class="container">
-        <h2 class="tyler__h tyler__h--center">One of ten.</h2>
-        <p class="tyler__lede">
-          Long before the disease took him, Tyler chose to be an organ donor. In his final act, he became one of only ten people in the United States to donate a heart through Donation After Cardiac Death. Three lives were saved that day — including Gregory, a veteran who served two tours in Iraq and is a father of two sets of twins.
-        </p>
+    <section class="section bg-forest on-forest tenband" aria-labelledby="ten-h">
+      <div class="container" data-reveal-stagger="110">
+        <p class="label">His final act</p>
+        <span class="tenband__num num" aria-hidden="true">10</span>
+        <h2 class="t-title" id="ten-h">One of ten.</h2>
+        <p class="tenband__body">Long before the disease took him, Tyler chose to be an organ donor. In his final act, he became one of only ten people in the United States to donate a heart through Donation After Cardiac Death. Three lives were saved that day — including Gregory, a veteran who served two tours in Iraq and is a father of two sets of twins.</p>
       </div>
     </section>
 
-    <section class="tyler tyler--timeline">
-      <div class="container">
-        <span class="label">The work</span>
-        <h2 class="tyler__h">A timeline.</h2>
-        <ol class="timeline">
-          <li>
+    <section class="section" aria-labelledby="timeline-h">
+      <div class="container container--text">
+        <p class="label" data-reveal>The work</p>
+        <h2 class="t-title" id="timeline-h" data-reveal>A timeline.</h2>
+        <ol class="timeline" role="list" data-reveal-stagger="60">
+          <li class="timeline__item">
             <span class="timeline__year">2020</span>
             <div class="timeline__body">
               <strong>Tyler’s legacy begins.</strong>
               <p>Tyler dies in January at age 29. His family commits to carrying on the fight.</p>
             </div>
           </li>
-          <li>
+          <li class="timeline__item">
             <span class="timeline__year">2021</span>
             <div class="timeline__body">
               <strong>The Tyler G. Foundation is born.</strong>
               <p>Officially launched on Tyler’s birthday in Riverside, Connecticut. The mission: education, family resources, and recovery funding for those affected by addiction.</p>
             </div>
           </li>
-          <li>
+          <li class="timeline__item">
             <span class="timeline__year">2023</span>
             <div class="timeline__body">
               <strong>Greenwich Hospital partnership.</strong>
               <p>A three-year pledge to the Addiction Recovery Center, supporting comprehensive care that addresses the biological, psychological, and behavioral aspects of substance use disorder.</p>
             </div>
           </li>
-          <li>
+          <li class="timeline__item">
             <span class="timeline__year">2024</span>
             <div class="timeline__body">
               <strong>Joining Shatterproof.</strong>
               <p>A three-year pledge to Shatterproof, a national nonprofit reversing the addiction crisis across the United States.</p>
             </div>
           </li>
-          <li>
-            <span class="timeline__year">2021–2025</span>
+          <li class="timeline__item">
+            <span class="timeline__year">2021–25</span>
             <div class="timeline__body">
               <strong>Awareness, year over year.</strong>
               <p>Annual presence at the Greenwich Town Party. SoulCycle Greenwich (2021). The Works Charleston (2022). Ironman Wisconsin (2022) — Eric Phillips, a Trinity College teammate, raised $17,000 in Tyler’s name.</p>
             </div>
           </li>
-          <li>
+          <li class="timeline__item">
             <span class="timeline__year">2026</span>
             <div class="timeline__body">
               <strong>The inaugural Hillside.</strong>
@@ -108,42 +143,80 @@
       </div>
     </section>
 
-    <section class="tyler tyler--why">
-      <div class="container">
-        <span class="label">Why this matters</span>
-        <h2 class="tyler__h">The cost of the disease.</h2>
-        <div class="why-stats">
-          <div><span class="why-stats__num">49M</span><span class="why-stats__label">Americans aged 12+ with substance use disorder</span></div>
-          <div><span class="why-stats__num">107K</span><span class="why-stats__label">substance-related deaths in 2023</span></div>
-          <div><span class="why-stats__num">$50K</span><span class="why-stats__label">average cost of a 30-day inpatient program</span></div>
-          <div><span class="why-stats__num">74%</span><span class="why-stats__label">of Americans don’t recognize addiction as a chronic medical illness</span></div>
+    <section class="section bg-deep" aria-labelledby="why-h">
+      <div class="container container--text">
+        <p class="label" data-reveal>Why this matters</p>
+        <h2 class="t-title" id="why-h" data-reveal>The cost of the disease.</h2>
+        <div class="impact-stats" data-reveal>
+          <div>
+            <span class="impact-num">49M</span>
+            <span class="impact-label">Americans aged 12+ with substance use disorder</span>
+          </div>
+          <div>
+            <span class="impact-num">107K</span>
+            <span class="impact-label">substance-related deaths in 2023</span>
+          </div>
+          <div>
+            <span class="impact-num">$50K</span>
+            <span class="impact-label">average cost of a 30-day inpatient program</span>
+          </div>
+          <div>
+            <span class="impact-num">74%</span>
+            <span class="impact-label">of Americans don’t recognize addiction as a chronic medical illness</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="tyler tyler--cta">
-      <div class="container">
-        <h2 class="tyler__h tyler__h--center">Help us help.</h2>
-        <div class="tyler__ctas">
-          <a href="donate.html" class="btn btn--primary">Make a gift to Hillside</a>
-          <a href="https://tylergfoundation.org" target="_blank" rel="noopener" class="btn--quiet">Visit the Foundation directly <span aria-hidden="true">→</span></a>
+    <section class="section cta-final" aria-labelledby="cta-h">
+      <div class="container" data-reveal-stagger="90">
+        <h2 class="t-display" id="cta-h">Help us help.</h2>
+        <div class="cta-final__actions">
+          <a class="btn" href="donate.html">Make a gift to Hillside</a>
+          <a class="arrow-link" href="https://tylergfoundation.org" target="_blank" rel="noopener">Visit the Foundation directly <span class="arrow" aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
   </main>
 
-  <a href="index.html" class="back-fab" id="backFab" aria-label="Back to Hillside">
-    <span aria-hidden="true">←</span> Back to Hillside
-  </a>
+  <footer class="site-footer on-forest">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <img src="assets/logos/hillside-wordmark-white.png" alt="Hillside" width="1024" height="154">
+          <p>A New York charity, built in memory of Tyler Gwozdz. Est. 2026.</p>
+        </div>
+        <div class="site-footer__col">
+          <h3>Explore</h3>
+          <ul role="list">
+            <li><a class="link" href="tyler-g-foundation.html">The Foundation</a></li>
+            <li><a class="link" href="gallery.html">Gallery</a></li>
+            <li><a class="link" href="sponsors.html">Sponsors</a></li>
+            <li><a class="link" href="donate.html">Donate</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h3>Contact</h3>
+          <ul role="list">
+            <li><a class="link" href="mailto:events@hillsidenewyork.com">events@hillsidenewyork.com</a></li>
+            <li><a class="link" href="https://instagram.com/hillsidenewyork" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h3>The charity</h3>
+          <ul role="list">
+            <li>501(c)(3) public charity</li>
+            <li>100% of proceeds granted</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__base">
+        <span>© <span data-year>2026</span> Hillside. All rights reserved.</span>
+        <span>Photography by Ricky Rodriguez</span>
+      </div>
+    </div>
+  </footer>
 
-  <script>
-    const backFab = document.getElementById('backFab');
-    function checkScroll() {
-      if (window.scrollY > 240) backFab.classList.add('is-visible');
-      else backFab.classList.remove('is-visible');
-    }
-    window.addEventListener('scroll', checkScroll, { passive: true });
-    checkScroll();
-  </script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

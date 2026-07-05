@@ -3,40 +3,74 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script>document.documentElement.classList.add("js");</script>
+
   <title>Sponsors · Hillside</title>
-  <meta name="description" content="The sponsors who made the inaugural Hillside gala possible.">
-  <link rel="stylesheet" href="./colors_and_type.css?v=20260509-25">
-  <link rel="stylesheet" href="site.css?v=20260509-25">
-  <link rel="stylesheet" href="subpage.css?v=20260509-25">
+  <meta name="description" content="The sponsors who made the inaugural Hillside possible — and let every dollar raised leave the building.">
+  <link rel="canonical" href="https://darkstarnews.github.io/hillside-website/sponsors.html">
+  <meta name="theme-color" content="#F4EFE6">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Hillside">
+  <meta property="og:title" content="Sponsors · Hillside">
+  <meta property="og:description" content="The sponsors who made the inaugural Hillside possible.">
+  <meta property="og:url" content="https://darkstarnews.github.io/hillside-website/sponsors.html">
+  <meta property="og:image" content="https://darkstarnews.github.io/hillside-website/assets/logos/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/logos/apple-touch-icon.png">
+
+  <link rel="preload" href="assets/fonts/Newsreader-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body class="subpage">
-  <header class="subpage__nav">
-    <a href="index.html" class="subpage__back" aria-label="Back to Hillside">
-      <span aria-hidden="true">←</span> <span>Back</span>
-    </a>
-    <a href="index.html" class="subpage__mark" aria-label="Hillside home">
-      <img src="./assets/logos/hillside-wordmark-white.png" alt="Hillside" />
-    </a>
-    <span class="subpage__crumb">Sponsors</span>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header is-solid">
+    <div class="container">
+      <a class="site-header__mark" href="index.html" aria-label="Hillside — home">
+        <img class="wordmark--cream" src="assets/logos/hillside-wordmark-white.png" alt="Hillside" width="1024" height="154">
+        <img class="wordmark--ink" src="assets/logos/hillside-wordmark-forest.png" alt="Hillside" width="1024" height="154">
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="tyler-g-foundation.html">The Foundation</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="sponsors.html" aria-current="page">Sponsors</a>
+        <a class="nav-cta" href="donate.html">Donate</a>
+      </nav>
+      <button class="menu-btn" aria-expanded="false" aria-controls="mobile-menu">
+        Menu <span class="menu-btn__icon" aria-hidden="true"></span>
+      </button>
+    </div>
   </header>
 
-  <main class="subpage__main">
-    <section class="subpage__hero">
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu__close">Close</button>
+    <nav class="mobile-menu__links" aria-label="Menu">
+      <a href="index.html">Home</a>
+      <a href="tyler-g-foundation.html">The Foundation</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="donate.html">Donate</a>
+    </nav>
+    <p class="mobile-menu__foot">A New York charity · est. 2026</p>
+  </div>
+
+  <main id="main">
+    <section class="subhero">
       <div class="container">
-        <span class="label">With gratitude</span>
-        <h1 class="subpage__title">
-          The sponsors<br/>who made it possible.
-        </h1>
-        <p class="subpage__lede">
-          Hillside’s model only works because of the partners who underwrite the room. Their support meant every dollar raised at the inaugural gathering left the building. We owe them a great deal.
-        </p>
+        <p class="label" data-reveal>With gratitude</p>
+        <h1 class="t-display" data-reveal>The sponsors who<br>made it possible.</h1>
+        <p class="lede subhero__lede" data-reveal>Hillside’s model only works because of the partners who underwrite the room. Their support meant every dollar raised at the inaugural gathering left the building. We owe them a great deal.</p>
       </div>
     </section>
 
-    <section class="sponsors">
-      <div class="container">
-        <span class="label sponsors__label">Inaugural · 02 May 2026</span>
-        <ul class="sponsors__list">
+    <section class="section" aria-labelledby="sponsors-h" style="padding-top: clamp(1.5rem, 4vw, 3rem)">
+      <div class="container container--text">
+        <p class="label" data-reveal id="sponsors-h">Inaugural · 02 May 2026</p>
+        <ul class="sponsor-list" role="list" data-reveal>
           <li>The Bowery Hotel</li>
           <li>The Getz Family</li>
           <li>The Metropolitan Club</li>
@@ -63,36 +97,60 @@
           <li>John Barnes</li>
           <li>Trey Saleeby</li>
         </ul>
-
-        <p class="sponsors__note">
-          And a very impactful donation to be announced — stay tuned.
-        </p>
+        <p class="sponsors-note" data-reveal>And a very impactful donation to be announced — stay tuned.</p>
       </div>
     </section>
 
-    <section class="sponsors__cta">
-      <div class="container">
-        <h2 class="sponsors__cta-h">Become a sponsor.</h2>
-        <p class="sponsors__cta-body">
-          Sponsorship lets every donor gift reach our partners in full. If you’d like to underwrite a future gathering, we’d love to talk.
-        </p>
-        <a href="mailto:events@hillsidenewyork.com" class="btn btn--primary">Get in touch</a>
+    <section class="section bg-forest on-forest cta-final" aria-labelledby="become-h">
+      <div class="container" data-reveal-stagger="90">
+        <p class="label">Underwrite what’s next</p>
+        <h2 class="t-display" id="become-h">Become a sponsor.</h2>
+        <p class="donate-band__body">Sponsorship lets every donor gift reach our partners in full. If you’d like to underwrite a future gathering, we’d love to talk.</p>
+        <div class="cta-final__actions">
+          <a class="btn btn--cream" href="mailto:events@hillsidenewyork.com">Get in touch</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <a href="index.html" class="back-fab" id="backFab" aria-label="Back to Hillside">
-    <span aria-hidden="true">←</span> Back to Hillside
-  </a>
+  <footer class="site-footer on-forest">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <img src="assets/logos/hillside-wordmark-white.png" alt="Hillside" width="1024" height="154">
+          <p>A New York charity, built in memory of Tyler Gwozdz. Est. 2026.</p>
+        </div>
+        <div class="site-footer__col">
+          <h3>Explore</h3>
+          <ul role="list">
+            <li><a class="link" href="tyler-g-foundation.html">The Foundation</a></li>
+            <li><a class="link" href="gallery.html">Gallery</a></li>
+            <li><a class="link" href="sponsors.html">Sponsors</a></li>
+            <li><a class="link" href="donate.html">Donate</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h3>Contact</h3>
+          <ul role="list">
+            <li><a class="link" href="mailto:events@hillsidenewyork.com">events@hillsidenewyork.com</a></li>
+            <li><a class="link" href="https://instagram.com/hillsidenewyork" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h3>The charity</h3>
+          <ul role="list">
+            <li>501(c)(3) public charity</li>
+            <li>100% of proceeds granted</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__base">
+        <span>© <span data-year>2026</span> Hillside. All rights reserved.</span>
+        <span>Photography by Ricky Rodriguez</span>
+      </div>
+    </div>
+  </footer>
 
-  <script>
-    const backFab = document.getElementById('backFab');
-    function checkScroll() {
-      if (window.scrollY > 240) backFab.classList.add('is-visible');
-      else backFab.classList.remove('is-visible');
-    }
-    window.addEventListener('scroll', checkScroll, { passive: true });
-    checkScroll();
-  </script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

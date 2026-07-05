@@ -3,143 +3,147 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script>document.documentElement.classList.add("js");</script>
+
   <title>The 2026 Gallery · Hillside</title>
-  <meta name="description" content="A gallery from the inaugural Hillside gala — 02 May 2026, The Bowery Hotel.">
-  <link rel="stylesheet" href="./colors_and_type.css?v=20260509-26">
-  <link rel="stylesheet" href="site.css?v=20260509-26">
-  <link rel="stylesheet" href="subpage.css?v=20260509-26">
-  <link rel="stylesheet" href="gallery.css?v=20260509-26">
+  <meta name="description" content="Every photograph from the inaugural Hillside — 02 May 2026, The Bowery Hotel. Photography by Ricky Rodriguez.">
+  <link rel="canonical" href="https://darkstarnews.github.io/hillside-website/gallery.html">
+  <meta name="theme-color" content="#F4EFE6">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Hillside">
+  <meta property="og:title" content="The 2026 Gallery · Hillside">
+  <meta property="og:description" content="Every photograph from the inaugural Hillside — 02 May 2026, The Bowery Hotel.">
+  <meta property="og:url" content="https://darkstarnews.github.io/hillside-website/gallery.html">
+  <meta property="og:image" content="https://darkstarnews.github.io/hillside-website/assets/logos/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/logos/apple-touch-icon.png">
+
+  <link rel="preload" href="assets/fonts/Newsreader-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/gallery/manifest.json" as="fetch">
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body class="gallery-page subpage">
-  <header class="subpage__nav">
-    <a href="index.html" class="subpage__back" aria-label="Back to Hillside">
-      <span aria-hidden="true">←</span> <span>Back</span>
-    </a>
-    <a href="index.html" class="subpage__mark" aria-label="Hillside home">
-      <img src="./assets/logos/hillside-wordmark-white.png" alt="Hillside" />
-    </a>
-    <span class="subpage__crumb">02 May 2026</span>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header is-solid">
+    <div class="container">
+      <a class="site-header__mark" href="index.html" aria-label="Hillside — home">
+        <img class="wordmark--cream" src="assets/logos/hillside-wordmark-white.png" alt="Hillside" width="1024" height="154">
+        <img class="wordmark--ink" src="assets/logos/hillside-wordmark-forest.png" alt="Hillside" width="1024" height="154">
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="tyler-g-foundation.html">The Foundation</a>
+        <a href="gallery.html" aria-current="page">Gallery</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a class="nav-cta" href="donate.html">Donate</a>
+      </nav>
+      <button class="menu-btn" aria-expanded="false" aria-controls="mobile-menu">
+        Menu <span class="menu-btn__icon" aria-hidden="true"></span>
+      </button>
+    </div>
   </header>
 
-  <section class="gallery-page__hero">
-    <div class="container">
-      <span class="label">The 2026 event</span>
-      <p class="gallery-page__sub">
-        Photography by Ricky Rodriguez · The Bowery Hotel · 02 May 2026
-      </p>
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu__close">Close</button>
+    <nav class="mobile-menu__links" aria-label="Menu">
+      <a href="index.html">Home</a>
+      <a href="tyler-g-foundation.html">The Foundation</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="donate.html">Donate</a>
+    </nav>
+    <p class="mobile-menu__foot">A New York charity · est. 2026</p>
+  </div>
+
+  <main id="main">
+    <section class="ghero">
+      <div class="container">
+        <p class="label" data-reveal>The 2026 event</p>
+        <h1 class="t-display" data-reveal>One evening,<br><em>every frame.</em></h1>
+        <p class="ghero__meta num" data-reveal>
+          <span><span data-photo-total>596</span> photographs</span>
+          <span>The Bowery Hotel · 02 May 2026</span>
+          <span>Photography by Ricky Rodriguez</span>
+        </p>
+      </div>
+    </section>
+
+    <nav class="chapters" aria-label="Gallery chapters">
+      <div class="container">
+        <div class="chapters__inner" data-chapter-rail></div>
+      </div>
+    </nav>
+
+    <div data-gallery></div>
+
+    <div class="gallery-foot">
+      <div class="container">
+        <p class="meta">Photography by Ricky Rodriguez.</p>
+        <a class="arrow-link" href="index.html">Return to Hillside <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
     </div>
-  </section>
+  </main>
 
-  <main class="gallery-grid" id="grid" aria-label="Photo gallery"></main>
-
-  <a href="index.html" class="back-fab" id="backFab" aria-label="Back to Hillside">
-    <span aria-hidden="true">←</span> Back to Hillside
-  </a>
-
-  <footer class="gallery-page__foot">
+  <footer class="site-footer on-forest">
     <div class="container">
-      <a href="index.html" class="btn--quiet">Return to Hillside <span aria-hidden="true">→</span></a>
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <img src="assets/logos/hillside-wordmark-white.png" alt="Hillside" width="1024" height="154">
+          <p>A New York charity, built in memory of Tyler Gwozdz. Est. 2026.</p>
+        </div>
+        <div class="site-footer__col">
+          <h3>Explore</h3>
+          <ul role="list">
+            <li><a class="link" href="tyler-g-foundation.html">The Foundation</a></li>
+            <li><a class="link" href="gallery.html">Gallery</a></li>
+            <li><a class="link" href="sponsors.html">Sponsors</a></li>
+            <li><a class="link" href="donate.html">Donate</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h3>Contact</h3>
+          <ul role="list">
+            <li><a class="link" href="mailto:events@hillsidenewyork.com">events@hillsidenewyork.com</a></li>
+            <li><a class="link" href="https://instagram.com/hillsidenewyork" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h3>The charity</h3>
+          <ul role="list">
+            <li>501(c)(3) public charity</li>
+            <li>100% of proceeds granted</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__base">
+        <span>© <span data-year>2026</span> Hillside. All rights reserved.</span>
+        <span>Photography by Ricky Rodriguez</span>
+      </div>
     </div>
   </footer>
 
   <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
-    <button class="lightbox__close" id="lbClose" aria-label="Close">
-      <span aria-hidden="true">×</span>
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Photograph viewer" aria-hidden="true">
+    <div class="lightbox__bar">
+      <span><span class="lightbox__counter num"></span> <span class="lightbox__scene"></span></span>
+      <button class="lightbox__close">Close</button>
+    </div>
+    <button class="lightbox__nav lightbox__nav--prev" aria-label="Previous photograph">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
     </button>
-    <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Previous photo">
-      <span aria-hidden="true">‹</span>
-    </button>
-    <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Next photo">
-      <span aria-hidden="true">›</span>
+    <button class="lightbox__nav lightbox__nav--next" aria-label="Next photograph">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
     </button>
     <figure class="lightbox__stage">
-      <img class="lightbox__img" id="lbImg" alt="" />
-      <figcaption class="lightbox__cap" id="lbCap"></figcaption>
+      <img class="lightbox__img" alt="">
     </figure>
   </div>
 
-  <script>
-    (async function () {
-      const grid = document.getElementById('grid');
-      const manifest = await fetch('./assets/gallery/manifest.json').then(r => r.json());
-      manifest.forEach((m, i) => {
-        const fig = document.createElement('figure');
-        fig.className = 'gallery-item';
-        fig.style.setProperty('--aspect', m.aspect);
-        fig.dataset.index = i;
-        const img = document.createElement('img');
-        img.loading = i < 6 ? 'eager' : 'lazy';
-        img.decoding = 'async';
-        img.src = './assets/gallery/' + m.thumb;
-        img.alt = 'Photograph ' + (i + 1) + ' from the Hillside 2026 gala.';
-        img.width = m.w;
-        img.height = m.h;
-        fig.appendChild(img);
-        grid.appendChild(fig);
-      });
-
-      // Lightbox
-      const lb = document.getElementById('lightbox');
-      const lbImg = document.getElementById('lbImg');
-      const lbCap = document.getElementById('lbCap');
-      let idx = 0;
-
-      function open(i) {
-        idx = i;
-        const m = manifest[idx];
-        lbImg.src = './assets/gallery/' + m.full;
-        lbImg.alt = 'Photograph ' + (idx + 1) + ' of ' + manifest.length;
-        lbCap.textContent = (idx + 1) + ' / ' + manifest.length + ' · Photography by Ricky Rodriguez';
-        lb.setAttribute('aria-hidden', 'false');
-        lb.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
-      }
-      function close() {
-        lb.setAttribute('aria-hidden', 'true');
-        lb.classList.remove('is-open');
-        lbImg.src = '';
-        document.body.style.overflow = '';
-      }
-      function prev() { open((idx - 1 + manifest.length) % manifest.length); }
-      function next() { open((idx + 1) % manifest.length); }
-
-      grid.addEventListener('click', (e) => {
-        const fig = e.target.closest('.gallery-item');
-        if (!fig) return;
-        open(parseInt(fig.dataset.index, 10));
-      });
-      document.getElementById('lbClose').addEventListener('click', close);
-      document.getElementById('lbPrev').addEventListener('click', prev);
-      document.getElementById('lbNext').addEventListener('click', next);
-      lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
-      document.addEventListener('keydown', (e) => {
-        if (lb.getAttribute('aria-hidden') === 'true') return;
-        if (e.key === 'Escape') close();
-        if (e.key === 'ArrowLeft') prev();
-        if (e.key === 'ArrowRight') next();
-      });
-
-      // Fade-in on scroll
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('is-in');
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.08 });
-      document.querySelectorAll('.gallery-item').forEach((el) => io.observe(el));
-
-      // Show floating back button after a short scroll
-      const backFab = document.getElementById('backFab');
-      function checkScroll() {
-        if (window.scrollY > 240) backFab.classList.add('is-visible');
-        else backFab.classList.remove('is-visible');
-      }
-      window.addEventListener('scroll', checkScroll, { passive: true });
-      checkScroll();
-    })();
-  </script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/gallery.js" defer></script>
 </body>
 </html>

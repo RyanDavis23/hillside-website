@@ -3,95 +3,110 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script>document.documentElement.classList.add("js");</script>
+
   <title>Make a gift · Hillside</title>
-  <meta name="description" content="Make a gift to Hillside. Every dollar raised is granted in full to our partners.">
-  <link rel="stylesheet" href="./colors_and_type.css?v=20260509-25">
-  <link rel="stylesheet" href="site.css?v=20260509-25">
-  <link rel="stylesheet" href="subpage.css?v=20260509-25">
+  <meta name="description" content="Make a gift to Hillside. Every dollar raised is granted in full to our partners — operating costs are sponsor-funded.">
+  <link rel="canonical" href="https://darkstarnews.github.io/hillside-website/donate.html">
+  <meta name="theme-color" content="#F4EFE6">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Hillside">
+  <meta property="og:title" content="Make a gift · Hillside">
+  <meta property="og:description" content="100% of proceeds go to charity. Operating costs are sponsor-funded.">
+  <meta property="og:url" content="https://darkstarnews.github.io/hillside-website/donate.html">
+  <meta property="og:image" content="https://darkstarnews.github.io/hillside-website/assets/logos/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/logos/apple-touch-icon.png">
+
+  <link rel="preload" href="assets/fonts/Newsreader-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body class="subpage">
-  <header class="subpage__nav">
-    <a href="index.html" class="subpage__back" aria-label="Back to Hillside">
-      <span aria-hidden="true">←</span> <span>Back</span>
-    </a>
-    <a href="index.html" class="subpage__mark" aria-label="Hillside home">
-      <img src="./assets/logos/hillside-wordmark-white.png" alt="Hillside" />
-    </a>
-    <span class="subpage__crumb">Make a gift</span>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header is-solid">
+    <div class="container">
+      <a class="site-header__mark" href="index.html" aria-label="Hillside — home">
+        <img class="wordmark--cream" src="assets/logos/hillside-wordmark-white.png" alt="Hillside" width="1024" height="154">
+        <img class="wordmark--ink" src="assets/logos/hillside-wordmark-forest.png" alt="Hillside" width="1024" height="154">
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="tyler-g-foundation.html">The Foundation</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a class="nav-cta" href="donate.html" aria-current="page">Donate</a>
+      </nav>
+      <button class="menu-btn" aria-expanded="false" aria-controls="mobile-menu">
+        Menu <span class="menu-btn__icon" aria-hidden="true"></span>
+      </button>
+    </div>
   </header>
 
-  <main class="subpage__main">
-    <!-- HERO — split: photo on the left, intent on the right -->
-    <section class="give-hero">
-      <figure class="give-hero__photo">
-        <img src="./assets/photos/recap-group.webp" alt="Friends of Hillside at the inaugural gala." loading="eager" />
-      </figure>
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu__close">Close</button>
+    <nav class="mobile-menu__links" aria-label="Menu">
+      <a href="index.html">Home</a>
+      <a href="tyler-g-foundation.html">The Foundation</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="donate.html">Donate</a>
+    </nav>
+    <p class="mobile-menu__foot">A New York charity · est. 2026</p>
+  </div>
 
-      <div class="give-hero__copy">
-        <span class="label">Make a gift</span>
-        <h1 class="give-hero__h">Do the right thing.</h1>
-        <p class="give-hero__lede">
-          Hillside is a 501(c)(3) public charity. Donor gifts are pooled and granted in full to our partners. Operating costs are sponsor-funded — so every dollar raised leaves the building.
-        </p>
-
-        <p class="give-hero__pullquote">
-          <em>“100% of proceeds go to charity.”</em>
-        </p>
-      </div>
-    </section>
-
-    <!-- AMOUNT LADDER — editorial, numbered, large serif -->
-    <section class="give-amounts">
+  <main id="main">
+    <section class="subhero">
       <div class="container">
-        <header class="give-amounts__head">
-          <span class="label">Choose an amount</span>
-          <p class="give-amounts__caption">All gifts go to the Tyler G. Foundation, our 2026 partner.</p>
-        </header>
-
-        <ol class="give-amounts__list" role="list">
-          <li>
-            <a href="#" class="give-amount">
-              <span class="give-amount__num">$50</span>
-              <span class="give-amount__note">A name on the wall.</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="give-amount">
-              <span class="give-amount__num">$100</span>
-              <span class="give-amount__note">A seat at the table.</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="give-amount">
-              <span class="give-amount__num">$250</span>
-              <span class="give-amount__note">A patron of the work.</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="give-amount">
-              <span class="give-amount__num">$500</span>
-              <span class="give-amount__note">A friend of Hillside.</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="give-amount give-amount--custom">
-              <span class="give-amount__num"><em>Other</em></span>
-              <span class="give-amount__note">A gift of your choosing.</span>
-            </a>
-          </li>
-        </ol>
+        <p class="label" data-reveal>Make a gift</p>
+        <h1 class="t-display" data-reveal>Do the right thing.</h1>
+        <p class="lede subhero__lede" data-reveal>Hillside is a 501(c)(3) public charity. Donor gifts are pooled and granted in full to our partners. Operating costs are sponsor-funded — so <em>every dollar raised leaves the building.</em></p>
       </div>
     </section>
 
-    <!-- DIRECT GIVING — ledger-style panel on cream-deep -->
-    <section class="give-direct">
-      <div class="container give-direct__inner">
-        <div class="give-direct__head">
-          <span class="label">Other ways</span>
-          <h2 class="give-direct__h">By wire, by hand, or by sponsorship.</h2>
+    <section class="section" aria-labelledby="amounts-h" style="padding-top: clamp(1.5rem, 4vw, 3rem)">
+      <div class="container container--text">
+        <p class="label" data-reveal id="amounts-h">Choose an amount</p>
+        <p class="meta" data-reveal>All gifts go to the Tyler G. Foundation, our 2026 partner.</p>
+        <div class="give-ladder" data-reveal>
+          <a class="give-row" href="mailto:events@hillsidenewyork.com?subject=A%20gift%20to%20Hillside%20—%20%2450">
+            <span class="give-row__amt">$50</span>
+            <span class="give-row__note">A name on the wall.</span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="give-row" href="mailto:events@hillsidenewyork.com?subject=A%20gift%20to%20Hillside%20—%20%24100">
+            <span class="give-row__amt">$100</span>
+            <span class="give-row__note">A seat at the table.</span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="give-row" href="mailto:events@hillsidenewyork.com?subject=A%20gift%20to%20Hillside%20—%20%24250">
+            <span class="give-row__amt">$250</span>
+            <span class="give-row__note">A patron of the work.</span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="give-row" href="mailto:events@hillsidenewyork.com?subject=A%20gift%20to%20Hillside%20—%20%24500">
+            <span class="give-row__amt">$500</span>
+            <span class="give-row__note">A friend of Hillside.</span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="give-row" href="mailto:events@hillsidenewyork.com?subject=A%20gift%20to%20Hillside">
+            <span class="give-row__amt"><em>Other</em></span>
+            <span class="give-row__note">A gift of your choosing.</span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
         </div>
+        <p class="meta" style="margin-top: var(--s4)">Each amount opens an email to us — we’ll reply with simple payment instructions and a receipt.</p>
+      </div>
+    </section>
 
-        <dl class="give-direct__ledger">
+    <section class="section bg-deep" aria-labelledby="direct-h">
+      <div class="container container--text">
+        <p class="label" data-reveal>Other ways</p>
+        <h2 class="t-title" id="direct-h" data-reveal>By wire, by hand,<br>or by sponsorship.</h2>
+        <dl class="give-ledger" data-reveal>
           <div>
             <dt>Wire or stock transfer</dt>
             <dd>For larger or appreciated gifts. Email us for instructions and our broker details.</dd>
@@ -105,35 +120,57 @@
             <dd>Underwrite a future gathering so every dollar raised in the room reaches the partner.</dd>
           </div>
         </dl>
-
-        <a href="mailto:events@hillsidenewyork.com" class="give-direct__contact">
-          events@hillsidenewyork.com <span aria-hidden="true">→</span>
-        </a>
+        <p style="margin-top: var(--s6)">
+          <a class="arrow-link" href="mailto:events@hillsidenewyork.com">events@hillsidenewyork.com <span class="arrow" aria-hidden="true">→</span></a>
+        </p>
       </div>
     </section>
 
-    <!-- FOOTNOTE -->
-    <section class="give-foot">
-      <div class="container">
-        <p>
-          Hillside is a 501(c)(3) public charity. Gifts are tax-deductible to the extent allowed by law. A receipt will follow your donation by email.
-        </p>
+    <section class="section" aria-label="Fine print" style="padding-block: var(--s8)">
+      <div class="container container--text">
+        <p class="meta">Hillside is a 501(c)(3) public charity. Gifts are tax-deductible to the extent allowed by law. A receipt will follow your donation by email.</p>
       </div>
     </section>
   </main>
 
-  <a href="index.html" class="back-fab" id="backFab" aria-label="Back to Hillside">
-    <span aria-hidden="true">←</span> Back to Hillside
-  </a>
+  <footer class="site-footer on-forest">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <img src="assets/logos/hillside-wordmark-white.png" alt="Hillside" width="1024" height="154">
+          <p>A New York charity, built in memory of Tyler Gwozdz. Est. 2026.</p>
+        </div>
+        <div class="site-footer__col">
+          <h3>Explore</h3>
+          <ul role="list">
+            <li><a class="link" href="tyler-g-foundation.html">The Foundation</a></li>
+            <li><a class="link" href="gallery.html">Gallery</a></li>
+            <li><a class="link" href="sponsors.html">Sponsors</a></li>
+            <li><a class="link" href="donate.html">Donate</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h3>Contact</h3>
+          <ul role="list">
+            <li><a class="link" href="mailto:events@hillsidenewyork.com">events@hillsidenewyork.com</a></li>
+            <li><a class="link" href="https://instagram.com/hillsidenewyork" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h3>The charity</h3>
+          <ul role="list">
+            <li>501(c)(3) public charity</li>
+            <li>100% of proceeds granted</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__base">
+        <span>© <span data-year>2026</span> Hillside. All rights reserved.</span>
+        <span>Photography by Ricky Rodriguez</span>
+      </div>
+    </div>
+  </footer>
 
-  <script>
-    const backFab = document.getElementById('backFab');
-    function checkScroll() {
-      if (window.scrollY > 240) backFab.classList.add('is-visible');
-      else backFab.classList.remove('is-visible');
-    }
-    window.addEventListener('scroll', checkScroll, { passive: true });
-    checkScroll();
-  </script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
