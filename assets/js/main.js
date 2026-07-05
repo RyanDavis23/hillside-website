@@ -120,9 +120,10 @@
       const target = parseInt(el.dataset.countTo, 10);
       if (reduceMotion.matches) { el.textContent = target; return; }
       const dur = 1400;
-      const t0 = performance.now();
+      let t0 = null; // seed from the first frame's timestamp, not now()
       const tick = (now) => {
-        const p = Math.min((now - t0) / dur, 1);
+        if (t0 === null) t0 = now;
+        const p = Math.min(Math.max((now - t0) / dur, 0), 1);
         el.textContent = Math.round(easeOut(p) * target);
         if (p < 1) requestAnimationFrame(tick);
       };

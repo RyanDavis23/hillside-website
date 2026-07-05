@@ -679,7 +679,13 @@ body.menu-open { overflow: hidden; }
 .recap__stat-label { color: var(--fg-muted); font-size: var(--fs-small); }
 @media (max-width: 760px) {
   .recap__stats { grid-template-columns: 1fr 1fr; }
-  .recap__stat:nth-child(3) { border-left: 0; padding-left: 0; }
+  .recap__stat,
+  .recap__stat + .recap__stat {
+    justify-items: center;
+    text-align: center;
+    padding: var(--s6) var(--s3);
+  }
+  .recap__stat:nth-child(3) { border-left: 0; }
   .recap__stat:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
 }
 
