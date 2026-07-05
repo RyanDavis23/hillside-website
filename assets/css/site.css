@@ -160,6 +160,12 @@ h1, h2, h3, h4 { margin: 0; font-family: var(--serif); font-optical-sizing: auto
   letter-spacing: var(--track-display);
   text-wrap: balance;
 }
+/* Single-word hero (the name) — can run larger than a sentence */
+.t-hero--name {
+  font-size: clamp(3.4rem, 11vw, 9.5rem);
+  font-weight: 440;
+  letter-spacing: -0.02em;
+}
 .t-display {
   font-size: var(--fs-display);
   font-weight: 440;
@@ -555,6 +561,7 @@ body.menu-open { overflow: hidden; }
   }
   .hero__content { gap: var(--s5); padding-bottom: calc(var(--s7) + env(safe-area-inset-bottom, 0px)); }
   .t-hero { font-size: clamp(2.5rem, 11.5vw, 2.85rem); }
+  .t-hero--name { font-size: clamp(3.2rem, 16.5vw, 4.2rem); }
 }
 
 .hero__content {
