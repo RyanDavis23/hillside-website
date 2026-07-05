@@ -568,7 +568,10 @@ body.menu-open { overflow: hidden; }
   position: absolute; inset: 0;
   background:
     linear-gradient(to top, rgba(15, 32, 21, 0.82) 0%, rgba(15, 32, 21, 0.28) 38%, rgba(15, 32, 21, 0.12) 60%, rgba(15, 32, 21, 0.38) 100%);
+  transition: opacity 900ms var(--ease-inout);
 }
+/* no copy on screen while the film runs — let it play untinted */
+.hero.has-film .hero__scrim { opacity: 0; }
 /* Mobile: keep the full-bleed overlay, but thin the stack — fewer elements
    over the photo reads calm; the dates live in the recap section anyway. */
 @media (max-width: 760px) {
