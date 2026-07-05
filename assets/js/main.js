@@ -89,14 +89,20 @@
   if (heroSlides.length > 1 && !reduceMotion.matches) {
     let active = 0;
     let timer = null;
+    const warm = (i) => {
+      const img = heroSlides[i % heroSlides.length].querySelector("img");
+      if (img && img.loading === "lazy") img.loading = "eager";
+    };
     const show = (i) => {
       heroSlides[active].classList.remove("is-active");
       heroDots[active]?.classList.remove("is-active");
       active = i % heroSlides.length;
       heroSlides[active].classList.add("is-active");
       heroDots[active]?.classList.add("is-active");
+      warm(active + 1); // stay one slide ahead of the crossfade
     };
     const start = () => { timer = setInterval(() => show(active + 1), 6400); };
+    warm(1);
     const stop = () => clearInterval(timer);
     document.addEventListener("visibilitychange", () =>
       document.hidden ? stop() : start()
