@@ -39,6 +39,8 @@
     ::selection { background: #1F3D2A; color: #F4EFE6; }
     .skip-link { position: absolute; left: -9999px; top: 0; z-index: 100; background: #F4EFE6; color: #1F3D2A; padding: 12px 18px; font-size: 14px; }
     .skip-link:focus { left: 12px; top: 12px; }
+    /* Very narrow phones (~320px): shrink the founders' quote so it never clips the attribution. */
+    @media (max-width: 340px) { #about { font-size: clamp(2.05rem, 8.5vw, 2.7rem) !important; } }
     @keyframes cue-drop { 0% { transform: scaleY(0); transform-origin: top; } 45% { transform: scaleY(1); transform-origin: top; } 55% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
     @keyframes fade-up { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
     @media (prefers-reduced-motion: reduce) { [aria-hidden="true"][style*="cue-drop"] { animation: none !important; } }
@@ -78,7 +80,7 @@
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#about">Skip to content</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <div style="background:#0F2015; color:#F4EFE6; overflow:clip">
 
@@ -88,12 +90,12 @@
         <a href="index.html" aria-label="Hillside — home" style="display:inline-flex; align-items:center">
           <img src="assets/logos/hillside-wordmark-white.png" alt="Hillside" style="height:1.05rem; width:auto">
         </a>
-        <button type="button" data-menu-btn aria-label="Open menu" aria-expanded="false" style="display:inline-flex; align-items:center; gap:0.55em; padding:0.6em 1.3em; border:1px solid rgba(244,239,230,0.32); background:transparent; color:#F4EFE6; font-family:inherit; font-size:0.9375rem; font-weight:500; letter-spacing:0.02em; cursor:pointer; transition:background-color 180ms, color 180ms" style-hover="background:#F4EFE6; color:#1F3D2A">Menu<span aria-hidden="true" style="display:inline-grid; gap:3px; width:1em">‌<span style="height:1.5px; background:currentColor; display:block"></span><span style="height:1.5px; background:currentColor; display:block"></span></span></button>
+        <button type="button" data-menu-btn aria-haspopup="dialog" aria-controls="menu-overlay" aria-expanded="false" style="display:inline-flex; align-items:center; gap:0.55em; padding:0.6em 1.3em; border:1px solid rgba(244,239,230,0.32); background:transparent; color:#F4EFE6; font-family:inherit; font-size:0.9375rem; font-weight:500; letter-spacing:0.02em; cursor:pointer; transition:background-color 180ms, color 180ms" style-hover="background:#F4EFE6; color:#1F3D2A">Menu<span aria-hidden="true" style="display:inline-grid; gap:3px; width:1em">‌<span style="height:1.5px; background:currentColor; display:block"></span><span style="height:1.5px; background:currentColor; display:block"></span></span></button>
       </div>
     </header>
 
     <!-- ═══ Menu overlay ═══ -->
-    <div data-menu-overlay role="dialog" aria-modal="true" aria-label="Menu" style="position:fixed; inset:0; z-index:60; background:rgba(15,32,21,0.98); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); opacity:0; visibility:hidden; transition:opacity 320ms cubic-bezier(0.22,0.61,0.36,1), visibility 320ms; display:flex; flex-direction:column">
+    <div id="menu-overlay" data-menu-overlay role="dialog" aria-modal="true" aria-label="Menu" style="position:fixed; inset:0; z-index:60; background:rgba(15,32,21,0.98); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); opacity:0; visibility:hidden; transition:opacity 320ms cubic-bezier(0.22,0.61,0.36,1), visibility 320ms; display:flex; flex-direction:column">
       <div style="height:4.25rem; flex:none; display:flex; align-items:center; justify-content:space-between; gap:2rem; width:100%; max-width:90rem; margin-inline:auto; padding-inline:clamp(1.25rem,4vw,4rem)">
         <a href="index.html" aria-label="Hillside — home" style="display:inline-flex; align-items:center"><img src="assets/logos/hillside-wordmark-white.png" alt="Hillside" style="height:1.05rem; width:auto"></a>
         <button type="button" data-menu-close aria-label="Close menu" style="padding:0.6em 1.3em; border:1px solid rgba(244,239,230,0.32); background:transparent; color:#F4EFE6; font-family:inherit; font-size:0.9375rem; font-weight:500; letter-spacing:0.02em; cursor:pointer; transition:background-color 180ms, color 180ms" style-hover="background:#F4EFE6; color:#1F3D2A">Close</button>
@@ -109,7 +111,7 @@
     </div>
 
     <!-- ═══ Scene 1 · Hero ═══ -->
-    <section style="height:100svh; position:relative; z-index:10">
+    <section id="main-content" tabindex="-1" style="height:100svh; position:relative; z-index:10; outline:none">
       <div style="position:relative; height:100svh; overflow:hidden; display:flex; align-items:flex-end; background:#0F2015">
         <img data-hero-still src="assets/photos/hero-bw-speaker.webp" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 45%; opacity:0; transition:opacity 900ms cubic-bezier(0.65,0,0.35,1)">
         <video data-hero-video muted playsinline loop preload="auto" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 900ms cubic-bezier(0.65,0,0.35,1)"></video>
@@ -125,7 +127,7 @@
 
     <!-- ═══ Scene 2 · Statement ═══ -->
     <section data-pin="words" data-len="3.4" data-overlap style="height:440svh; margin-top:-100svh; position:relative; z-index:9; background:#0F2015">
-      <div style="position:sticky; top:0; height:100svh; display:flex; align-items:center; overflow:hidden">
+      <div style="position:sticky; top:0; height:100svh; display:flex; align-items:center; overflow:hidden; box-sizing:border-box; padding-top:calc(4.25rem + env(safe-area-inset-top, 0px))">
         <div style="display:grid; gap:clamp(1.5rem,4svh,2.5rem); padding-inline:clamp(1.25rem,6vw,8rem)">
           <p id="about" style="margin:0; max-width:15em; font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:440; font-style:normal; font-size:clamp(2.9rem,10vw,4.6rem); line-height:1.12; letter-spacing:-0.015em; text-wrap:balance">
             <span data-w style="opacity:1">&ldquo;The</span> <span data-w style="opacity:1">name</span> <span data-w style="opacity:1">is</span> <span data-w style="opacity:1">a</span> <span data-w style="opacity:1">bridge</span> <span data-w style="opacity:1">—</span> <span data-w style="opacity:1">between</span> <span data-w style="opacity:1">the</span> <span data-w style="opacity:1">Hilltop</span> <span data-w style="opacity:1">where</span> <span data-w style="opacity:1">the</span> <span data-w style="opacity:1">three</span> <span data-w style="opacity:1">of</span> <span data-w style="opacity:1">us</span> <span data-w style="opacity:1">first</span> <span data-w style="opacity:1">met</span> <span data-w style="opacity:1">and</span> <span data-w style="opacity:1">Riverside</span> <span data-w style="opacity:1">where</span> <span data-w style="opacity:1">the</span> <span data-w style="opacity:1">Gwozdz</span> <span data-w style="opacity:1">family</span> <span data-w style="opacity:1">grew</span> <span data-w style="opacity:1">up.&rdquo;</span>
@@ -420,19 +422,22 @@
         var overlay = document.querySelector("[data-menu-overlay]");
         var closeBtn = document.querySelector("[data-menu-close]");
         if (!btn || !overlay) return;
+        var focusables = function () { return overlay.querySelectorAll("a, button"); };
+        var isOpen = function () { return overlay.style.visibility === "visible"; };
         var open = function () {
           overlay.style.opacity = "1";
           overlay.style.visibility = "visible";
           btn.setAttribute("aria-expanded", "true");
           document.documentElement.style.overflow = "hidden";
-          var first = overlay.querySelector("a, button");
-          if (first) first.focus();
+          // Defer: the element is not reliably focusable on the same tick it becomes visible.
+          setTimeout(function () { var f = focusables()[0]; if (f) f.focus(); }, 60);
         };
         var close = function () {
           overlay.style.opacity = "0";
           overlay.style.visibility = "hidden";
           btn.setAttribute("aria-expanded", "false");
           document.documentElement.style.overflow = "";
+          btn.focus(); // return focus to the trigger
         };
         btn.addEventListener("click", open);
         if (closeBtn) closeBtn.addEventListener("click", close);
@@ -444,7 +449,15 @@
           });
         });
         addEventListener("keydown", function (e) {
-          if (e.key === "Escape" && overlay.style.visibility === "visible") close();
+          if (!isOpen()) return;
+          if (e.key === "Escape") { close(); return; }
+          if (e.key === "Tab") { // trap focus inside the dialog
+            var f = focusables();
+            if (!f.length) return;
+            var first = f[0], last = f[f.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+          }
         });
       }
 
@@ -508,6 +521,7 @@
           });
         }
         if (name === "pct") {
+          if (reduced) return; // markup already reads "100" — don't let a short reduced-motion pin drive it to 0
           var el2 = w.querySelector("[data-pct]");
           if (el2) el2.textContent = String(Math.round(100 * ease(clamp01(p * 1.35))));
         }
