@@ -44,13 +44,10 @@
     /* Phones: keep the pinned Tyler scene (photo + caption + copy) inside one viewport, and
        tighten the final screen so the page can end at the top of the donate green. */
     @media (max-width: 759px) {
-      /* Tyler scene on phones: stack the copy statically under a left-aligned photo —
-         the desktop crossfade reads as misaligned floating text on a small screen. */
-      [data-tyler-img] { max-height: min(34svh, 24rem) !important; }
+      /* Tyler scene on phones: larger portrait, left-aligned on the same rail as the
+         copy. The heading→story crossfade animation runs on all sizes. */
+      [data-tyler-img] { max-height: min(46svh, 30rem) !important; }
       [data-pin="tyler"] figure { justify-self: start !important; }
-      [data-tyler-copy] { min-height: 0 !important; }
-      [data-tyler-s0], [data-tyler-s1] { position: static !important; opacity: 1 !important; transform: none !important; inset: auto !important; }
-      [data-tyler-s1] { margin-top: 1.25rem; }
       /* Compact the final screen so "Do the right thing." clears the header at max scroll. */
       #donate h2 { font-size: clamp(2.4rem, 11vw, 3rem) !important; }
       #donate { padding-bottom: 2rem !important; }
@@ -59,9 +56,9 @@
       footer { padding-block: 2rem 1.25rem !important; }
       footer > div { gap: 1.25rem !important; }
     }
-    /* Short phones: smaller portrait so the stacked Tyler scene still fits one viewport. */
+    /* Short phones: smaller portrait so the Tyler scene still fits one viewport. */
     @media (max-width: 759px) and (max-height: 620px) {
-      [data-tyler-img] { max-height: 26svh !important; }
+      [data-tyler-img] { max-height: 36svh !important; }
     }
     @keyframes cue-drop { 0% { transform: scaleY(0); transform-origin: top; } 45% { transform: scaleY(1); transform-origin: top; } 55% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
     @keyframes fade-up { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
@@ -207,7 +204,7 @@
     </section>
 
     <!-- ═══ Scene 5 · Numbers ═══ -->
-    <section data-pin="stats" data-len="3.2" style="height:320svh; position:relative; z-index:6; background:#0F2015; color:#F4EFE6">
+    <section data-pin="stats" data-len="3.6" style="height:360svh; position:relative; z-index:6; background:#0F2015; color:#F4EFE6">
       <div style="position:sticky; top:0; height:100svh; display:flex; align-items:center; overflow:hidden">
         <img src="assets/video/film-poster.webp" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover">
         <video data-clip data-clip-start="32" data-clip-end="54" muted playsinline preload="none" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 700ms cubic-bezier(0.65,0,0.35,1)"></video>
@@ -275,7 +272,7 @@
     </section>
 
     <!-- ═══ Scene 8 · 100% ═══ -->
-    <section data-pin="pct" data-len="2" style="height:200svh; position:relative; z-index:3; background:#1F3D2A">
+    <section data-pin="pct" data-len="2.4" style="height:240svh; position:relative; z-index:3; background:#1F3D2A">
       <div style="position:sticky; top:0; height:100svh; display:flex; align-items:center; overflow:hidden">
         <video data-clip data-clip-start="78" data-clip-end="96" muted playsinline preload="none" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 700ms cubic-bezier(0.65,0,0.35,1)"></video>
         <div style="position:absolute; inset:0; background:rgba(22,48,31,0.78)"></div>
@@ -348,8 +345,6 @@
         var mult = reduced ? 0.6 : (PROPS.sceneLength != null ? PROPS.sceneLength : 1);
         document.querySelectorAll("[data-pin]").forEach(function (w) {
           var len = parseFloat(w.getAttribute("data-len") || "2");
-          // Phones stack the Tyler copy statically — a long pin there just feels stuck.
-          if (w.getAttribute("data-pin") === "tyler" && innerWidth < 760) len = 1.6;
           var overlap = w.hasAttribute("data-overlap") ? 100 : 0;
           w.style.height = Math.round(len * mult * 100 + overlap) + "svh";
         });
@@ -542,19 +537,18 @@
           if (reduced) return;
           var ws = w._ws || (w._ws = w.querySelectorAll("[data-w]"));
           var n = ws.length;
-          // n + 5 finishes the reveal ~86% through the pin, leaving a beat to read
-          // the completed quote before the scene releases.
+          // n + 8 finishes the reveal ~78% through the pin — the completed quote
+          // holds for a real beat before the scene releases.
           ws.forEach(function (el, i) {
-            var local = clamp01(p * (n + 5) - i);
+            var local = clamp01(p * (n + 8) - i);
             el.style.opacity = String(0.16 + 0.84 * local);
           });
           var cite = w._cite || (w._cite = w.querySelector("[data-cite]"));
-          if (cite) cite.style.opacity = String(clamp01(p * (n + 5) - n));
+          if (cite) cite.style.opacity = String(clamp01(p * (n + 8) - n));
         }
         if (name === "tyler") {
           var img = w._img || (w._img = w.querySelector("[data-tyler-img]"));
           if (img) img.style.transform = "scale(" + (1.1 - 0.1 * clamp01(p * 1.5)).toFixed(4) + ")";
-          if (innerWidth < 760) return; // phones show the copy stacked statically (CSS)
           var s0 = w._s0 || (w._s0 = w.querySelector("[data-tyler-s0]"));
           var s1 = w._s1 || (w._s1 = w.querySelector("[data-tyler-s1]"));
           var out = clamp01((p - 0.38) / 0.14);
@@ -568,9 +562,9 @@
             if (tr._max == null) tr._max = Math.max(0, tr.scrollWidth - document.documentElement.clientWidth);
             // Linear mapping — the lerp supplies the easing feel. A curve here
             // front-loads the speed and makes the strip fly at the start.
-            // /0.85: the strip completes at 85% of the pin, then holds so the
-            // last photos + gallery link get a beat before the scene releases.
-            tr.style.transform = "translateX(" + (-tr._max * clamp01(p / 0.85)).toFixed(1) + "px)";
+            // /0.75: the strip completes at 75% of the pin, then holds a full
+            // viewport of scroll so the last photos + gallery link get read time.
+            tr.style.transform = "translateX(" + (-tr._max * clamp01(p / 0.75)).toFixed(1) + "px)";
           }
         }
         if (name === "stats") {
@@ -585,9 +579,9 @@
         if (name === "pct") {
           if (reduced) return; // markup already reads "100" — don't let a short reduced-motion pin drive it to 0
           var el2 = w._pct || (w._pct = w.querySelector("[data-pct]"));
-          // Unity multiplier: the count now climbs across the whole (longer) pin and
-          // visually reads 100 just before the release into the donate section.
-          if (el2) el2.textContent = String(Math.round(100 * ease(clamp01(p))));
+          // ×1.15 over the longer pin: same unhurried climb, but "100" lands ~72%
+          // through and holds before the release into the donate section.
+          if (el2) el2.textContent = String(Math.round(100 * ease(clamp01(p * 1.15))));
         }
       }
 
