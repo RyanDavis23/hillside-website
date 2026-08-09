@@ -25,7 +25,7 @@
 
   <link rel="preload" href="assets/fonts/Newsreader-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/site.css?v=20260705o">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260809b">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -65,42 +65,37 @@
       <div class="container">
         <p class="label" data-reveal>Make a gift</p>
         <h1 class="t-display" data-reveal>Do the right thing.</h1>
-        <p class="lede subhero__lede" data-reveal>Hillside is a 501(c)(3) public charity. <em>100% of proceeds go to charity</em> — donor gifts are pooled and granted to our partners, beginning with the Tyler G. Foundation.</p>
+        <p class="lede subhero__lede" data-reveal>Hillside is a 501(c)(3) public charity. <em>100% of proceeds go to charity</em> — gifts are donated in support of the Tyler G. Foundation.</p>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="amounts-h" style="padding-top: clamp(1.5rem, 4vw, 3rem)">
+    <section class="section bg-deep" aria-labelledby="zelle-h" style="padding-block: clamp(2.5rem, 6vw, 4.5rem)">
       <div class="container container--text">
-        <p class="label" data-reveal id="amounts-h">Choose an amount</p>
-        <p class="meta" data-reveal>All gifts go to the Tyler G. Foundation, our 2026 partner.</p>
-        <div class="give-ladder" data-reveal>
-          <a class="give-row" href="mailto:events@hillsidenewyork.com?subject=A%20gift%20to%20Hillside%20—%20%2450">
-            <span class="give-row__amt">$50</span>
-            <span class="give-row__note">A name on the wall.</span>
-            <span class="arrow" aria-hidden="true">→</span>
+        <p class="label" data-reveal>Preferred · Zelle</p>
+        <h2 class="t-title" id="zelle-h" data-reveal>The fastest way to give.</h2>
+        <p data-reveal>Send your gift by Zelle to <strong>events@hillsidenewyork.com</strong> — it arrives in full, with no processing fees, and a receipt follows by email.</p>
+        <p data-reveal style="margin-top: var(--s4)">
+          <button class="btn" type="button" data-zelle-copy data-handle="events@hillsidenewyork.com">Copy our Zelle address</button>
+        </p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="partners-h" style="padding-block: clamp(2.5rem, 6vw, 4.5rem)">
+      <div class="container container--text">
+        <p class="label" data-reveal>2026 · In support of the Tyler G. Foundation</p>
+        <h2 class="t-title" id="partners-h" data-reveal>Where this year's giving went.</h2>
+        <div class="partner-cards" data-reveal>
+          <a class="partner-card" href="https://www.shatterproof.org" target="_blank" rel="noopener">
+            <span class="partner-card__name">Shatterproof</span>
+            <span class="partner-card__desc">A national nonprofit working to reverse the addiction crisis in the U.S. — transforming addiction care, ending stigma, and advancing prevention, treatment, and recovery.</span>
+            <span class="partner-card__more">shatterproof.org <span class="arrow" aria-hidden="true">→</span></span>
           </a>
-          <a class="give-row" href="mailto:events@hillsidenewyork.com?subject=A%20gift%20to%20Hillside%20—%20%24100">
-            <span class="give-row__amt">$100</span>
-            <span class="give-row__note">A seat at the table.</span>
-            <span class="arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="give-row" href="mailto:events@hillsidenewyork.com?subject=A%20gift%20to%20Hillside%20—%20%24250">
-            <span class="give-row__amt">$250</span>
-            <span class="give-row__note">A patron of the work.</span>
-            <span class="arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="give-row" href="mailto:events@hillsidenewyork.com?subject=A%20gift%20to%20Hillside%20—%20%24500">
-            <span class="give-row__amt">$500</span>
-            <span class="give-row__note">A friend of Hillside.</span>
-            <span class="arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="give-row" href="mailto:events@hillsidenewyork.com?subject=A%20gift%20to%20Hillside">
-            <span class="give-row__amt"><em>Other</em></span>
-            <span class="give-row__note">A gift of your choosing.</span>
-            <span class="arrow" aria-hidden="true">→</span>
+          <a class="partner-card" href="https://generationsos.org" target="_blank" rel="noopener">
+            <span class="partner-card__name">Generation S.O.S.</span>
+            <span class="partner-card__desc">Helping teens make life-saving choices — peer-to-peer programs that bring honest conversations about substance misuse and mental health into schools and communities.</span>
+            <span class="partner-card__more">generationsos.org <span class="arrow" aria-hidden="true">→</span></span>
           </a>
         </div>
-        <p class="meta" style="margin-top: var(--s4)">Each amount opens an email to us — we’ll reply with simple payment instructions and a receipt.</p>
       </div>
     </section>
 
@@ -174,5 +169,23 @@
   </footer>
 
   <script src="assets/js/main.js?v=20260705o" defer></script>
+  <script>
+    // Zelle copy button — clipboard with a visible confirmation.
+    (function () {
+      var btn = document.querySelector("[data-zelle-copy]");
+      if (!btn) return;
+      var original = btn.textContent;
+      btn.addEventListener("click", function () {
+        var handle = btn.getAttribute("data-handle") || "";
+        var done = function () {
+          btn.textContent = "Copied — thank you";
+          setTimeout(function () { btn.textContent = original; }, 2500);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(handle).then(done, done);
+        } else { done(); }
+      });
+    })();
+  </script>
 </body>
 </html>
