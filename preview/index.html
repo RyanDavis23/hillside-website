@@ -1,504 +1,684 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hillside — A New York charity</title>
-<meta name="description" content="Hillside is a New York charity. Built to bring people together, in support of the Tyler G. Foundation. 100% of proceeds to charity.">
-<meta name="robots" content="noindex">
-<meta name="theme-color" content="#FEFEFD">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hillside — A New York charity">
-<meta property="og:description" content="Built to bring people together. One night a year — 100% of proceeds to charity.">
-<meta property="og:url" content="https://hillsidenewyork.com/preview/">
-<meta property="og:image" content="https://hillsidenewyork.com/preview/og.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://hillsidenewyork.com/preview/og.jpg">
-<link rel="icon" href="/assets/logos/favicon.svg">
-<style>
-  /* ————————————————————————————— The White Gallery — mockup v3 ————————————————————————————— */
-  @font-face{font-family:'Newsreader';src:url('/assets/fonts/Newsreader-Variable.woff2') format('woff2-variations');font-weight:200 800;font-style:normal;font-display:swap}
-  @font-face{font-family:'Newsreader';src:url('/assets/fonts/Newsreader-Italic-Variable.woff2') format('woff2-variations');font-weight:200 800;font-style:italic;font-display:swap}
-  @font-face{font-family:'DM Sans';src:url('/assets/fonts/DMSans-Variable.woff2') format('woff2-variations');font-weight:100 900;font-style:normal;font-display:swap}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  :root{
-    --paper:#FEFEFD;
-    --ink:#151713;
-    --forest:#1F3D2A;
-    --hair:rgba(21,23,19,.14);
-    --faint:rgba(21,23,19,.55);
-    --serif:'Newsreader',Georgia,serif;
-    --sans:'DM Sans',system-ui,sans-serif;
-    --gut:clamp(1.25rem,4.5vw,4.5rem);
-    --ease:cubic-bezier(.19,1,.22,1);
+  <title>Hillside — A New York charity</title>
+  <meta name="description" content="Hillside is a New York charity. One night a year, and every dollar to the partners doing the work — beginning with the Tyler G. Foundation. 100% of proceeds to charity.">
+  <link rel="canonical" href="https://hillsidenewyork.com/preview/">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0F2015">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Hillside">
+  <meta property="og:title" content="Hillside — A New York charity">
+  <meta property="og:description" content="One night a year. Every dollar to the people doing the work — beginning with the Tyler G. Foundation.">
+  <meta property="og:url" content="https://hillsidenewyork.com/preview/">
+  <meta property="og:image" content="https://hillsidenewyork.com/assets/logos/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/assets/logos/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/logos/apple-touch-icon.png">
+
+  <link rel="preload" href="/assets/fonts/Newsreader-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/photos/hero-bw-speaker.webp" as="image" fetchpriority="high">
+
+  <style>
+    @font-face { font-family: "Newsreader"; src: url("/assets/fonts/Newsreader-Variable.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Newsreader"; src: url("/assets/fonts/Newsreader-Italic-Variable.woff2") format("woff2"); font-weight: 200 800; font-style: italic; font-display: swap; }
+    @font-face { font-family: "DM Sans"; src: url("/assets/fonts/DMSans-Variable.woff2") format("woff2"); font-weight: 100 1000; font-style: normal; font-display: swap; }
+    * { box-sizing: border-box; }
+    html { background: #0F2015; -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: #0F2015; color: #F4EFE6; font-family: "DM Sans", -apple-system, "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    img, video { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #C9C0AE; }
+    ::selection { background: #1F3D2A; color: #F4EFE6; }
+    .skip-link { position: absolute; left: -9999px; top: 0; z-index: 100; background: #F4EFE6; color: #1F3D2A; padding: 12px 18px; font-size: 14px; }
+    .skip-link:focus { left: 12px; top: 12px; }
+    /* Phones: keep the pinned Tyler scene (photo + caption + copy) inside one viewport, and
+       tighten the final screen so the page can end at the top of the donate green. */
+    @media (max-width: 759px) {
+      /* Tyler scene on phones: larger portrait, left-aligned on the same rail as the
+         copy. The heading→story crossfade animation runs on all sizes. */
+      [data-tyler-img] { max-height: min(44svh, 30rem) !important; }
+      [data-pin="tyler"] figure { justify-self: start !important; }
+      /* Compact the final screen so "Do the right thing." clears the header at max scroll. */
+      #donate h2 { font-size: clamp(2.4rem, 11vw, 3rem) !important; }
+      #donate { padding-bottom: 2rem !important; }
+      #donate > div { gap: 1rem !important; }
+      #donate a { padding: 0.9em 1.5em !important; }
+      footer { padding-block: 2rem 1.25rem !important; }
+      footer > div { gap: 1.25rem !important; }
+    }
+    /* Short phones: smaller portrait so the Tyler scene still fits one viewport. */
+    @media (max-width: 759px) and (max-height: 680px) {
+      [data-tyler-img] { max-height: 32svh !important; }
+    }
+    /* Narrow phones: keep the Zelle handle inside its button. */
+    @media (max-width: 380px) {
+      [data-zelle] { font-size: 0.85rem !important; padding: 0.9em 1.1em !important; max-width: 100%; }
+    }
+    /* Landscape phones / very short viewports: compact the pinned strip and menu,
+       and let the final screen flow naturally instead of forcing one viewport. */
+    @media (max-height: 560px) {
+      [data-track] { height: 40svh !important; }
+      [data-pin="track"] h2 { font-size: clamp(1.3rem, 5vh, 2rem) !important; }
+      #menu-overlay nav a { font-size: clamp(1.4rem, 7vh, 2.2rem) !important; }
+      #final-viewport { min-height: auto !important; }
+    }
+    @keyframes cue-drop { 0% { transform: scaleY(0); transform-origin: top; } 45% { transform: scaleY(1); transform-origin: top; } 55% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+    @keyframes fade-up { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { [aria-hidden="true"][style*="cue-drop"] { animation: none !important; } }
+  </style>
+  <noscript><style>
+    [data-hero-still], [data-hero-content], [data-hero-scrim] { opacity: 1 !important; }
+    [data-hero-video] { display: none !important; }
+    [data-w] { opacity: 1 !important; }
+  </style></noscript>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "NGO",
+        "name": "Hillside",
+        "url": "https://hillsidenewyork.com/",
+        "email": "events@hillsidenewyork.com",
+        "foundingDate": "2026",
+        "areaServed": "New York, NY",
+        "sameAs": ["https://instagram.com/hillsidenewyork"]
+      },
+      {
+        "@type": "Event",
+        "name": "Hillside 2026 — Inaugural Gathering",
+        "startDate": "2026-05-02",
+        "location": {
+          "@type": "Place",
+          "name": "The Bowery Hotel",
+          "address": "335 Bowery, New York, NY"
+        },
+        "organizer": { "@type": "NGO", "name": "Hillside" }
+      }
+    ]
   }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    background:var(--paper);color:var(--ink);
-    font-family:var(--sans);font-weight:400;font-size:1rem;line-height:1.6;
-    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-    overflow-x:clip;
-  }
-  ::selection{background:var(--forest);color:var(--paper)}
-  img,video{display:block;width:100%;height:auto}
-  a{color:inherit;text-decoration:none}
-  :focus-visible{outline:2px solid var(--forest);outline-offset:3px}
-
-  .wrap{max-width:90rem;margin-inline:auto;padding-inline:var(--gut)}
-  section{padding-block:clamp(3.5rem,10vh,7rem);scroll-margin-top:5.5rem}
-
-  /* — type voices — */
-  .label{font-family:var(--sans);font-size:.6875rem;font-weight:550;letter-spacing:.26em;text-transform:uppercase;color:var(--forest)}
-  .cap{font-family:var(--sans);font-size:.65rem;font-weight:480;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);line-height:1.8}
-  .h2{font-family:var(--serif);font-optical-sizing:auto;font-weight:275;font-size:clamp(1.9rem,3.6vw,3.1rem);line-height:1.08;letter-spacing:-.015em}
-  .h2 em,.lede em{font-style:italic;font-weight:295}
-  .lede{font-family:var(--serif);font-optical-sizing:auto;font-weight:290;font-size:clamp(1.5rem,2.9vw,2.5rem);line-height:1.25;letter-spacing:-.012em;max-width:38ch;text-wrap:pretty}
-
-  /* — masthead: fixed, hides on scroll-down, returns on scroll-up — */
-  header{
-    position:fixed;top:0;left:0;right:0;z-index:60;background:var(--paper);
-    padding:clamp(.95rem,2vh,1.35rem) 0;
-    transition:transform .5s var(--ease),box-shadow .35s;
-    box-shadow:0 1px 0 rgba(21,23,19,0);
-  }
-  header.scrolled{box-shadow:0 1px 0 var(--hair)}
-  header.hide{transform:translateY(-102%)}
-  .mast{display:flex;align-items:baseline;justify-content:space-between;gap:.55rem 1.5rem;flex-wrap:wrap}
-  .wordmark{font-family:var(--serif);font-weight:430;font-size:clamp(1rem,2.2vw,1.2rem);letter-spacing:.4em;text-transform:uppercase;margin-right:-.4em}
-  nav{display:flex;gap:clamp(.95rem,2.6vw,2.2rem);flex-wrap:wrap}
-  nav a{font-family:var(--sans);font-size:.65rem;font-weight:550;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);padding-block:.25rem}
-  nav a:hover{color:var(--forest)}
-  nav a.give{color:var(--forest)}
-  nav a.give:hover{color:#16301F}
-
-  /* — hero — */
-  .hero-top{padding-top:clamp(2.6rem,7vh,5.5rem);padding-bottom:clamp(2.4rem,6vh,4.5rem)}
-  .hero-top .label{display:block;margin-bottom:clamp(1.2rem,2.6vh,2rem)}
-  h1{
-    font-family:var(--serif);font-optical-sizing:auto;font-weight:265;
-    font-size:clamp(1.95rem,4.3vw,3.6rem);line-height:1.14;letter-spacing:-.016em;
-    text-wrap:balance;
-  }
-  h1 em{font-style:italic;font-weight:285}
-
-  /* full-bleed film */
-  .film-bleed{position:relative;overflow:hidden;background:#0c0e0c;height:min(86svh,60vw);height:min(86dvh,60vw);min-height:380px}
-  .film-bleed video,.film-bleed img.fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  @media (max-width:759px){.film-bleed{height:min(76svh,170vw);height:min(76dvh,170vw);min-height:0}}
-  .plate-cap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.2rem 1rem;padding-top:.8rem}
-
-  /* — section scaffold — */
-  .sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:.3rem 1rem;flex-wrap:wrap;border-top:1px solid var(--hair);padding-top:1rem;margin-bottom:clamp(2rem,5vh,3.4rem)}
-
-  /* — stats ledger — */
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--hair)}
-  .stat{border-bottom:1px solid var(--hair);padding:clamp(1.3rem,3vh,2.2rem) 0}
-  .stat b{display:block;font-family:var(--serif);font-optical-sizing:auto;font-weight:250;font-size:clamp(2.4rem,5.5vw,4.6rem);line-height:1;letter-spacing:-.02em}
-  .stat span{display:block;margin-top:.65rem}
-  @media (max-width:759px){.stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(odd){padding-right:1rem}}
-
-  /* — synopsis + sponsors (latest event) — */
-  .synopsis{margin-top:clamp(2.2rem,5vh,3.6rem)}
-  .synopsis a{border-bottom:1px solid var(--hair);transition:color .35s,border-color .35s}
-  .synopsis a:hover{color:var(--forest);border-color:var(--forest)}
-  .sponsors{display:flex;justify-content:space-between;align-items:baseline;gap:.3rem 1.5rem;flex-wrap:wrap;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:1.05rem 0;margin-top:clamp(2.2rem,5vh,3.4rem)}
-  .sponsors .cap b{font-weight:560;color:var(--ink)}
-  .sponsors a:hover{color:var(--forest)}
-
-  /* — plates — */
-  figure{margin:0}
-  .plate img{transition:transform 1.2s var(--ease)}
-  .plate a:hover img{transform:scale(1.015)}
-  /* settle: photographs arrive with one physics — a slow exhale from 1.025 to rest */
-  .plate.r img{transform:scale(1.025)}
-  .plate.r.in img{transform:scale(1)}
-  .plate.r.in a:hover img{transform:scale(1.015)}
-  /* cinematic closing plate */
-  .cine img{aspect-ratio:21/9;object-fit:cover;object-position:50% 62%}
-  @media (max-width:759px){.cine img{aspect-ratio:4/3}}
-  .bleed-plate{margin-top:clamp(2.4rem,6vh,4.5rem)}
-  .bleed-plate img{width:100%}
-  .duo{display:grid;grid-template-columns:7fr 5fr;gap:clamp(1.5rem,4vw,4rem);align-items:start;margin-top:clamp(1.5rem,4vw,4rem)}
-  .duo .b{margin-top:clamp(3rem,12vh,9rem)}
-  @media (max-width:759px){
-    .duo{grid-template-columns:1fr}
-    .duo .b{margin-top:0}
-    /* phones: single plates run flush to the screen edges, captions stay in the gutters */
-    .duo figure a{margin-inline:calc(var(--gut) * -1)}
-    .duo figure a img{width:100%}
-    .duo .plate-cap{padding-inline:0}
-  }
-
-  /* — auction — */
-  .auction{display:grid;grid-template-columns:8fr 4fr;gap:clamp(1.5rem,4vw,4.5rem);align-items:end;margin-top:clamp(2.2rem,5vh,3.6rem)}
-  @media (max-width:759px){
-    .auction{grid-template-columns:1fr}
-    .auction figure a{display:block;margin-inline:calc(var(--gut) * -1)}
-  }
-  .artists{border-top:1px solid var(--hair)}
-  .artists li{list-style:none;border-bottom:1px solid var(--hair);padding:1.05rem 0;display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
-  .artists .name{font-family:var(--serif);font-optical-sizing:auto;font-weight:330;font-size:clamp(1.15rem,1.6vw,1.45rem);letter-spacing:-.01em}
-
-  /* — 100% — */
-  .hundred{text-align:center}
-  .hundred b{display:block;font-family:var(--serif);font-optical-sizing:auto;font-weight:215;font-size:clamp(6.5rem,24vw,17rem);line-height:.95;letter-spacing:-.03em}
-  .hundred i{display:block;font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.25rem,2.4vw,1.8rem);margin-top:1.1rem;letter-spacing:-.01em}
-  .hundred .cap{margin-top:2rem;color:var(--forest);letter-spacing:.22em}
-  .mini-mark{display:block;margin-top:1.7rem;font-family:var(--sans);font-size:.6rem;font-weight:550;letter-spacing:.44em;text-transform:uppercase;color:var(--ink);opacity:.38}
-
-  /* — tyler — */
-  .tyler{display:grid;grid-template-columns:4fr 7fr;gap:clamp(2rem,6vw,6rem);align-items:center}
-  @media (max-width:759px){.tyler{grid-template-columns:1fr}}
-  .tyler figure{max-width:19rem;width:100%}
-  .tyler figure img{aspect-ratio:4/5;object-fit:cover;object-position:50% 12%}
-  .tyler .h2{margin:1rem 0 1.2rem}
-  .tyler p{font-family:var(--serif);font-weight:340;font-size:clamp(1.1rem,1.5vw,1.3rem);line-height:1.55;max-width:34ch;text-wrap:pretty}
-  .more{display:inline-flex;align-items:baseline;gap:.55em;margin-top:1.5rem;font-family:var(--sans);font-size:.6875rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--forest)}
-  .more span{transition:transform .5s var(--ease)}
-  .more:hover span{transform:translateX(.35em)}
-
-  /* — past events — */
-  .year-row{display:flex;justify-content:space-between;align-items:baseline;gap:.3rem 1.5rem;flex-wrap:wrap;border-top:1px solid var(--hair);padding:clamp(1.1rem,2.6vh,1.7rem) 0;margin-bottom:clamp(1.6rem,4vh,2.6rem)}
-  .year-row .year{font-family:var(--serif);font-optical-sizing:auto;font-weight:270;font-size:clamp(1.9rem,3.4vw,2.9rem);letter-spacing:-.015em}
-  .mosaic{display:grid;grid-template-columns:repeat(8,1fr);gap:4px}
-  .mosaic a{aspect-ratio:1;overflow:hidden;background:#0c0e0c}
-  .mosaic img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-  .mosaic a:hover img{transform:scale(1.06)}
-  @media (max-width:759px){.mosaic{grid-template-columns:repeat(4,1fr);gap:3px}}
-  .archive-links{margin-top:4px;border-bottom:1px solid var(--hair);padding:1.05rem 0;display:flex;justify-content:space-between;align-items:baseline;gap:.3rem 1.5rem;flex-wrap:wrap}
-  .archive-links a:hover{color:var(--forest)}
-
-  /* — stay updated — */
-  .updated .h2{margin-top:1.3rem}
-  .updated .cap{display:block;margin-top:1rem}
-  .line-form{display:flex;align-items:flex-end;gap:.6rem;border-bottom:1px solid var(--ink);max-width:34rem;margin-top:clamp(2rem,5vh,3rem)}
-  .line-form input{flex:1;min-width:0;border:0;background:transparent;padding:.65rem 0;font-family:var(--sans);font-size:.98rem;color:var(--ink)}
-  .line-form input::placeholder{color:var(--faint)}
-  .line-form input:focus{outline:none}
-  .line-form button{
-    border:0;background:none;cursor:pointer;color:var(--ink);
-    font-family:var(--sans);font-size:.6875rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
-    padding:.65rem 0 .65rem .5rem;display:inline-flex;align-items:baseline;gap:.5em;transition:color .35s;white-space:nowrap;
-  }
-  .line-form button span{transition:transform .5s var(--ease)}
-  .line-form button:hover{color:var(--forest)}
-  .line-form button:hover span{transform:translateX(.3em)}
-  .form-note{margin-top:.9rem;min-height:1.2em}
-
-  /* — donate / end — */
-  .donate{padding-bottom:clamp(2.6rem,7vh,5rem)}
-  .zelle{
-    display:inline-flex;align-items:baseline;gap:.9em;margin-top:clamp(1.8rem,4.5vh,2.6rem);
-    border:1px solid var(--ink);padding:1rem 1.4rem;cursor:pointer;background:transparent;
-    font-family:var(--sans);font-size:.8rem;font-weight:500;letter-spacing:.12em;color:var(--ink);
-    transition:background .4s,color .4s;max-width:100%;
-  }
-  .zelle:hover{background:var(--ink);color:var(--paper)}
-  .zelle .cap{letter-spacing:.2em;color:inherit;opacity:.6}
-  .donate .more{margin-top:1.5rem;display:inline-flex}
-  .donate .give-row{display:flex;flex-direction:column;align-items:flex-start}
-  @media (max-width:430px){
-    .zelle{flex-direction:column;align-items:flex-start;gap:.45rem;padding:1rem 1.2rem}
-  }
-
-  /* — footer — */
-  footer{padding:clamp(2.6rem,7vh,4.5rem) 0 clamp(1.8rem,4vh,2.6rem);overflow:hidden}
-  .ghost{
-    font-family:var(--serif);font-optical-sizing:auto;font-weight:230;
-    font-size:clamp(3rem,11vw,10rem);line-height:1;letter-spacing:.3em;margin-right:-.3em;
-    text-transform:uppercase;text-align:center;white-space:nowrap;
-    color:var(--ink);opacity:.09;user-select:none;
-    margin-bottom:clamp(2.2rem,6vh,4rem);
-  }
-  .quote{font-family:var(--serif);font-style:italic;font-weight:300;font-size:1.05rem;line-height:1.6;color:var(--faint);text-align:center;max-width:44ch;margin:0 auto clamp(2.4rem,5vh,3.6rem);text-wrap:pretty}
-  .foot-row{border-top:1px solid var(--hair);padding-top:1.3rem;display:flex;flex-wrap:wrap;gap:.9rem 2.5rem;justify-content:space-between}
-  .foot-row .cap a:hover{color:var(--ink)}
-
-  /* — reveals — */
-  .r{opacity:0;transform:translateY(16px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-  .r.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion:reduce){
-    .r{opacity:1;transform:none;transition:none}
-    html{scroll-behavior:auto}
-  }
-</style>
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-<header class="wrap">
-  <div class="mast">
-    <a class="wordmark" href="#">Hillside</a>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#events">Events</a>
-      <a href="#auction">Auction</a>
-      <a href="#archive">Gallery</a>
-      <a class="give" href="#donate">Donate</a>
-    </nav>
-  </div>
-</header>
+  <div style="background:#0F2015; color:#F4EFE6; overflow:clip">
 
-<main>
-
-  <!-- 00 · Mission + film -->
-  <div class="wrap hero-top">
-    <span class="label">A New York charity · In support of the Tyler G. Foundation</span>
-    <h1>Built to bring people together. <em>A new generation showing up.</em></h1>
-  </div>
-  <figure class="plate r">
-    <div class="film-bleed">
-      <img class="fill" src="/assets/video/film-poster.webp" alt="" aria-hidden="true">
-      <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="/assets/video/film-poster.webp"></video>
-    </div>
-    <figcaption class="wrap plate-cap">
-      <span class="cap">Hillside '26 — The Bowery Hotel, New York</span>
-      <span class="cap">Film · Henry Asker</span>
-    </figcaption>
-  </figure>
-
-  <!-- 01 · About -->
-  <section class="wrap" id="about">
-    <div class="sec-head r">
-      <span class="label">01 — About</span>
-      <span class="cap">New York · Est. 2026</span>
-    </div>
-    <p class="lede r">Three friends — met on the Hilltop at SMU, brought together again in New York. <em>One night a year, in Tyler's memory.</em></p>
-  </section>
-
-  <!-- 02 · Latest event -->
-  <section id="events">
-    <div class="wrap">
-      <div class="sec-head r">
-        <span class="label">02 — Latest Event</span>
-        <span class="cap">Hillside '26 — 02 May 2026 · The Bowery Hotel</span>
-      </div>
-      <div class="stats r">
-        <div class="stat"><b>355</b><span class="cap">Guests</span></div>
-        <div class="stat"><b>14</b><span class="cap">States</span></div>
-        <div class="stat"><b>5</b><span class="cap">Countries</span></div>
-        <div class="stat"><b>30</b><span class="cap">Vendors</span></div>
-      </div>
-      <p class="lede synopsis r">Every dollar granted to <a href="https://www.shatterproof.org" target="_blank" rel="noopener">Shatterproof</a> and <a href="https://generationsos.org" target="_blank" rel="noopener">Generation&nbsp;S.O.S.</a>, in support of the Tyler&nbsp;G. Foundation.</p>
-      <div class="sponsors r">
-        <span class="cap">Sponsors — <b>The Metropolitan Club</b> · and friends</span>
-        <a class="cap" href="/sponsors.html">The benefactor wall →</a>
-      </div>
-    </div>
-    <figure class="plate bleed-plate r">
-      <a href="/gallery.html#p217">
-        <img src="/assets/gallery/full/217.webp" alt="The hall at the Bowery Hotel — disco balls and string lights over a full dance floor." style="aspect-ratio:1600/1067" loading="lazy">
-      </a>
-      <figcaption class="wrap plate-cap"><span class="cap">The Ballroom, midnight</span><span class="cap">№ 217</span></figcaption>
-    </figure>
-    <div class="wrap duo">
-      <figure class="plate a r">
-        <a href="/gallery.html#p460">
-          <img src="/assets/gallery/full/460.webp" alt="Seven guests in evening gowns on the terrace." style="aspect-ratio:1600/1067" loading="lazy">
+    <!-- ═══ Fixed header ═══ -->
+    <header data-header style="position:fixed; inset:0 0 auto 0; z-index:40; height:4.25rem; display:flex; align-items:center; transition:background-color 320ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 320ms cubic-bezier(0.22,0.61,0.36,1)">
+      <div style="width:100%; max-width:90rem; margin-inline:auto; padding-inline:clamp(1.25rem,4vw,4rem); display:flex; align-items:center; justify-content:space-between; gap:2rem">
+        <a href="/preview/" aria-label="Hillside — home" style="display:inline-flex; align-items:center">
+          <img src="/assets/logos/hillside-wordmark-white.png" alt="Hillside" style="height:1.05rem; width:auto">
         </a>
-        <figcaption class="plate-cap"><span class="cap">The Terrace</span><span class="cap">№ 460</span></figcaption>
-      </figure>
-      <figure class="plate b r">
-        <a href="/gallery.html">
-          <img src="/assets/photos/hero-dance-twinkle.webp" alt="A couple dancing beneath the disco ball." style="aspect-ratio:2/3" loading="lazy">
-        </a>
-        <figcaption class="plate-cap"><span class="cap">The dance floor</span><span class="cap">Ricky Rodriguez</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- 03 · Art in auction -->
-  <section class="wrap" id="auction">
-    <div class="sec-head r">
-      <span class="label">03 — Art in Auction</span>
-      <span class="cap">The silent auction</span>
-    </div>
-    <p class="lede r">Original work, donated by four artists — <em>every piece sold for the cause.</em></p>
-    <div class="auction">
-      <figure class="plate r">
-        <a href="/gallery.html#p110">
-          <img src="/assets/gallery/full/110.webp" alt="GRATITUDE by Peter Tunney, hung against the conservatory windows." style="aspect-ratio:1600/1067" loading="lazy">
-        </a>
-        <figcaption class="wrap plate-cap" style="padding-inline:0"><span class="cap">Gratitude — Peter Tunney</span><span class="cap">№ 110</span></figcaption>
-      </figure>
-      <div class="r">
-        <ul class="artists">
-          <li><span class="name">Peter Tunney</span><span class="cap">Painting</span></li>
-          <li><span class="name">Photos by Chicken</span><span class="cap">Photography</span></li>
-          <li><span class="name">Her Name is Mauve</span><span class="cap">Painting</span></li>
-          <li><span class="name">Molly Roskin</span><span class="cap">Works on paper</span></li>
-        </ul>
+        <button type="button" data-menu-btn aria-haspopup="dialog" aria-controls="menu-overlay" aria-expanded="false" style="display:inline-flex; align-items:center; gap:0.55em; padding:0.6em 1.3em; border:1px solid rgba(244,239,230,0.32); background:transparent; color:#F4EFE6; font-family:inherit; font-size:0.9375rem; font-weight:500; letter-spacing:0.02em; cursor:pointer; transition:background-color 180ms, color 180ms" style-hover="background:#F4EFE6; color:#1F3D2A">Menu<span aria-hidden="true" style="display:inline-flex; flex-direction:column; justify-content:center; gap:4px; width:1.05em"><span style="height:1.5px; background:currentColor; display:block"></span><span style="height:1.5px; background:currentColor; display:block"></span></span></button>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- 04 · 100% -->
-  <section class="wrap hundred" id="hundred">
-    <div class="r">
-      <b>100%</b>
-      <i>of proceeds go to charity.</i>
-      <p class="cap">Gifts are donated in support of the Tyler G. Foundation</p>
-      <span class="mini-mark" aria-hidden="true">Hillside</span>
-    </div>
-  </section>
-
-  <!-- 05 · In memory -->
-  <section class="wrap" id="tyler" style="padding-top:0">
-    <div class="tyler">
-      <figure class="plate r">
-        <img src="/assets/photos/tyler-portrait.webp" alt="Tyler Gwozdz, smiling." loading="lazy">
-        <figcaption class="plate-cap"><span class="cap">Tyler Gwozdz</span></figcaption>
-      </figure>
-      <div class="r">
-        <span class="label">In Memory</span>
-        <h2 class="h2">Built in memory of Tyler.</h2>
-        <p>A son, a brother, a best friend. We lost him to addiction in January 2020 — and the people who loved him never stopped showing up.</p>
-        <a class="more" href="/tyler-g-foundation.html">The Tyler G. Foundation <span>→</span></a>
+    <!-- ═══ Menu overlay ═══ -->
+    <div id="menu-overlay" data-menu-overlay role="dialog" aria-modal="true" aria-label="Menu" style="position:fixed; inset:0; z-index:60; background:rgba(15,32,21,0.98); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); opacity:0; visibility:hidden; transition:opacity 320ms cubic-bezier(0.22,0.61,0.36,1), visibility 320ms; display:flex; flex-direction:column">
+      <div style="height:4.25rem; flex:none; display:flex; align-items:center; justify-content:space-between; gap:2rem; width:100%; max-width:90rem; margin-inline:auto; padding-inline:clamp(1.25rem,4vw,4rem)">
+        <a href="/preview/" aria-label="Hillside — home" style="display:inline-flex; align-items:center"><img src="/assets/logos/hillside-wordmark-white.png" alt="Hillside" style="height:1.05rem; width:auto"></a>
+        <button type="button" data-menu-close aria-label="Close menu" style="padding:0.6em 1.3em; border:1px solid rgba(244,239,230,0.32); background:transparent; color:#F4EFE6; font-family:inherit; font-size:0.9375rem; font-weight:500; letter-spacing:0.02em; cursor:pointer; transition:background-color 180ms, color 180ms" style-hover="background:#F4EFE6; color:#1F3D2A">Close</button>
       </div>
+      <nav aria-label="Primary" style="flex:1; min-height:0; overflow-y:auto; display:flex; flex-direction:column; justify-content:center; gap:clamp(0.5rem,2.2svh,1.4rem); width:100%; max-width:90rem; margin-inline:auto; padding-inline:clamp(1.25rem,6vw,8rem)">
+        <a href="/preview/" style="font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:440; font-size:clamp(2.4rem,9vw,4.5rem); line-height:1.06; letter-spacing:-0.015em; color:#F4EFE6" style-hover="color:#C9C0AE">Home</a>
+        <a href="/tyler-g-foundation.html" style="font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:440; font-size:clamp(2.4rem,9vw,4.5rem); line-height:1.06; letter-spacing:-0.015em; color:#F4EFE6" style-hover="color:#C9C0AE">The Foundation</a>
+        <a href="/gallery.html" style="font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:440; font-size:clamp(2.4rem,9vw,4.5rem); line-height:1.06; letter-spacing:-0.015em; color:#F4EFE6" style-hover="color:#C9C0AE">Gallery</a>
+        <a href="/sponsors.html" style="font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:440; font-size:clamp(2.4rem,9vw,4.5rem); line-height:1.06; letter-spacing:-0.015em; color:#F4EFE6" style-hover="color:#C9C0AE">Sponsors</a>
+        <a href="/donate.html" style="font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:440; font-size:clamp(2.4rem,9vw,4.5rem); line-height:1.06; letter-spacing:-0.015em; color:#F4EFE6" style-hover="color:#C9C0AE">Donate</a>
+      </nav>
+      <div style="flex:none; width:100%; max-width:90rem; margin-inline:auto; padding:0 clamp(1.25rem,6vw,8rem) clamp(2rem,5svh,3rem); font-size:0.8125rem; color:#C9C0AE">A New York charity · est. 2026</div>
     </div>
-  </section>
 
-  <!-- 06 · Past events -->
-  <section id="archive">
-    <div class="wrap">
-      <div class="sec-head r">
-        <span class="label">04 — Past Events</span>
-        <span class="cap">Photography · Ricky Rodriguez</span>
+    <!-- ═══ Scene 1 · Hero ═══ -->
+    <section id="main-content" tabindex="-1" style="height:100svh; position:relative; z-index:10; outline:none">
+      <div style="position:relative; height:100svh; overflow:hidden; display:flex; align-items:flex-end; background:#0F2015">
+        <img data-hero-still src="/assets/photos/hero-bw-speaker.webp" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 45%; opacity:0; transition:opacity 900ms cubic-bezier(0.65,0,0.35,1)">
+        <video data-hero-video muted playsinline loop preload="auto" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 900ms cubic-bezier(0.65,0,0.35,1)"></video>
+        <div data-hero-scrim style="position:absolute; inset:0; background:linear-gradient(to top, rgba(15,32,21,0.92) 0%, rgba(15,32,21,0.5) 42%, rgba(15,32,21,0.14) 66%, rgba(15,32,21,0.42) 100%); opacity:0; transition:opacity 900ms cubic-bezier(0.65,0,0.35,1)"></div>
+        <div data-hero-content style="position:relative; z-index:2; width:100%; max-width:90rem; margin-inline:auto; padding:0 clamp(1.25rem,4vw,4rem) clamp(2.5rem,7svh,5rem); display:grid; gap:clamp(0.75rem,2vw,1.5rem); opacity:0; transform:translateY(14px); transition:opacity 900ms cubic-bezier(0.65,0,0.35,1), transform 900ms cubic-bezier(0.65,0,0.35,1)">
+          <p style="margin:0; font-size:0.72rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#C9C0AE">A New York charity · est. 2026</p>
+          <h1 style="margin:0; font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:440; font-size:clamp(4rem,19vw,12rem); line-height:0.98; letter-spacing:-0.02em">Hillside</h1>
+          <p style="margin:0; font-size:clamp(1.1rem,1.6vw,1.3rem); line-height:1.5; max-width:44ch; color:rgba(244,239,230,0.88); text-wrap:pretty">One night a year. Every dollar to the people doing the work.</p>
+        </div>
+        <div aria-hidden="true" style="position:absolute; z-index:2; bottom:calc(1rem + env(safe-area-inset-bottom, 0px)); left:50%; translate:-50% 0; width:1px; height:2.6rem; background:rgba(244,239,230,0.55); animation:cue-drop 2.2s cubic-bezier(0.65,0,0.35,1) infinite"></div>
       </div>
-      <div class="year-row r">
-        <span class="year">2026</span>
-        <span class="cap">Venue — The Bowery Hotel, New York</span>
+    </section>
+
+    <!-- ═══ The name — quiet pullquote (was a 3.4-screen pinned word-reveal) ═══ -->
+    <section id="about" style="position:relative; z-index:9; background:#0F2015; padding-block:clamp(5rem,14svh,10rem)">
+      <div style="max-width:90rem; margin-inline:auto; padding-inline:clamp(1.25rem,6vw,8rem); display:grid; gap:clamp(1.25rem,3svh,2rem)">
+        <p style="margin:0; max-width:19em; font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:440; font-style:italic; font-size:clamp(1.7rem,4.6vw,3.2rem); line-height:1.25; letter-spacing:-0.012em; text-wrap:balance">&ldquo;The name is a bridge — between the Hilltop where the three of us first met and Riverside where the Gwozdz family grew up.&rdquo;</p>
+        <p style="margin:0; font-size:0.875rem; letter-spacing:0.04em; color:#C9C0AE">Coco, Owen &amp; Ryan · Founders</p>
       </div>
-    </div>
-    <div class="mosaic r" id="mosaic"></div>
-    <div class="wrap">
-      <div class="archive-links r">
-        <a class="cap" href="/gallery.html" style="color:var(--ink)">All 596 photographs — view the archive →</a>
-        <a class="cap" href="https://instagram.com/hillsidenewyork" target="_blank" rel="noopener">Instagram — @hillsidenewyork ↗</a>
+    </section>
+
+    <!-- ═══ Scene 3 · Tyler ═══ -->
+    <section data-pin="tyler" data-len="3" style="height:300svh; position:relative; z-index:8; background:#F4EFE6; color:#1A2419">
+      <div style="position:sticky; top:0; height:100svh; height:100dvh; overflow:hidden; display:flex; align-items:center; box-sizing:border-box; padding-top:calc(4.25rem + env(safe-area-inset-top, 0px))">
+        <div style="width:100%; max-width:72rem; margin-inline:auto; padding-inline:clamp(1.25rem,4vw,4rem); display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(1rem,4vw,5rem); align-items:center">
+          <figure style="margin:0; position:relative; width:fit-content; justify-self:center">
+            <div style="overflow:hidden">
+              <img data-tyler-img src="/assets/photos/tyler-portrait.webp" alt="Tyler Gwozdz, smiling." style="display:block; width:auto; max-width:100%; max-height:min(56svh, 40rem); will-change:transform">
+            </div>
+            <figcaption style="margin-top:0.75rem; font-size:0.875rem; color:#6B6253">Tyler Gwozdz</figcaption>
+          </figure>
+          <div data-tyler-copy style="position:relative; min-height:14em">
+            <div data-tyler-s0 style="position:absolute; inset:0; display:grid; gap:1.25rem; align-content:center; will-change:opacity,transform">
+              <p style="margin:0; font-size:0.72rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#1F3D2A">About</p>
+              <h2 style="margin:0; font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:440; font-size:clamp(2.1rem,5.2vw,4.2rem); line-height:1.04; letter-spacing:-0.015em; text-wrap:balance">Built in memory of Tyler.</h2>
+            </div>
+            <div data-tyler-s1 style="position:absolute; inset:0; display:grid; gap:1.25rem; align-content:center; justify-items:start; opacity:0; will-change:opacity,transform">
+              <p style="margin:0; font-size:clamp(1.1rem,1.6vw,1.3rem); line-height:1.55; max-width:32ch; text-wrap:pretty">A son, a brother, a best friend. We lost him to addiction in January 2020 — and the people who loved him never stopped showing up.</p>
+              <a href="/tyler-g-foundation.html" style="display:inline-flex; align-items:baseline; gap:0.5em; font-weight:500; color:#1F3D2A" style-hover="color:#16301F">The Tyler G. Foundation <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <!-- ═══ Scene 4 · The night (horizontal track) ═══ -->
+    <section data-pin="track" data-len="5" style="height:500svh; position:relative; z-index:7; background:#0F2015">
+      <div style="position:sticky; top:0; height:100svh; height:100dvh; overflow:hidden; display:flex; flex-direction:column; justify-content:center; gap:clamp(1.5rem,4svh,3rem)">
+        <div style="max-width:90rem; width:100%; margin-inline:auto; padding-inline:clamp(1.25rem,4vw,4rem); display:grid; gap:0.9rem">
+          <p style="margin:0; font-size:0.72rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#C9C0AE">The 2026 event · The Bowery Hotel</p>
+          <h2 style="margin:0; font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:440; font-size:clamp(1.9rem,4.6vw,3.8rem); line-height:1.05; letter-spacing:-0.015em; text-wrap:balance">Three hundred and fifty-five people, in one room.</h2>
+        </div>
+        <div data-track style="display:flex; gap:clamp(0.75rem,1.6vw,1.5rem); align-items:stretch; height:clamp(16rem,52svh,34rem); padding-inline:clamp(1.25rem,4vw,4rem); width:max-content; will-change:transform">
+          <figure style="margin:0; flex:none; height:100%"><img src="/assets/gallery/mid/261.webp" alt="The full crowd gathered at night on the terrace, listening to a toast." style="height:100%; width:auto; object-fit:cover"></figure>
+          <figure style="margin:0; flex:none; height:100%"><img src="/assets/gallery/mid/301.webp" alt="Three guests on the terrace at dusk, the downtown skyline behind them." style="height:100%; width:auto; object-fit:cover"></figure>
+          <figure style="margin:0; flex:none; height:100%"><img src="/assets/gallery/mid/134.webp" alt="A guest in an emerald dress surrounded by friends in black tie." style="height:100%; width:auto; object-fit:cover"></figure>
+          <figure style="margin:0; flex:none; height:100%"><img src="/assets/gallery/mid/329.webp" alt="Four guests in gowns at the Hillside wall, in black and white." style="height:100%; width:auto; object-fit:cover"></figure>
+          <figure style="margin:0; flex:none; height:100%"><img src="/assets/gallery/mid/337.webp" alt="A couple by the green-tiled fireplace, lit by candles." style="height:100%; width:auto; object-fit:cover"></figure>
+          <figure style="margin:0; flex:none; height:100%"><img src="/assets/gallery/mid/551.webp" alt="Five guests in gowns at the red Hillside wall." style="height:100%; width:auto; object-fit:cover"></figure>
+          <figure style="margin:0; flex:none; height:100%; display:flex; align-items:center; padding-inline:clamp(1rem,4vw,4rem)">
+            <a href="/gallery.html" style="display:inline-flex; align-items:baseline; gap:0.5em; font-weight:500; white-space:nowrap; color:#F4EFE6" style-hover="color:#C9C0AE">All 596 photographs <span aria-hidden="true">→</span></a>
+          </figure>
+        </div>
+        <p style="margin:0; padding-inline:clamp(1.25rem,4vw,4rem); font-size:0.875rem; color:#C9C0AE">Photography · Ricky Rodriguez</p>
+      </div>
+    </section>
+
+    <!-- ═══ Scene 5 · Numbers ═══ -->
+    <section style="position:relative; z-index:6; background:#0F2015; color:#F4EFE6">
+      <div style="position:relative; height:100svh; height:100dvh; display:flex; align-items:center; overflow:hidden">
+        <img src="/assets/video/film-poster.webp" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover">
+        <video data-clip data-clip-start="32" data-clip-end="54" muted playsinline preload="none" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 700ms cubic-bezier(0.65,0,0.35,1)"></video>
+        <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(15,32,21,0.88) 0%, rgba(15,32,21,0.62) 45%, rgba(15,32,21,0.45) 100%)"></div>
+        <div style="position:relative; z-index:2; width:100%; max-width:90rem; margin-inline:auto; padding-inline:clamp(1.25rem,4vw,4rem); display:grid; gap:clamp(2rem,6svh,4rem)">
+          <p style="margin:0; font-size:0.72rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#C9C0AE; text-align:center">02 May 2026 · One evening</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr)); gap:clamp(1.5rem,4vw,3rem)">
+            <div data-stat style="display:grid; gap:0.4rem; justify-items:center; text-align:center; border-top:1px solid rgba(244,239,230,0.28); padding-top:1rem">
+              <span data-count-to="355" style="font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:420; font-size:clamp(3.4rem,9vw,7.5rem); line-height:1; font-variant-numeric:tabular-nums lining-nums">355</span>
+              <span style="font-size:0.9375rem; color:#C9C0AE">guests</span>
+            </div>
+            <div data-stat style="display:grid; gap:0.4rem; justify-items:center; text-align:center; border-top:1px solid rgba(244,239,230,0.28); padding-top:1rem">
+              <span data-count-to="14" style="font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:420; font-size:clamp(3.4rem,9vw,7.5rem); line-height:1; font-variant-numeric:tabular-nums lining-nums">14</span>
+              <span style="font-size:0.9375rem; color:#C9C0AE">states represented</span>
+            </div>
+            <div data-stat style="display:grid; gap:0.4rem; justify-items:center; text-align:center; border-top:1px solid rgba(244,239,230,0.28); padding-top:1rem">
+              <span data-count-to="5" style="font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:420; font-size:clamp(3.4rem,9vw,7.5rem); line-height:1; font-variant-numeric:tabular-nums lining-nums">5</span>
+              <span style="font-size:0.9375rem; color:#C9C0AE">countries</span>
+            </div>
+            <div data-stat style="display:grid; gap:0.4rem; justify-items:center; text-align:center; border-top:1px solid rgba(244,239,230,0.28); padding-top:1rem">
+              <span data-count-to="30" style="font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:420; font-size:clamp(3.4rem,9vw,7.5rem); line-height:1; font-variant-numeric:tabular-nums lining-nums">30</span>
+              <span style="font-size:0.9375rem; color:#C9C0AE">vendors</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Scene 6 · The film ═══ -->
+    <section id="film" style="height:250svh; margin-top:-100svh; position:relative; z-index:5; background:#0F2015">
+      <div style="position:sticky; top:0; height:100svh; height:100dvh; overflow:hidden; display:flex; align-items:flex-end">
+        <img src="/assets/video/film-poster.webp" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover">
+        <video data-scrub-video muted playsinline preload="auto" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 600ms cubic-bezier(0.65,0,0.35,1)"></video>
+        <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(15,32,21,0.85) 0%, rgba(15,32,21,0.25) 40%, rgba(15,32,21,0.1) 65%, rgba(15,32,21,0.35) 100%)"></div>
+        <div data-film-copy style="position:relative; z-index:2; width:100%; max-width:90rem; margin-inline:auto; padding:0 clamp(1.25rem,4vw,4rem) clamp(2.5rem,7svh,5rem); display:grid; gap:1rem">
+          <p style="margin:0; font-size:0.72rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#C9C0AE">The film</p>
+          <h2 style="margin:0; font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:440; font-size:clamp(2.2rem,6vw,5rem); line-height:1.02; letter-spacing:-0.015em">One evening, <em style="font-style:italic">on film.</em></h2>
+          <p style="margin:0; font-size:0.875rem; color:#C9C0AE">Film by Henry Asker</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Film cards ═══ -->
+    <section style="background:#0F2015; position:relative; z-index:4; padding-block:clamp(4rem,10svh,8rem)">
+      <div style="max-width:90rem; margin-inline:auto; padding-inline:clamp(1.25rem,4vw,4rem); display:grid; gap:clamp(1.5rem,4vw,2.5rem)">
+        <h2 style="margin:0; font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:440; font-size:clamp(1.6rem,3.4vw,2.6rem); line-height:1.1; letter-spacing:-0.01em">Watch the full cut.</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr)); gap:clamp(0.75rem,1.6vw,1.5rem); align-items:start">
+          <a href="https://hillsidenewyork.com/assets/video/hillside-26-film.mp4" target="_blank" rel="noopener" style="grid-column:1 / -1; position:relative; display:block; overflow:hidden">
+            <img src="/assets/video/film-poster.webp" alt="Hillside '26 — the film" style="width:100%; aspect-ratio:16/9; object-fit:cover; transition:transform 800ms cubic-bezier(0.19,1,0.22,1)">
+            <span style="position:absolute; inset:0; background:linear-gradient(to top, rgba(15,32,21,0.7), transparent 55%)"></span>
+            <span style="position:absolute; left:1.25rem; bottom:1.1rem; display:flex; align-items:baseline; gap:0.75em; font-weight:500">Hillside &rsquo;26 <span style="font-size:0.875rem; color:#C9C0AE; font-variant-numeric:tabular-nums">1:50</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ The art auction ═══ -->
+    <section id="auction" style="position:relative; z-index:4; background:#F4EFE6; color:#1A2419; padding-block:clamp(4rem,10svh,8rem)">
+      <div style="max-width:72rem; margin-inline:auto; padding-inline:clamp(1.25rem,4vw,4rem); display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(2rem,5vw,5rem); align-items:center">
+        <figure style="margin:0">
+          <img src="/assets/gallery/mid/110.webp" alt="GRATITUDE by Peter Tunney, framed against the terrace windows at the silent auction." loading="lazy" style="width:100%; aspect-ratio:3/2; object-fit:cover">
+          <figcaption style="margin-top:0.75rem; font-size:0.875rem; color:#6B6253">GRATITUDE · Peter Tunney</figcaption>
+        </figure>
+        <div style="display:grid; gap:1.25rem; align-content:center">
+          <p style="margin:0; font-size:0.72rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#1F3D2A">The silent auction</p>
+          <h2 style="margin:0; font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:440; font-size:clamp(2rem,4.6vw,3.4rem); line-height:1.06; letter-spacing:-0.015em; text-wrap:balance">Original works, given by the artists.</h2>
+          <p style="margin:0; font-size:clamp(1.05rem,1.5vw,1.2rem); line-height:1.6; max-width:52ch; text-wrap:pretty">Through the evening, original works donated by artists close to Hillside hung for silent auction — and every winning bid left the building with the rest of the night's proceeds.</p>
+          <p style="margin:0; font-family:Newsreader, Georgia, serif; font-style:italic; font-size:clamp(1.15rem,2.2vw,1.5rem); line-height:1.6; color:#1F3D2A">Peter Tunney · Photos by Chicken · Her Name is Mauve · Molly Roskin</p>
+          <a href="/gallery.html#p110" style="display:inline-flex; align-items:baseline; gap:0.5em; font-weight:500; color:#1F3D2A; width:max-content">See the auction in the gallery <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Scene 8 · 100% ═══ -->
+    <section style="position:relative; z-index:3; background:#1F3D2A">
+      <div style="position:relative; height:100svh; height:100dvh; display:flex; align-items:center; overflow:hidden">
+        <video data-clip data-clip-start="78" data-clip-end="96" muted playsinline preload="none" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 700ms cubic-bezier(0.65,0,0.35,1)"></video>
+        <div style="position:absolute; inset:0; background:rgba(22,48,31,0.78)"></div>
+        <div style="position:relative; z-index:2; width:100%; max-width:90rem; margin-inline:auto; padding-inline:clamp(1.25rem,4vw,4rem); display:grid; gap:clamp(1rem,3svh,2rem)">
+          <p style="margin:0; font-size:0.72rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#C9C0AE">The promise</p>
+          <div style="display:flex; align-items:baseline; gap:0.1em; font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:420; line-height:0.9; letter-spacing:-0.02em">
+            <span data-pct style="font-size:clamp(7rem,30vw,22rem); font-variant-numeric:tabular-nums lining-nums">100</span>
+            <span style="font-size:clamp(3.5rem,14vw,10rem)">%</span>
+          </div>
+          <p style="margin:0; font-size:clamp(1.1rem,1.6vw,1.3rem); line-height:1.55; max-width:40ch; color:rgba(244,239,230,0.88); text-wrap:pretty">of proceeds go to charity. In 2026, the night's grants went to Shatterproof and Generation&nbsp;S.O.S. — the partners doing the work.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 2026 grants ═══ -->
+    <section style="position:relative; z-index:2; background:#F4EFE6; color:#1A2419; padding-block:clamp(3rem,7svh,5rem)">
+      <div style="max-width:90rem; margin-inline:auto; padding-inline:clamp(1.25rem,4vw,4rem); display:grid; gap:1rem; justify-items:start">
+        <p style="margin:0; font-size:0.72rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#1F3D2A">2026 · Granted to</p>
+        <p style="margin:0; font-family:'DM Sans', Arial, sans-serif; font-weight:600; font-size:clamp(1.3rem,3.2vw,2rem); line-height:1.35; letter-spacing:0.01em; display:flex; flex-wrap:wrap; gap:0.25em 1.5em">
+          <a href="https://www.shatterproof.org" target="_blank" rel="noopener" style="color:#1F3D2A; display:inline-flex; align-items:baseline; gap:0.4em">Shatterproof <span aria-hidden="true" style="font-style:normal; font-size:0.6em">→</span></a>
+          <a href="https://generationsos.org" target="_blank" rel="noopener" style="color:#1F3D2A; display:inline-flex; align-items:baseline; gap:0.4em">Generation S.O.S. <span aria-hidden="true" style="font-style:normal; font-size:0.6em">→</span></a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ Be there in 2027 — guest list ═══ -->
+    <section id="guest-list" style="position:relative; z-index:2; background:#1B2A47; color:#F4EFE6; padding-block:clamp(4rem,10svh,7rem)">
+      <div style="max-width:90rem; margin-inline:auto; padding-inline:clamp(1.25rem,4vw,4rem); display:grid; gap:1.1rem; justify-items:start">
+        <p style="margin:0; font-size:0.72rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#C9C0AE">Hillside · 2027</p>
+        <h2 style="margin:0; font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:440; font-size:clamp(2.2rem,6vw,4rem); line-height:1.04; letter-spacing:-0.015em">Be there in 2027.</h2>
+        <p style="margin:0; font-size:clamp(1.02rem,1.5vw,1.2rem); line-height:1.55; max-width:44ch; color:rgba(244,239,230,0.88); text-wrap:pretty">Leave your email and we'll hold you a place on the guest list — you'll hear from us when the date is set and invitations go out.</p>
+        <form data-guest-form novalidate style="display:flex; flex-wrap:wrap; gap:0.75rem; width:100%; max-width:34rem; margin-top:0.4rem">
+          <input type="email" required placeholder="Your email" aria-label="Email address" autocomplete="email" style="flex:1 1 14rem; background:transparent; border:0; border-bottom:1px solid rgba(244,239,230,0.5); color:#F4EFE6; font-family:inherit; font-size:1.05rem; padding:0.8em 0; outline:0">
+          <button type="submit" style="background:#F4EFE6; color:#1B2A47; border:0; font-family:inherit; font-size:0.9375rem; font-weight:600; letter-spacing:0.04em; padding:1em 1.6em; cursor:pointer">Join the guest list</button>
+        </form>
+        <p data-guest-thanks hidden style="margin:0; font-family:Newsreader, Georgia, serif; font-style:italic; font-size:1.2rem; color:#F4EFE6">Thank you — your mail app is opening with the note; send it and you're on the list.</p>
+      </div>
+    </section>
+
+    <!-- ═══ Scene 9 · Donate + Footer — one final viewport, so the scroll ends at the top of the green ═══ -->
+    <div id="final-viewport" style="position:relative; z-index:2; display:flex; flex-direction:column; min-height:100svh">
+    <section id="donate" style="flex:1; display:flex; align-items:center; background:#16301F; padding:calc(4.25rem + clamp(1.5rem,5svh,3.5rem)) 0 clamp(2.5rem,8svh,6rem)">
+      <div style="width:100%; max-width:90rem; margin-inline:auto; padding-inline:clamp(1.25rem,4vw,4rem); display:grid; gap:clamp(1.25rem,3svh,2rem); justify-items:start">
+        <p style="margin:0; font-size:0.72rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#C9C0AE">Make a gift</p>
+        <h2 style="margin:0; font-family:Newsreader, Georgia, serif; font-optical-sizing:auto; font-weight:440; font-size:clamp(3rem,10vw,7rem); line-height:1.02; letter-spacing:-0.015em">Do the<br>right thing.</h2>
+        <div style="display:flex; flex-wrap:wrap; gap:1rem 1.5rem; align-items:center; margin-top:0.5rem">
+          <a href="/donate.html" style="display:inline-flex; align-items:center; justify-content:center; padding:1.05em 1.9em; background:#F4EFE6; color:#1F3D2A; font-size:0.9375rem; font-weight:500; letter-spacing:0.04em; border:1px solid #F4EFE6; transition:background-color 180ms" style-hover="background:#EDE7D9; color:#16301F">Make a gift</a>
+          <button type="button" data-zelle data-handle="events@hillsidenewyork.com" style="display:inline-flex; align-items:center; justify-content:center; gap:0.6em; padding:1.05em 1.9em; background:transparent; color:#F4EFE6; font-family:inherit; font-size:0.9375rem; font-weight:500; letter-spacing:0.04em; border:1px solid rgba(244,239,230,0.32); cursor:pointer; transition:background-color 180ms, color 180ms" style-hover="background:#F4EFE6; color:#1F3D2A">Zelle · events@hillsidenewyork.com</button>
+        </div>
+        <p style="margin:0.5rem 0 0; font-size:0.8125rem; color:#C9C0AE; max-width:52ch">Hillside is a 501(c)(3) public charity. Gifts are tax-deductible to the extent allowed by law.</p>
+      </div>
+    </section>
+
+    <!-- ═══ Footer ═══ -->
+    <footer style="background:#0F2015; position:relative; z-index:1; padding-block:clamp(3rem,7svh,5rem) clamp(2rem,5svh,3rem); border-top:1px solid rgba(244,239,230,0.16)">
+      <div style="max-width:90rem; margin-inline:auto; padding-inline:clamp(1.25rem,4vw,4rem); display:grid; gap:2rem">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:2rem">
+          <div style="display:grid; gap:0.9rem">
+            <img src="/assets/logos/hillside-wordmark-white.png" alt="Hillside" style="height:1.1rem; width:auto">
+            <p style="margin:0; font-size:0.875rem; color:#C9C0AE; max-width:30ch; text-wrap:pretty">A New York charity, built in memory of Tyler Gwozdz. Est. 2026.</p>
+          </div>
+          <nav aria-label="Footer" style="display:flex; flex-wrap:wrap; gap:1rem 1.75rem; font-size:0.875rem">
+            <a href="/tyler-g-foundation.html" style="color:#F4EFE6" style-hover="color:#C9C0AE">The Foundation</a>
+            <a href="/gallery.html" style="color:#F4EFE6" style-hover="color:#C9C0AE">Gallery</a>
+            <a href="/sponsors.html" style="color:#F4EFE6" style-hover="color:#C9C0AE">Sponsors</a>
+            <a href="/donate.html" style="color:#F4EFE6" style-hover="color:#C9C0AE">Donate</a>
+          </nav>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:0.75rem 2rem; padding-top:1.5rem; border-top:1px solid rgba(244,239,230,0.16); font-size:0.8125rem; color:#C9C0AE">
+          <span>© 2026 Hillside. All rights reserved.</span>
+          <span>Photography by Ricky Rodriguez · Film by Henry Asker</span>
+        </div>
+      </div>
+    </footer>
     </div>
-  </section>
 
-  <!-- 07 · Stay updated -->
-  <section class="wrap updated" id="updates">
-    <div class="r">
-      <span class="label">05 — Next · May 2027 · New York</span>
-      <h2 class="h2">Stay updated?</h2>
-      <span class="cap">Beneficiary to be announced</span>
-      <form id="guestForm" class="line-form" novalidate>
-        <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
-        <button type="submit">Stay updated <span>→</span></button>
-      </form>
-      <p class="form-note cap" id="formNote" role="status"></p>
-    </div>
-  </section>
-
-  <!-- closing plate — the dark exhale before the ask -->
-  <figure class="plate cine r">
-    <a href="/gallery.html">
-      <img src="/assets/photos/recap-stage.webp" alt="The Hillside wordmark projected in light across a dark dance floor." loading="lazy">
-    </a>
-    <figcaption class="wrap plate-cap"><span class="cap">Last call — the floor</span><span class="cap">Hillside '26</span></figcaption>
-  </figure>
-
-  <!-- 08 · Donate -->
-  <section class="wrap donate" id="donate">
-    <div class="r give-row">
-      <span class="label">Donate</span>
-      <h2 class="h2" style="margin-top:1.3rem">Do the <em>right</em> thing.</h2>
-      <button class="zelle" id="zelle" type="button">
-        <span class="cap">Zelle</span>
-        <span id="zelleText">events@hillsidenewyork.com</span>
-        <span class="cap" id="zelleHint">Tap to copy</span>
-      </button>
-      <a class="more" href="/donate.html">Other ways to give <span>→</span></a>
-    </div>
-  </section>
-
-</main>
-
-<footer class="wrap">
-  <div class="ghost" aria-hidden="true">Hillside</div>
-  <p class="quote r">"The name is a bridge — between the Hilltop where the three of us first met and Riverside where the Gwozdz family grew up."</p>
-  <div class="foot-row">
-    <span class="cap"><a href="mailto:events@hillsidenewyork.com">events@hillsidenewyork.com</a> · <a href="https://instagram.com/hillsidenewyork" target="_blank" rel="noopener">@hillsidenewyork</a></span>
-    <span class="cap">Photography — Ricky Rodriguez · Film — Henry Asker</span>
-    <span class="cap">© 2026 Hillside · A New York 501(c)(3)</span>
   </div>
-</footer>
 
-<script>
-(function(){
-  'use strict';
+  <script>
+    // ── Hillside Experience — scroll engine ──────────────────────────────
+    // Ported from the Claude Design x-dc composition to standalone vanilla JS
+    // (no support.js dependency). Videos load from the production assets.
+    (function () {
+      var PROPS = { heroMedia: "film", sceneLength: 1 };
+      var VIDEO_BASE = "https://hillsidenewyork.com/assets/video/";
+      var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var raf = null, heroDone = false;
 
-  /* fixed masthead — body offset matches its real height; hides going down, returns going up */
-  var hdr = document.querySelector('header');
-  var pad = function(){ document.body.style.paddingTop = hdr.offsetHeight + 'px'; };
-  pad(); addEventListener('resize', pad);
-  var lastY = 0;
-  addEventListener('scroll', function(){
-    var y = window.scrollY;
-    hdr.classList.toggle('scrolled', y > 8);
-    if (y > 560 && y > lastY + 2) hdr.classList.add('hide');
-    else if (y < lastY - 2 || y <= 560) hdr.classList.remove('hide');
-    lastY = y;
-  }, {passive:true});
+      function onScroll() {
+        if (raf) return;
+        raf = requestAnimationFrame(function () { raf = null; update(); });
+      }
 
-  /* hero video — pick encode by viewport (production URLs; local files are stubs) */
-  var v = document.getElementById('heroVideo');
-  var base = 'https://hillsidenewyork.com/assets/video/';
-  v.src = base + (matchMedia('(max-width:759px)').matches ? 'hero-mobile.mp4?v=3' : 'hero-desktop.mp4?v=4');
-  v.play && v.play().catch(function(){});
+      function applyTweaks() {
+        var mult = reduced ? 0.6 : (PROPS.sceneLength != null ? PROPS.sceneLength : 1);
+        document.querySelectorAll("[data-pin]").forEach(function (w) {
+          var len = parseFloat(w.getAttribute("data-len") || "2");
+          var overlap = w.hasAttribute("data-overlap") ? 100 : 0;
+          w.style.height = Math.round(len * mult * 100 + overlap) + "svh";
+        });
+      }
 
-  /* archive mosaic */
-  var ids = [31,96,108,217,241,263,299,355,411,446,460,495,502,523,576,580];
-  document.getElementById('mosaic').innerHTML = ids.map(function(n){
-    var p = ('00' + n).slice(-3);
-    return '<a href="/gallery.html#p' + n + '"><img src="/assets/gallery/thumb/' + p + '.webp" alt="" loading="lazy"></a>';
-  }).join('');
+      function setupClips() {
+        if (reduced) return;
+        document.querySelectorAll("[data-clip]").forEach(function (v) {
+          if (v.dataset.bound) return;
+          v.dataset.bound = "1";
+          var start = parseFloat(v.getAttribute("data-clip-start") || "0");
+          var end = parseFloat(v.getAttribute("data-clip-end") || "0");
+          v.muted = true;
+          v.addEventListener("loadedmetadata", function () { try { v.currentTime = start; } catch (e) {} });
+          v.addEventListener("timeupdate", function () { if (end && v.currentTime >= end) v.currentTime = start; });
+          v.addEventListener("playing", function () { v.style.opacity = "1"; }, { once: true });
+          v.addEventListener("error", function () { v.style.opacity = "0"; }, { once: true });
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                if (!v.src) v.src = VIDEO_BASE + "hillside-26-film.mp4";
+                v.play().catch(function () {});
+              } else { v.pause(); }
+            });
+          }, { rootMargin: "25% 0px" });
+          io.observe(v);
+        });
+      }
 
-  /* reveals */
-  var els = [].slice.call(document.querySelectorAll('.r'));
-  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion:reduce)').matches){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-    },{threshold:.12,rootMargin:'0px 0px -4% 0px'});
-    els.forEach(function(el){ io.observe(el); });
-  } else {
-    els.forEach(function(el){ el.classList.add('in'); });
-  }
+      function setupVideos() {
+        var mobile = innerWidth < 760;
+        var SRC_MOBILE = VIDEO_BASE + "hero-mobile.mp4?v=3";
+        var SRC_DESKTOP = VIDEO_BASE + "hero-desktop.mp4?v=4";
+        var hv = document.querySelector("[data-hero-video]");
+        var content = document.querySelector("[data-hero-content]");
+        var still = document.querySelector("[data-hero-still]");
+        var scrim = document.querySelector("[data-hero-scrim]");
+        var endFilm = function () {
+          if (heroDone) return;
+          heroDone = true;
+          if (hv) hv.style.opacity = "0";
+          if (still) still.style.opacity = "1";
+          if (scrim) scrim.style.opacity = "1";
+          if (content) { content.style.opacity = "1"; content.style.transform = "none"; }
+        };
+        if (hv) {
+          var wantFilm = (PROPS.heroMedia || "film") === "film" && !reduced;
+          if (wantFilm && !hv.src) {
+            hv.loop = false;
+            hv.src = mobile ? SRC_MOBILE : SRC_DESKTOP;
+            hv.addEventListener("playing", function () {
+              heroDone = false;
+              hv.style.opacity = "1";
+              if (still) still.style.opacity = "0";
+              if (scrim) scrim.style.opacity = "0";
+              if (content) { content.style.opacity = "0"; content.style.transform = "translateY(14px)"; }
+            }, { once: true });
+            hv.addEventListener("ended", endFilm, { once: true });
+            hv.addEventListener("error", function () { if (hv.error) endFilm(); }, { once: true });
+            // Backstop: reveal the still + copy if the film hasn't started in 7s.
+            setTimeout(function () { if (hv.paused || hv.readyState < 3) endFilm(); }, 7000);
+            hv.play().catch(function () {
+              setTimeout(function () { hv.play().catch(function () { if (hv.error) endFilm(); }); }, 400);
+            });
+          } else if (!wantFilm) {
+            endFilm();
+          }
+        } else {
+          endFilm();
+        }
+        var sv = document.querySelector("[data-scrub-video]");
+        if (sv && !sv.src) {
+          sv.muted = true; sv.loop = true;
+          sv.src = VIDEO_BASE + "hillside-26-film.mp4";
+          sv.addEventListener("playing", function () { sv.style.opacity = "1"; }, { once: true });
+          sv.addEventListener("error", function () { sv.style.opacity = "0"; }, { once: true });
+          sv.play().catch(function () {});
+        }
+      }
 
-  /* zelle copy */
-  var z = document.getElementById('zelle'), hint = document.getElementById('zelleHint');
-  z.addEventListener('click', function(){
-    var done = function(){ hint.textContent = 'Copied — thank you'; setTimeout(function(){ hint.textContent = 'Tap to copy'; }, 2600); };
-    if (navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText('events@hillsidenewyork.com').then(done, done);
-    } else { done(); }
-  });
+      function setupHovers() {
+        document.querySelectorAll("[style-hover]").forEach(function (el) {
+          var base = el.getAttribute("style") || "";
+          var hover = el.getAttribute("style-hover") || "";
+          var on = function () { el.setAttribute("style", base + ";" + hover); };
+          var off = function () { el.setAttribute("style", base); };
+          el.addEventListener("mouseenter", on);
+          el.addEventListener("mouseleave", off);
+          el.addEventListener("focus", on);
+          el.addEventListener("blur", off);
+        });
+      }
 
-  /* stay updated — Formspree, mailto fallback (pattern from live site) */
-  var form = document.getElementById('guestForm'), note = document.getElementById('formNote');
-  form.addEventListener('submit', function(ev){
-    ev.preventDefault();
-    var email = form.email.value.trim();
-    if (!email || email.indexOf('@') < 0){ note.textContent = 'Please enter your email.'; return; }
-    note.textContent = 'Sending…';
-    fetch('https://formspree.io/f/xdeneakp', {
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({email:email, list:'Hillside 2027 updates'})
-    }).then(function(r){
-      if (r.ok){ note.textContent = 'You’re on the list — thank you.'; form.reset(); }
-      else { throw new Error(); }
-    }).catch(function(){
-      note.textContent = 'Something hiccuped — opening email instead.';
-      location.href = 'mailto:events@hillsidenewyork.com?subject=Hillside%20updates&body=' + encodeURIComponent(email);
-    });
-  });
-})();
-</script>
+      function setupMenu() {
+        var btn = document.querySelector("[data-menu-btn]");
+        var overlay = document.querySelector("[data-menu-overlay]");
+        var closeBtn = document.querySelector("[data-menu-close]");
+        if (!btn || !overlay) return;
+        var focusables = function () { return overlay.querySelectorAll("a, button"); };
+        var isOpen = function () { return overlay.style.visibility === "visible"; };
+        var open = function () {
+          overlay.style.opacity = "1";
+          overlay.style.visibility = "visible";
+          btn.setAttribute("aria-expanded", "true");
+          document.documentElement.style.overflow = "hidden";
+          // Defer: the element is not reliably focusable on the same tick it becomes visible.
+          setTimeout(function () { var f = focusables()[0]; if (f) f.focus(); }, 60);
+        };
+        var close = function () {
+          overlay.style.opacity = "0";
+          overlay.style.visibility = "hidden";
+          btn.setAttribute("aria-expanded", "false");
+          document.documentElement.style.overflow = "";
+          btn.focus(); // return focus to the trigger
+        };
+        btn.addEventListener("click", open);
+        if (closeBtn) closeBtn.addEventListener("click", close);
+        // Links that stay on this page (Home) should just close the menu.
+        overlay.querySelectorAll("a").forEach(function (a) {
+          a.addEventListener("click", function () {
+            var href = a.getAttribute("href") || "";
+            if (href === "index.html" || href === "#" || href === "") { close(); }
+          });
+        });
+        addEventListener("keydown", function (e) {
+          if (!isOpen()) return;
+          if (e.key === "Escape") { close(); return; }
+          if (e.key === "Tab") { // trap focus inside the dialog
+            var f = focusables();
+            if (!f.length) return;
+            var first = f[0], last = f[f.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+          }
+        });
+      }
+
+      function setupGuestForm() {
+        // Formspree-backed guest list. Create the form at formspree.io (free tier,
+        // deliver to events@hillsidenewyork.com) and paste its id here — the part
+        // after /f/ in the endpoint URL. Until it's set, and whenever the network
+        // call fails, the form falls back to composing an email so no signup is
+        // ever silently dropped.
+        var FORMSPREE_ID = "xdeneakp";
+        var form = document.querySelector("[data-guest-form]");
+        if (!form) return;
+        var thanks = document.querySelector("[data-guest-thanks]");
+        var finish = function (viaMail) {
+          form.hidden = true;
+          if (thanks) {
+            thanks.textContent = viaMail
+              ? "Thank you — your mail app is opening with the note; send it and you're on the list."
+              : "Thank you — you're on the list.";
+            thanks.hidden = false;
+          }
+        };
+        var mailFallback = function (email) {
+          var subject = encodeURIComponent("Guest list · Hillside 2027");
+          var body = encodeURIComponent("Please add " + email + " to the Hillside guest list for 2027.");
+          finish(true);
+          try { window.location.href = "mailto:events@hillsidenewyork.com?subject=" + subject + "&body=" + body; } catch (err) {}
+        };
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var input = form.querySelector("input");
+          var email = input && input.value.trim();
+          if (!email || email.indexOf("@") < 1) { if (input) input.focus(); return; }
+          if (!FORMSPREE_ID) { mailFallback(email); return; }
+          fetch("https://formspree.io/f/" + FORMSPREE_ID, {
+            method: "POST",
+            headers: { "Accept": "application/json", "Content-Type": "application/json" },
+            body: JSON.stringify({ email: email, note: "Guest list · Hillside 2027" })
+          }).then(function (r) {
+            if (r.ok) finish(false); else mailFallback(email);
+          }).catch(function () { mailFallback(email); });
+        });
+      }
+
+      function setupZelle() {
+        var btn = document.querySelector("[data-zelle]");
+        if (!btn) return;
+        var original = btn.textContent;
+        btn.addEventListener("click", function () {
+          var handle = btn.getAttribute("data-handle") || "";
+          var done = function () {
+            btn.textContent = "Copied — thank you";
+            setTimeout(function () { btn.textContent = original; }, 2500);
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(handle).then(done, done);
+          } else { done(); }
+        });
+      }
+
+      // Scroll targets are computed on scroll, but scenes are painted from a
+      // per-pin lerp that glides toward the target each frame — so every pane
+      // flows smoothly instead of tracking raw scroll ticks 1:1.
+      var pinsState = null;
+      function pinList() {
+        if (!pinsState) {
+          pinsState = [];
+          document.querySelectorAll("[data-pin]").forEach(function (w) {
+            pinsState.push({ el: w, name: w.getAttribute("data-pin"), current: null, target: 0 });
+          });
+        }
+        return pinsState;
+      }
+
+      var ticking = false;
+      function tick() {
+        var busy = false;
+        pinList().forEach(function (s) {
+          if (s.current === null) s.current = s.target;
+          var d = s.target - s.current;
+          if (reduced || Math.abs(d) < 0.0004) { s.current = s.target; }
+          else { s.current += d * 0.14; busy = true; }
+          scene(s.name, s.current, s.el);
+        });
+        if (busy) requestAnimationFrame(tick); else ticking = false;
+      }
+      function startTicker() { if (!ticking) { ticking = true; tick(); } }
+
+      function update() {
+        var vh = innerHeight;
+        pinList().forEach(function (s) {
+          var r = s.el.getBoundingClientRect();
+          if (r.bottom < -vh || r.top > vh * 2) return;
+          var overlap = s.el.hasAttribute("data-overlap") ? vh : 0;
+          // Measure the sticky child, not the window: with a collapsed mobile
+          // toolbar the visual viewport outgrows 100svh and the two drift apart —
+          // that mismatch is what let scenes release early and seams show through.
+          var stickyH = s.el.firstElementChild ? s.el.firstElementChild.offsetHeight : vh;
+          var total = s.el.offsetHeight - stickyH - overlap;
+          s.target = total > 0 ? Math.min(1, Math.max(0, (-r.top - overlap) / total)) : 0;
+        });
+        startTicker();
+        var h = document.querySelector("[data-header]");
+        if (h) {
+          var solid = scrollY > vh * 0.6;
+          h.style.background = solid ? "rgba(15,32,21,0.78)" : "transparent";
+          h.style.backdropFilter = solid ? "blur(14px)" : "none";
+          h.style.webkitBackdropFilter = solid ? "blur(14px)" : "none";
+          h.style.boxShadow = solid ? "0 1px 0 rgba(244,239,230,0.12)" : "none";
+        }
+      }
+
+      function scene(name, p, w) {
+        var clamp01 = function (v) { return Math.min(1, Math.max(0, v)); };
+        var ease = function (t) { return 1 - Math.pow(1 - t, 3); };
+        if (name === "tyler") {
+          var img = w._img || (w._img = w.querySelector("[data-tyler-img]"));
+          if (img) img.style.transform = "scale(" + (1.1 - 0.1 * clamp01(p * 1.5)).toFixed(4) + ")";
+          var s0 = w._s0 || (w._s0 = w.querySelector("[data-tyler-s0]"));
+          var s1 = w._s1 || (w._s1 = w.querySelector("[data-tyler-s1]"));
+          var out = clamp01((p - 0.38) / 0.14);
+          var inn = clamp01((p - 0.52) / 0.14);
+          if (s0) { s0.style.opacity = String(1 - out); s0.style.transform = "translateY(" + (-18 * out).toFixed(1) + "px)"; }
+          if (s1) { s1.style.opacity = String(inn); s1.style.transform = "translateY(" + (18 * (1 - inn)).toFixed(1) + "px)"; }
+        }
+        if (name === "track") {
+          var tr = w._track || (w._track = w.querySelector("[data-track]"));
+          if (tr) {
+            if (tr._max == null) tr._max = Math.max(0, tr.scrollWidth - document.documentElement.clientWidth);
+            // Linear mapping — the lerp supplies the easing feel. A curve here
+            // front-loads the speed and makes the strip fly at the start.
+            // /0.75: the strip completes at 75% of the pin, then holds a full
+            // viewport of scroll so the last photos + gallery link get read time.
+            tr.style.transform = "translateX(" + (-tr._max * clamp01(p / 0.75)).toFixed(1) + "px)";
+          }
+        }
+      }
+
+      function init() {
+        applyTweaks();
+        setupVideos();
+        setupClips();
+        setupHovers();
+        setupMenu();
+        setupGuestForm();
+        setupZelle();
+        addEventListener("scroll", onScroll, { passive: true });
+        addEventListener("resize", function () {
+          var tr = document.querySelector("[data-track]");
+          if (tr) tr._max = null; // track width depends on viewport — remeasure
+          applyTweaks();
+          onScroll();
+        }, { passive: true });
+        update();
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", function () { setTimeout(init, 50); });
+      } else {
+        setTimeout(init, 50);
+      }
+    })();
+  </script>
 </body>
 </html>
