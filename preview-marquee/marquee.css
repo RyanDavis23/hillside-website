@@ -86,9 +86,9 @@ a{color:inherit;text-decoration:none}
 .mast-row{display:flex;justify-content:space-between;align-items:center;gap:.6rem 1.8rem;padding-bottom:.9rem}
 .wordmark{display:inline-flex;align-items:center;min-height:44px}
 .wordmark-img{
-  display:block;width:132px;aspect-ratio:223/36;background-color:var(--ink);
-  -webkit-mask:url('/assets/logos/hillside-wordmark-tight.png') center / contain no-repeat;
-  mask:url('/assets/logos/hillside-wordmark-tight.png') center / contain no-repeat;
+  display:block;width:132px;aspect-ratio:447/71;background-color:var(--ink);
+  -webkit-mask:url('/assets/logos/hillside-wordmark-tight.png?v=2') center / contain no-repeat;
+  mask:url('/assets/logos/hillside-wordmark-tight.png?v=2') center / contain no-repeat;
 }
 /* the menu panel's plain-text wordmark keeps the old voice */
 .nav{display:flex;gap:.25rem clamp(1rem,2.1vw,1.9rem);align-items:center;flex-wrap:wrap}
@@ -204,6 +204,10 @@ a{color:inherit;text-decoration:none}
 .band--sub{text-align:center}
 .band--sub .band-statement{font-size:clamp(2rem,4.4vw,4.4rem);margin-top:1rem;max-width:20ch;margin-inline:auto}
 .band--sub .band-note{max-width:46ch;margin-inline:auto}
+/* a quieter band — same voice, lower volume */
+.band--tight{padding-block:clamp(2.4rem,5.5vw,4.5rem)}
+.band--tight .band-num{font-size:clamp(3.4rem,8vw,6.5rem)}
+.band--tight .band-statement{font-size:clamp(1.8rem,3.6vw,3.4rem)}
 .band-statement em{font-style:italic}
 .band-cta{color:var(--paper);opacity:.85;display:inline-flex;align-items:center;min-height:44px;margin-top:1.6rem;gap:.5em}
 .band-cta:hover{opacity:1}
@@ -302,7 +306,7 @@ a{color:inherit;text-decoration:none}
 .page-head .prose{margin-top:1.5rem}
 
 .section{padding-block:clamp(2.5rem,6vw,4.5rem)}
-.section-head{border-top:var(--rule-w) solid var(--ink);padding-top:1rem;margin-bottom:clamp(1.8rem,4vw,2.8rem);display:flex;justify-content:space-between;gap:.4rem 1.5rem;flex-wrap:wrap;align-items:baseline}
+.section-head{border-top:var(--rule-w) solid var(--ink);padding-top:1rem;margin-bottom:clamp(1.8rem,4vw,2.8rem);display:flex;justify-content:space-between;gap:.4rem 1.5rem;flex-wrap:wrap;align-items:center}
 .section-head h2{font-family:var(--serif);font-weight:380;font-size:clamp(1.5rem,2.6vw,2.1rem);letter-spacing:-.01em;line-height:1.2}
 
 .split{display:grid;gap:clamp(2rem,4.5vw,3rem)}
@@ -412,6 +416,23 @@ a{color:inherit;text-decoration:none}
 .ask a{color:var(--forest)}
 
 /* forest CTA band */
+/* ── the sponsor credits — the night rolls behind the names ──────
+   Each .reel pins a muted window of the film to the viewport (sticky,
+   like the artists field — no observers, no rAF; the clip-pocket JS
+   windows and visibility-pauses the video) while the names scroll
+   over it like end credits. */
+.reel{position:relative}
+.reel-screen{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#0f120f}
+.reel-screen video{width:100%;height:100%;object-fit:cover;display:block}
+.reel-scrim{position:absolute;inset:0;background:rgba(15,18,15,.55)}
+/* the roll flows AFTER the pinned screen, so the names rise over the
+   film for the roll's whole height — a beat of pure film first */
+.reel-roll{position:relative;z-index:1;text-align:center;color:var(--paper);padding-block:24vh 34vh}
+.reel-kicker{color:var(--paper);opacity:.62;margin-bottom:clamp(1.6rem,4vh,2.6rem)}
+.roll{list-style:none;display:grid;gap:clamp(1.1rem,2.6vh,1.8rem);padding:0;margin:0}
+.roll li{font-family:var(--display);font-weight:400;font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.08;letter-spacing:-.01em}
+.reel-note{font-family:var(--serif);font-style:italic;font-weight:310;font-size:clamp(1.05rem,1.6vw,1.35rem);color:var(--paper);opacity:.75;max-width:36ch;margin-top:clamp(2rem,5vh,3.2rem)}
+
 .cta-band{background:var(--forest-deep);color:var(--paper);margin-top:clamp(3.5rem,8vw,6rem);padding-block:clamp(3rem,7vw,5.5rem)}
 .cta-band .cap{color:var(--paper);opacity:.65}
 .cta-band h2{font-family:var(--display);font-size:clamp(2.4rem,6.4vw,6rem);line-height:1;font-weight:400;margin-top:1.2rem}
