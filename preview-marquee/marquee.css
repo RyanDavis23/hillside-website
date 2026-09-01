@@ -127,15 +127,23 @@ a{color:inherit;text-decoration:none}
 
 /* ── hero (home) ─────────────────────────────────────────────────── */
 /* --hero is capped so the headline's longest line ("showing up." in
-   italic, ~4.6em) always clears the film beside it. Raise it and the
-   type collides — narrow the .hero columns too if you want it bigger. */
+   italic, ~4.6em) always clears the right column. */
 .hero{margin-top:clamp(1.6rem,4vw,2.5rem)}
-.hero-art{margin-top:clamp(1.8rem,4vw,2.5rem)}
-.hero-art video,.hero-art img{aspect-ratio:9/16;object-fit:cover;max-height:66svh;background:#0f120f}
 .hero-kicker{display:block;color:var(--ink-faint);margin-bottom:clamp(1.2rem,2.6vw,1.8rem)}
 .hero h1{font-family:var(--display);font-weight:400;font-size:var(--hero);line-height:.94;letter-spacing:-.02em;text-transform:uppercase}
 .hero h1 em{font-style:italic;color:var(--forest)}
 .hero-note{margin-top:clamp(1.8rem,3.6vw,3rem);max-width:34ch;color:var(--ink-soft)}
+
+/* the TG monogram holds the hero's right column — the memorial at the
+   top of the page, without a word. White-on-transparent PNG recolored
+   to forest via mask so the source asset stays untouched. */
+.hero-mark{display:flex;align-items:center;justify-content:center;margin-top:clamp(2rem,5vw,3rem)}
+.tg-mark{
+  display:block;width:clamp(150px,22vw,300px);aspect-ratio:1;
+  background-color:var(--forest);
+  -webkit-mask:url('/assets/logos/hillside-mark-white-b.png') center / contain no-repeat;
+  mask:url('/assets/logos/hillside-mark-white-b.png') center / contain no-repeat;
+}
 
 /* The two-column composition holds well below the old 900px break, so
    a laptop at half-width keeps the desktop look, scaled down. */
@@ -144,14 +152,10 @@ a{color:inherit;text-decoration:none}
     display:grid;
     grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);
     gap:clamp(1.75rem,4vw,4rem);
-    align-items:start;
+    align-items:center;
   }
   .hero-type{padding-top:1.5rem}
-  .hero-art{margin-top:0}
-  /* desktop: the film sits in a 4:5 frame (the approved mockup's
-     proportion) — a full 9:16 column runs ~1100px tall and strands
-     the type in white space */
-  .hero-art video,.hero-art img{max-height:none;aspect-ratio:4/5}
+  .hero-mark{margin-top:0}
 }
 
 /* ── the season bill — an open ledger, not a box ─────────────────
