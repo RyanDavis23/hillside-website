@@ -153,6 +153,57 @@
     });
   }
 
+  /* ── clip pockets: looping windows of the films ────────────────
+     Several <video> elements share the same source file, each looping
+     its own [start, end) window — many little films, one download per
+     source. Fails safe: without JS or with reduced motion, each pocket
+     is a still poster frame. */
+  var pockets = [].slice.call(document.querySelectorAll('.clip-pocket video'));
+  if (pockets.length && reduced) {
+    pockets.forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); });
+  }
+  if (pockets.length && !reduced) {
+    pockets.forEach(function (v) {
+      var start = parseFloat(v.dataset.clipStart) || 0;
+      var end = parseFloat(v.dataset.clipEnd) || 0;
+      var arm = function () {
+        if (end > start) {
+          v.currentTime = start;
+          v.addEventListener('timeupdate', function () {
+            if (v.currentTime >= end || v.ended) v.currentTime = start;
+          });
+        } else {
+          v.loop = true;
+        }
+        v.play().catch(function () {});
+      };
+      if (v.readyState >= 1) arm();
+      else v.addEventListener('loadedmetadata', arm, { once: true });
+    });
+
+    /* play only what's on screen; browsers defer offscreen autoplay
+       anyway, so this makes the resume explicit and saves battery */
+    var lastPocketSweep = 0, pocketTimer = 0;
+    var pocketSweep = function () {
+      var vh = window.innerHeight;
+      pockets.forEach(function (v) {
+        var r = v.getBoundingClientRect();
+        var visible = r.bottom > 0 && r.top < vh;
+        if (visible && v.paused) v.play().catch(function () {});
+        else if (!visible && !v.paused) v.pause();
+      });
+    };
+    var queuePocketSweep = function () {
+      var now = Date.now();
+      if (now - lastPocketSweep > 150) { lastPocketSweep = now; pocketSweep(); }
+      else if (!pocketTimer) {
+        pocketTimer = setTimeout(function () { pocketTimer = 0; lastPocketSweep = Date.now(); pocketSweep(); }, 160);
+      }
+    };
+    addEventListener('scroll', queuePocketSweep, { passive: true });
+    pocketSweep();
+  }
+
   /* ── zelle copy (donate) ─────────────────────────────────────── */
   var zelle = document.getElementById('zelleBtn');
   if (zelle) {
