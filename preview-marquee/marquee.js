@@ -58,7 +58,7 @@
   var pendingMotion = [];
   if (!reduced) {
     [].slice.call(document.querySelectorAll('.lift, .wipe')).forEach(function (el) {
-      if (el.getBoundingClientRect().top > window.innerHeight * 0.92) {
+      if (el.getBoundingClientRect().top > window.innerHeight) {
         el.classList.add('armed');
         pendingMotion.push(el);
       }
