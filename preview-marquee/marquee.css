@@ -52,7 +52,16 @@ body.has-hill::before{
   -webkit-mask:url('/assets/logos/hillside-hill-mark.png') center / contain no-repeat;
   mask:url('/assets/logos/hillside-hill-mark.png') center / contain no-repeat;
 }
-body.has-hill header,body.has-hill main,body.has-hill footer{position:relative;z-index:1}
+body.has-hill header,body.has-hill main,body.has-hill footer,
+body.has-tg header,body.has-tg main,body.has-tg footer{position:relative;z-index:1}
+/* the TG monogram, watching from behind the foundation page */
+body.has-tg::before{
+  content:"";position:fixed;z-index:0;pointer-events:none;
+  right:max(7vw,calc(50vw - var(--page)/2));top:14vh;width:min(44vw,600px);aspect-ratio:1;
+  background-color:var(--forest);opacity:.07;
+  -webkit-mask:url('/assets/logos/hillside-mark-white-b.png') center / contain no-repeat;
+  mask:url('/assets/logos/hillside-mark-white-b.png') center / contain no-repeat;
+}
 
 /* ── base ────────────────────────────────────────────────────────── */
 *{margin:0;padding:0;box-sizing:border-box}
@@ -221,7 +230,10 @@ a{color:inherit;text-decoration:none}
    pinned title (z1 over z0) so pieces pass over it, and the field
    hands the scroll to the commitment band. Pure CSS (sticky) — no
    observers, no rAF. */
-.afield{position:relative;height:330vh;max-width:var(--page);margin-inline:auto}
+.afield{position:relative;height:340vh;max-width:var(--page);margin-inline:auto}
+/* the field hands off snugly to whatever band follows it */
+.afield + .band{margin-top:-18vh}
+.afig video{display:block;width:100%;height:auto}
 .acenter{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:0}
 .acenter h1{font-family:var(--display);font-weight:400;font-size:var(--title);line-height:.94;letter-spacing:-.02em;text-transform:uppercase;margin-top:1.1rem}
 .acenter h1 em{font-style:italic;color:var(--forest)}
@@ -229,27 +241,32 @@ a{color:inherit;text-decoration:none}
 .afig img{display:block;width:100%;height:auto}
 .afig figcaption{margin-top:.55rem;font:500 .62rem/1.6 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
 @media (min-width:660px){
-  /* the title is clean and alone at load (nothing enters the centre
-     zone before ~70vh) and clean again at the end — the field runs
-     ~60vh past the last frame so the last image passes above the
-     pinned title before it releases toward the band */
-  .afig:nth-of-type(1){left:6%;top:2vh;width:min(300px,34vw)}
-  .afig:nth-of-type(2){left:60%;top:76vh;width:min(400px,38vw)}
-  .afig:nth-of-type(3){left:18%;top:108vh;width:min(370px,36vw)}
-  .afig:nth-of-type(4){left:72%;top:134vh;width:min(220px,24vw)}
-  .afig:nth-of-type(5){left:6%;top:158vh;width:min(300px,32vw)}
-  .afig:nth-of-type(6){left:58%;top:196vh;width:min(320px,32vw)}
-  .afig:nth-of-type(7){left:18%;top:236vh;width:min(420px,38vw)}
+  /* the title is clean at load (only corner pieces above the fold,
+     out of its lane) and clean again at the end — the field runs just
+     past the last frame so it passes above the pinned title before
+     the release toward the band. Tunney moments (1, 5, 8) are spread
+     through the run. */
+  .afig:nth-of-type(1){left:76%;top:2vh;width:min(240px,22vw)}
+  .afig:nth-of-type(2){left:6%;top:2vh;width:min(300px,34vw)}
+  .afig:nth-of-type(3){left:60%;top:72vh;width:min(400px,38vw)}
+  .afig:nth-of-type(4){left:18%;top:100vh;width:min(370px,36vw)}
+  .afig:nth-of-type(5){left:66%;top:128vh;width:min(240px,24vw)}
+  .afig:nth-of-type(6){left:8%;top:158vh;width:min(220px,24vw)}
+  .afig:nth-of-type(7){left:34%;top:190vh;width:min(300px,28vw)}
+  .afig:nth-of-type(8){left:64%;top:216vh;width:min(300px,32vw)}
+  .afig:nth-of-type(9){left:14%;top:250vh;width:min(420px,38vw)}
 }
 @media (max-width:659.98px){
-  .afield{height:300vh}
-  .afig:nth-of-type(1){left:4%;top:3vh;width:48vw}
-  .afig:nth-of-type(2){left:38%;top:64vh;width:56vw}
-  .afig:nth-of-type(3){left:6%;top:88vh;width:60vw}
-  .afig:nth-of-type(4){left:56%;top:116vh;width:38vw}
-  .afig:nth-of-type(5){left:6%;top:144vh;width:46vw}
-  .afig:nth-of-type(6){left:46%;top:182vh;width:48vw}
-  .afig:nth-of-type(7){left:10%;top:224vh;width:62vw}
+  .afield + .band{margin-top:-12vh}
+  .afig:nth-of-type(1){left:64%;top:2vh;width:32vw}
+  .afig:nth-of-type(2){left:4%;top:4vh;width:46vw}
+  .afig:nth-of-type(3){left:40%;top:74vh;width:54vw}
+  .afig:nth-of-type(4){left:6%;top:102vh;width:56vw}
+  .afig:nth-of-type(5){left:54%;top:134vh;width:40vw}
+  .afig:nth-of-type(6){left:8%;top:140vh;width:36vw}
+  .afig:nth-of-type(7){left:50%;top:184vh;width:42vw}
+  .afig:nth-of-type(8){left:4%;top:206vh;width:44vw}
+  .afig:nth-of-type(9){left:18%;top:254vh;width:60vw}
 }
 
 /* ── the media grid ──────────────────────────────────────────────
