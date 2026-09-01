@@ -10,7 +10,7 @@
 <link rel="icon" href="/assets/logos/favicon.svg">
 <link rel="preload" href="/assets/fonts/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="marquee.css?v=28">
+<link rel="stylesheet" href="marquee.css?v=29">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -58,21 +58,51 @@
 
 <main id="main">
 
-  <section class="page-head wrap">
-    <span class="cap-faint">04 — Art at Hillside</span>
-    <h1>The <em>artists.</em></h1>
-    <p class="prose">Original work hung over the first Hillside, and that's the plan from here — room for artists, established and just emerging, to put work in front of a community that shows up for it.</p>
+  <!-- the field: the title holds the center, the work scrolls past -->
+  <section class="afield" aria-label="Art at Hillside">
+    <div class="acenter">
+      <div>
+        <span class="cap-faint">04 — Art at Hillside</span>
+        <h1>The <em>artists.</em></h1>
+      </div>
+    </div>
+    <figure class="afig">
+      <img src="/assets/art/horse.webp" width="720" height="900" alt="A horse photograph by Photos by Chicken.">
+      <figcaption>Photos by Chicken</figcaption>
+    </figure>
+    <figure class="afig">
+      <img src="/assets/art/artwall-a.webp" width="900" height="600" alt="The silent auction wall at Hillside 2026.">
+      <figcaption>The silent auction — Hillside '26</figcaption>
+    </figure>
+    <figure class="afig">
+      <img src="/assets/art/beach.webp" width="900" height="719" alt="A painting of figures on a beach, auctioned at Hillside 2026.">
+      <figcaption>From the '26 auction</figcaption>
+    </figure>
+    <figure class="afig">
+      <img src="/assets/art/mauve.webp" width="500" height="625" alt="A cloudscape painting by Her Name is Mauve.">
+      <figcaption>Her Name is Mauve</figcaption>
+    </figure>
+    <figure class="afig">
+      <img src="/assets/art/artwall-b.webp" width="600" height="900" alt="Guests viewing the art wall at Hillside 2026.">
+    </figure>
+    <figure class="afig">
+      <img src="/assets/gallery/mid/513.webp" width="1067" height="1600" alt="GRATITUDE by Peter Tunney glowing beneath the chandelier at night.">
+      <figcaption>GRATITUDE — Peter Tunney</figcaption>
+    </figure>
+    <figure class="afig">
+      <img src="/assets/art/artwall-night.webp" width="900" height="601" alt="The art wall at night, Hillside 2026.">
+    </figure>
   </section>
 
-  <!-- the piece, hung -->
-  <figure class="art-hero wipe wrap" style="background:#2d1d13">
-    <img src="/assets/gallery/full/513.webp" width="1067" height="1600"
-         alt="GRATITUDE by Peter Tunney glowing beneath the chandelier at night, guests gathered before it.">
-    <figcaption class="plate-cap">
-      <span class="cap-faint">GRATITUDE — Peter Tunney · Hillside '26</span>
-      <span class="cap-faint">The Bowery Hotel</span>
-    </figcaption>
-  </figure>
+  <!-- the commitment -->
+  <section class="band band--sub lift">
+    <div class="wrap">
+      <span class="cap">For artists</span>
+      <p class="band-statement">Your work, in front of a room <em>that shows up.</em></p>
+      <p class="band-note">Original work hung over the first Hillside, and that's the plan from here — established names and first shows, side by side, in front of a community that shows up for it.</p>
+      <a class="cap plain band-cta" href="mailto:events@hillsidenewyork.com?subject=Artist%20—%20Hillside">events@hillsidenewyork.com <span>&#8594;</span></a>
+    </div>
+  </section>
 
   <!-- the record -->
   <section class="section wrap">
@@ -101,16 +131,6 @@
     </div>
   </section>
 
-  <!-- for artists -->
-  <section class="band band--sub lift">
-    <div class="wrap">
-      <span class="cap">For artists</span>
-      <p class="band-statement">Your work, in front of a room <em>that shows up.</em></p>
-      <p class="band-note">Established names and first shows, side by side — at a gala, a concert, a dinner, whatever the next night is.</p>
-      <a class="cap plain band-cta" href="mailto:events@hillsidenewyork.com?subject=Artist%20—%20Hillside">events@hillsidenewyork.com <span>&#8594;</span></a>
-    </div>
-  </section>
-
 </main>
 
 <footer class="wrap">
@@ -121,6 +141,6 @@
   </div>
 </footer>
 
-<script src="marquee.js?v=28"></script>
+<script src="marquee.js?v=29"></script>
 </body>
 </html>
