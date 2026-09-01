@@ -453,7 +453,9 @@ a{color:inherit;text-decoration:none}
 .reel-kicker{color:var(--paper);opacity:.62;margin-bottom:clamp(1.6rem,4vh,2.6rem)}
 .roll{list-style:none;display:grid;gap:clamp(1.2rem,2.8vh,2rem);padding:0;margin:0}
 .roll li{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4.2vw,3.4rem);line-height:1.08;letter-spacing:-.01em;text-shadow:0 2px 28px rgba(0,0,0,.5)}
-.reel-note{font-family:var(--serif);font-style:italic;font-weight:310;font-size:clamp(1.05rem,1.6vw,1.35rem);color:var(--paper);opacity:.75;max-width:36ch;margin-top:clamp(2rem,5vh,3.2rem)}
+.reel-note{font-family:var(--serif);font-style:italic;font-weight:310;font-size:clamp(1.05rem,1.6vw,1.35rem);color:var(--paper);opacity:.75;max-width:36ch;margin-inline:auto;margin-top:clamp(2rem,5vh,3.2rem)}
+/* the film hands straight to the forest band — no cream sliver */
+.reel + .cta-band{margin-top:0}
 
 .cta-band{background:var(--forest-deep);color:var(--paper);margin-top:clamp(3.5rem,8vw,6rem);padding-block:clamp(3rem,7vw,5.5rem)}
 .cta-band .cap{color:var(--paper);opacity:.65}
