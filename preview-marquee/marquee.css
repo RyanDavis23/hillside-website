@@ -38,6 +38,7 @@
 
   /* structure */
   --gut:clamp(1.25rem,4.2vw,3.5rem);
+  --page:1360px; /* the page column — nothing stretches to the corners of big monitors */
   --rule-w:2px;
   --ease:cubic-bezier(.19,1,.22,1);
   --lift:cubic-bezier(.22,.61,.36,1);
@@ -46,8 +47,8 @@
 /* ── the hill, watching from behind the page (homepage only) ─────── */
 body.has-hill::before{
   content:"";position:fixed;z-index:0;pointer-events:none;
-  right:7vw;top:11vh;width:min(66vw,960px);aspect-ratio:1493/1116;
-  background-color:var(--forest);opacity:.09;
+  right:max(7vw,calc(50vw - var(--page)/2));top:11vh;width:min(66vw,960px);aspect-ratio:1493/1116;
+  background-color:var(--forest);opacity:.15;
   -webkit-mask:url('/assets/logos/hillside-hill-mark.png') center / contain no-repeat;
   mask:url('/assets/logos/hillside-hill-mark.png') center / contain no-repeat;
 }
@@ -68,7 +69,7 @@ img,video{display:block;width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--forest);color:var(--paper)}
 :focus-visible{outline:2px solid var(--forest);outline-offset:3px}
-.wrap{padding-inline:var(--gut)}
+.wrap{padding-inline:var(--gut);max-width:var(--page);margin-inline:auto}
 .skip{position:absolute;left:-9999px}
 .skip:focus{left:var(--gut);top:.5rem;z-index:99;background:var(--forest);color:var(--paper);padding:.7rem 1rem;font:600 .7rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
 
@@ -220,7 +221,7 @@ a{color:inherit;text-decoration:none}
    pair a wide landscape (span 8 @ 3:2) with a tall pocket (span 4
    @ 3:4) — the two heights are identical by construction, so every
    row closes flush. Pockets are looping windows of the films. */
-.mgrid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(1.25rem,2.6vw,2.5rem);padding-inline:var(--gut)}
+.mgrid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(1.25rem,2.6vw,2.5rem);padding-inline:var(--gut);max-width:var(--page);margin-inline:auto}
 .mgrid > *{margin:0}
 .m-w{grid-column:span 8 / span 8}
 .m-t{grid-column:span 4 / span 4}
