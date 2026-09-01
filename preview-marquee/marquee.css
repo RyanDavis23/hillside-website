@@ -230,7 +230,7 @@ a{color:inherit;text-decoration:none}
    pinned title (z1 over z0) so pieces pass over it, and the field
    hands the scroll to the commitment band. Pure CSS (sticky) — no
    observers, no rAF. */
-.afield{position:relative;height:340vh;max-width:var(--page);margin-inline:auto}
+.afield{position:relative;height:465vh;max-width:var(--page);margin-inline:auto}
 /* the field hands off snugly to whatever band follows it */
 .afield + .band{margin-top:-18vh}
 .afig video{display:block;width:100%;height:auto}
@@ -241,32 +241,49 @@ a{color:inherit;text-decoration:none}
 .afig img{display:block;width:100%;height:auto}
 .afig figcaption{margin-top:.55rem;font:500 .62rem/1.6 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
 @media (min-width:660px){
-  /* the title is clean at load (only corner pieces above the fold,
-     out of its lane) and clean again at the end — the field runs just
-     past the last frame so it passes above the pinned title before
-     the release toward the band. Tunney moments (1, 5, 8) are spread
-     through the run. */
+  /* the title is clean at load (only corner pieces above the fold)
+     and clean again at the end — the field runs ~38vh past the last
+     frame so it clears the pinned title well before the release
+     toward the band. Tunney moments (1, 7, 15) are spread through
+     the run; artists interleave. */
   .afig:nth-of-type(1){left:76%;top:2vh;width:min(240px,22vw)}
-  .afig:nth-of-type(2){left:6%;top:2vh;width:min(300px,34vw)}
-  .afig:nth-of-type(3){left:60%;top:72vh;width:min(400px,38vw)}
-  .afig:nth-of-type(4){left:18%;top:100vh;width:min(370px,36vw)}
-  .afig:nth-of-type(5){left:66%;top:128vh;width:min(240px,24vw)}
-  .afig:nth-of-type(6){left:8%;top:158vh;width:min(220px,24vw)}
-  .afig:nth-of-type(7){left:34%;top:190vh;width:min(300px,28vw)}
-  .afig:nth-of-type(8){left:64%;top:216vh;width:min(300px,32vw)}
-  .afig:nth-of-type(9){left:14%;top:250vh;width:min(420px,38vw)}
+  .afig:nth-of-type(2){left:5%;top:2vh;width:min(260px,30vw)}
+  .afig:nth-of-type(3){left:8%;top:70vh;width:min(380px,34vw)}
+  .afig:nth-of-type(4){left:70%;top:70vh;width:min(230px,22vw)}
+  .afig:nth-of-type(5){left:40%;top:108vh;width:min(260px,26vw)}
+  .afig:nth-of-type(6){left:68%;top:108vh;width:min(330px,28vw)}
+  .afig:nth-of-type(7){left:8%;top:150vh;width:min(240px,24vw)}
+  .afig:nth-of-type(8){left:64%;top:150vh;width:min(360px,32vw)}
+  .afig:nth-of-type(9){left:36%;top:184vh;width:min(340px,30vw)}
+  .afig:nth-of-type(10){left:74%;top:188vh;width:min(200px,20vw)}
+  .afig:nth-of-type(11){left:10%;top:218vh;width:min(320px,30vw)}
+  .afig:nth-of-type(12){left:64%;top:224vh;width:min(280px,26vw)}
+  .afig:nth-of-type(13){left:40%;top:256vh;width:min(250px,24vw)}
+  .afig:nth-of-type(14){left:8%;top:258vh;width:min(220px,22vw)}
+  .afig:nth-of-type(15){left:66%;top:272vh;width:min(290px,28vw)}
+  .afig:nth-of-type(16){left:10%;top:306vh;width:min(400px,36vw)}
+  .afig:nth-of-type(17){left:46%;top:344vh;width:min(280px,26vw)}
 }
 @media (max-width:659.98px){
+  .afield{height:455vh}
   .afield + .band{margin-top:-12vh}
   .afig:nth-of-type(1){left:64%;top:2vh;width:32vw}
   .afig:nth-of-type(2){left:4%;top:4vh;width:46vw}
-  .afig:nth-of-type(3){left:40%;top:74vh;width:54vw}
-  .afig:nth-of-type(4){left:6%;top:102vh;width:56vw}
-  .afig:nth-of-type(5){left:54%;top:134vh;width:40vw}
-  .afig:nth-of-type(6){left:8%;top:140vh;width:36vw}
-  .afig:nth-of-type(7){left:50%;top:184vh;width:42vw}
-  .afig:nth-of-type(8){left:4%;top:206vh;width:44vw}
-  .afig:nth-of-type(9){left:18%;top:254vh;width:60vw}
+  .afig:nth-of-type(3){left:6%;top:64vh;width:58vw}
+  .afig:nth-of-type(4){left:68%;top:64vh;width:28vw}
+  .afig:nth-of-type(5){left:8%;top:98vh;width:40vw}
+  .afig:nth-of-type(6){left:52%;top:98vh;width:46vw}
+  .afig:nth-of-type(7){left:54%;top:124vh;width:38vw}
+  .afig:nth-of-type(8){left:4%;top:136vh;width:48vw}
+  .afig:nth-of-type(9){left:6%;top:170vh;width:44vw}
+  .afig:nth-of-type(10){left:64%;top:172vh;width:30vw}
+  .afig:nth-of-type(11){left:6%;top:196vh;width:50vw}
+  .afig:nth-of-type(12){left:62%;top:202vh;width:34vw}
+  .afig:nth-of-type(13){left:10%;top:230vh;width:36vw}
+  .afig:nth-of-type(14){left:56%;top:236vh;width:30vw}
+  .afig:nth-of-type(15){left:8%;top:270vh;width:44vw}
+  .afig:nth-of-type(16){left:40%;top:316vh;width:56vw}
+  .afig:nth-of-type(17){left:12%;top:346vh;width:48vw}
 }
 
 /* ── the media grid ──────────────────────────────────────────────
