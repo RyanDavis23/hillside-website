@@ -181,8 +181,19 @@ a{color:inherit;text-decoration:none}
 /* quieter band: a statement inside a story, not the page's one big claim.
    Centered — small type left-aligned in a full-bleed pane leaves a void. */
 .band--sub{text-align:center}
-.band--sub .band-statement{font-size:clamp(2rem,4.4vw,4.4rem);margin-top:1rem}
+.band--sub .band-statement{font-size:clamp(2rem,4.4vw,4.4rem);margin-top:1rem;max-width:20ch;margin-inline:auto}
 .band--sub .band-note{max-width:46ch;margin-inline:auto}
+.band-statement em{font-style:italic}
+.band-cta{color:var(--paper);opacity:.85;display:inline-flex;align-items:center;min-height:44px;margin-top:1.6rem;gap:.5em}
+.band-cta:hover{opacity:1}
+.band-cta span{display:inline-block;transition:transform .4s var(--lift)}
+.band-cta:hover span{transform:translateX(.3em)}
+
+/* the artists page hero: one piece, hung large and centered like a
+   catalogue plate — portrait, capped so it composes in one view */
+.art-hero{max-width:min(46rem,88vw);margin-inline:auto;padding-inline:0}
+.art-hero img{width:100%;height:auto}
+.art-hero .plate-cap{padding-top:.75rem}
 
 /* ── photo strip ─────────────────────────────────────────────────── */
 .strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(.35rem,.9vw,.7rem)}
