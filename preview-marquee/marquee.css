@@ -46,7 +46,7 @@
 /* ── the hill, watching from behind the page (homepage only) ─────── */
 body.has-hill::before{
   content:"";position:fixed;z-index:0;pointer-events:none;
-  right:-4vw;top:10vh;width:min(74vw,1080px);aspect-ratio:1493/1116;
+  right:7vw;top:11vh;width:min(66vw,960px);aspect-ratio:1493/1116;
   background-color:var(--forest);opacity:.09;
   -webkit-mask:url('/assets/logos/hillside-hill-mark.png') center / contain no-repeat;
   mask:url('/assets/logos/hillside-hill-mark.png') center / contain no-repeat;
