@@ -43,6 +43,16 @@
   --lift:cubic-bezier(.22,.61,.36,1);
 }
 
+/* ── the hill, watching from behind the page (homepage only) ─────── */
+body.has-hill::before{
+  content:"";position:fixed;z-index:0;pointer-events:none;
+  right:-4vw;top:10vh;width:min(74vw,1080px);aspect-ratio:1493/1116;
+  background-color:var(--forest);opacity:.09;
+  -webkit-mask:url('/assets/logos/hillside-hill-mark.png') center / contain no-repeat;
+  mask:url('/assets/logos/hillside-hill-mark.png') center / contain no-repeat;
+}
+body.has-hill header,body.has-hill main,body.has-hill footer{position:relative;z-index:1}
+
 /* ── base ────────────────────────────────────────────────────────── */
 *{margin:0;padding:0;box-sizing:border-box}
 html{background:var(--paper);-webkit-text-size-adjust:100%}
@@ -73,7 +83,14 @@ a{color:inherit;text-decoration:none}
 /* ── masthead ────────────────────────────────────────────────────── */
 .mast{padding-top:1.4rem}
 .mast-row{display:flex;justify-content:space-between;align-items:center;gap:.6rem 1.8rem;padding-bottom:.9rem}
-.wordmark{font-weight:600;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase}
+.wordmark{display:inline-flex;align-items:center;min-height:44px}
+.wordmark-img{
+  display:block;width:132px;aspect-ratio:223/36;background-color:var(--ink);
+  -webkit-mask:url('/assets/logos/hillside-wordmark-tight.png') center / contain no-repeat;
+  mask:url('/assets/logos/hillside-wordmark-tight.png') center / contain no-repeat;
+}
+/* the menu panel's plain-text wordmark keeps the old voice */
+.wordmark-text{font-weight:600;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase}
 .nav{display:flex;gap:.25rem clamp(1rem,2.1vw,1.9rem);align-items:center;flex-wrap:wrap}
 .nav a{font-size:.75rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);transition:color .3s}
 .nav a:hover{color:var(--forest)}

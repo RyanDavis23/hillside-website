@@ -10,7 +10,7 @@
 <link rel="icon" href="/assets/logos/favicon.svg">
 <link rel="preload" href="/assets/fonts/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="marquee.css?v=20">
+<link rel="stylesheet" href="marquee.css?v=21">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -18,7 +18,7 @@
 
 <header class="mast wrap">
   <div class="mast-row">
-    <a class="wordmark" href="index.html">Hillside</a>
+    <a class="wordmark" href="index.html" aria-label="Hillside — home"><span class="wordmark-img"></span></a>
     <nav class="nav" aria-label="Primary">
       <a href="about.html">About</a>
       <a href="foundation.html">The Foundation</a>
@@ -37,7 +37,7 @@
 <div class="menu-panel" id="menuPanel">
   <div class="wrap menu-inner">
     <div class="menu-top">
-      <span class="wordmark">Hillside</span>
+      <span class="wordmark-text cap" style="letter-spacing:.3em">Hillside</span>
       <button class="menu-close" data-close>Close</button>
     </div>
     <nav class="menu-links" aria-label="Menu">
@@ -347,6 +347,6 @@
   </figure>
 </div>
 
-<script src="marquee.js?v=20"></script>
+<script src="marquee.js?v=21"></script>
 </body>
 </html>
