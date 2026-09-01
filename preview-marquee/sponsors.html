@@ -10,7 +10,7 @@
 <link rel="icon" href="/assets/logos/favicon.svg">
 <link rel="preload" href="/assets/fonts/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="marquee.css?v=30">
+<link rel="stylesheet" href="marquee.css?v=31">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -64,11 +64,15 @@
     <p class="prose">Hillside's model only works because of the sponsors who underwrite the room — so that the night's giving can reach the organizations doing the work. We owe them a great deal. Roll the credits.</p>
   </section>
 
-  <!-- the credits: the night they made possible rolls behind their names -->
-  <section class="reel" aria-label="Sponsor credits — part one">
+  <!-- the credits: one continuous roll, the night crossfading behind it -->
+  <section class="reel" aria-label="Sponsor credits">
     <div class="reel-screen clip-pocket" aria-hidden="true">
+      <video class="on" src="/assets/video/hillside-26-short-2.mp4" poster="/assets/video/short-2-poster.webp"
+             autoplay muted playsinline preload="metadata" data-clip-start="3.5" data-clip-end="9"></video>
+      <video src="/assets/video/hillside-26-short-1.mp4" poster="/assets/video/short-1-poster.webp"
+             autoplay muted playsinline preload="metadata" data-clip-start="5" data-clip-end="12"></video>
       <video src="/assets/video/hillside-26-short-2.mp4" poster="/assets/video/short-2-poster.webp"
-             autoplay muted playsinline preload="metadata" data-clip-start="0" data-clip-end="7"></video>
+             autoplay muted playsinline preload="metadata" data-clip-start="9" data-clip-end="15"></video>
       <div class="reel-scrim"></div>
     </div>
     <div class="reel-roll wrap">
@@ -82,17 +86,6 @@
         <li>Soho Grand</li>
         <li>Golden Age Hospitality</li>
         <li>Mill House Oyster Bay Water Sports</li>
-      </ul>
-    </div>
-  </section>
-  <section class="reel" aria-label="Sponsor credits — part two">
-    <div class="reel-screen clip-pocket" aria-hidden="true">
-      <video src="/assets/video/hillside-26-short-1.mp4" poster="/assets/video/short-1-poster.webp"
-             autoplay muted playsinline preload="metadata" data-clip-start="5" data-clip-end="12"></video>
-      <div class="reel-scrim"></div>
-    </div>
-    <div class="reel-roll wrap">
-      <ul class="roll" role="list">
         <li>City Pickle</li>
         <li>Elbow Room</li>
         <li>Rikos Pizza</li>
@@ -102,17 +95,6 @@
         <li>Dart Collective</li>
         <li>Ricky Rodriguez</li>
         <li>JJ Pixx</li>
-      </ul>
-    </div>
-  </section>
-  <section class="reel" aria-label="Sponsor credits — part three">
-    <div class="reel-screen clip-pocket" aria-hidden="true">
-      <video src="/assets/video/hillside-26-short-2.mp4" poster="/assets/video/short-2-poster.webp"
-             autoplay muted playsinline preload="metadata" data-clip-start="8" data-clip-end="15"></video>
-      <div class="reel-scrim"></div>
-    </div>
-    <div class="reel-roll wrap">
-      <ul class="roll" role="list">
         <li>JJ Pixx Photobooth</li>
         <li>Photos by Chicken</li>
         <li>Her Name is Mauve</li>
@@ -144,6 +126,6 @@
   </div>
 </footer>
 
-<script src="marquee.js?v=30"></script>
+<script src="marquee.js?v=31"></script>
 </body>
 </html>

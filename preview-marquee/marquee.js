@@ -204,6 +204,27 @@
     pocketSweep();
   }
 
+  /* ── sponsor reel: crossfade the film windows as the credits roll ──
+     One pinned screen, several stacked windows of the films; scroll
+     progress through the reel picks which one is lit. Without JS (or
+     with reduced motion) the first window's poster stands. */
+  var reelScreen = document.querySelector('.reel-screen');
+  if (reelScreen && !reduced) {
+    var reelVids = [].slice.call(reelScreen.querySelectorAll('video'));
+    var reelSec = reelScreen.closest('.reel');
+    if (reelVids.length > 1 && reelSec) {
+      var reelFade = function () {
+        var r = reelSec.getBoundingClientRect();
+        var span = r.height - window.innerHeight;
+        var p = span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 0;
+        var idx = Math.min(reelVids.length - 1, Math.floor(p * reelVids.length));
+        reelVids.forEach(function (v, i) { v.classList.toggle('on', i === idx); });
+      };
+      reelFade();
+      addEventListener('scroll', reelFade, { passive: true });
+    }
+  }
+
   /* ── zelle copy (donate) ─────────────────────────────────────── */
   var zelle = document.getElementById('zelleBtn');
   if (zelle) {
