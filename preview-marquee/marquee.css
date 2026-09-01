@@ -153,16 +153,10 @@ a{color:inherit;text-decoration:none}
 /* the TG monogram holds the hero's right column — the memorial at the
    top of the page, without a word. White-on-transparent PNG recolored
    to forest via mask so the source asset stays untouched. */
-.hero-mark{display:flex;align-items:center;justify-content:center;margin-top:clamp(2rem,5vw,3rem)}
-.tg-mark{
-  display:block;width:clamp(150px,22vw,300px);aspect-ratio:1;
-  background-color:var(--forest);
-  -webkit-mask:url('/assets/logos/hillside-mark-white-b.png') center / contain no-repeat;
-  mask:url('/assets/logos/hillside-mark-white-b.png') center / contain no-repeat;
-}
-
-/* The two-column composition holds well below the old 900px break, so
-   a laptop at half-width keeps the desktop look, scaled down. */
+/* The narrow text column keeps the headline's three-line fall
+   (A NEW / GENERATION / SHOWING UP.) and leaves the right side open
+   for the hill. Below 660px the font is sized in vw so the same three
+   lines fall on a phone. */
 @media (min-width:660px){
   .hero{
     display:grid;
@@ -171,7 +165,10 @@ a{color:inherit;text-decoration:none}
     align-items:center;
   }
   .hero-type{padding-top:1.5rem}
-  .hero-mark{margin-top:0}
+}
+@media (max-width:659.98px){
+  .hero h1{font-size:clamp(2.9rem,17vw,7rem)}
+  body.has-hill::before{width:88vw;right:4vw;top:9vh}
 }
 
 /* ── the season bill — an open ledger, not a box ─────────────────
@@ -179,13 +176,16 @@ a{color:inherit;text-decoration:none}
    hairlines between entries, no frames. Years in the display face,
    place/date in serif, counts in quiet caps, actions as arrow links. */
 .bill{border-top:var(--rule-w) solid var(--ink);margin-top:clamp(2.5rem,6vw,4.5rem)}
-.bill-row{display:grid;grid-template-columns:1fr;gap:.15rem;padding:clamp(1.5rem,3.2vw,2.2rem) 0;border-bottom:1px solid var(--rule-hair)}
+.bill-row{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:.4rem 1.25rem;align-items:baseline;padding:clamp(1.5rem,3.2vw,2.2rem) 0;border-bottom:1px solid var(--rule-hair)}
+.bill-year{grid-row:span 2}
+.bill-link{justify-self:start}
 .bill-year{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,4.6vw,3.4rem);line-height:1}
 .bill-row--next .bill-year{color:var(--forest)}
 .bill-place{font-family:var(--serif);font-weight:380;font-size:clamp(1.2rem,1.8vw,1.55rem);letter-spacing:-.008em;margin-top:.35rem}
 .bill-link{color:var(--forest)}
 @media (min-width:760px){
   .bill-row{grid-template-columns:7rem minmax(0,1fr) auto;gap:1rem 2.5rem;align-items:baseline}
+  .bill-year{grid-row:auto}
   .bill-place{margin-top:0}
 }
 .btn{display:inline-block;background:var(--forest);color:var(--paper);padding:.85rem 1.15rem;border:0;cursor:pointer;font-family:var(--sans);transition:background .3s var(--lift),transform .3s var(--lift)}
