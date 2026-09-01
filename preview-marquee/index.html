@@ -12,7 +12,7 @@
 <link rel="preload" href="/assets/fonts/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/video/short-1-poster.webp" as="image" fetchpriority="high">
-<link rel="stylesheet" href="marquee.css?v=14">
+<link rel="stylesheet" href="marquee.css?v=15">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -81,13 +81,19 @@
     <div class="bill lift">
       <div class="bill-row">
         <span class="bill-year">'26</span>
-        <span class="cap bill-what">The Bowery Hotel · 02 May 2026 · 355&nbsp;guests · 14&nbsp;states · 5&nbsp;countries</span>
-        <a class="cap-faint bill-link" href="night.html">The record →</a>
+        <div>
+          <p class="bill-place">The Bowery Hotel — 02 May 2026</p>
+          <p class="cap-faint">355 guests · 14 states · 5 countries</p>
+        </div>
+        <a class="cap more bill-link" href="night.html">See the night <span>&#8594;</span></a>
       </div>
       <div class="bill-row bill-row--next">
         <span class="bill-year">'27</span>
-        <span class="cap bill-what">New York · To be announced</span>
-        <a class="cap btn" href="#stay">Be first</a>
+        <div>
+          <p class="bill-place">New York</p>
+          <p class="cap-faint">To be announced</p>
+        </div>
+        <a class="cap more bill-link" href="#stay">Be the first to know <span>&#8594;</span></a>
       </div>
     </div>
   </section>
@@ -138,6 +144,6 @@
   </div>
 </footer>
 
-<script src="marquee.js?v=14"></script>
+<script src="marquee.js?v=15"></script>
 </body>
 </html>

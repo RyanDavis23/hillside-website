@@ -154,15 +154,20 @@ a{color:inherit;text-decoration:none}
   .hero-art video,.hero-art img{max-height:none;aspect-ratio:4/5}
 }
 
-/* ── the season bill ─────────────────────────────────────────────── */
-.bill{border:var(--rule-w) solid var(--ink);margin-top:clamp(2.5rem,6vw,4.5rem)}
-.bill-row{display:flex;align-items:center;gap:1rem clamp(1.4rem,3vw,2.25rem);padding:clamp(1.2rem,2.4vw,1.6rem) clamp(1.1rem,2.2vw,2rem);flex-wrap:wrap}
-.bill-row + .bill-row{border-top:var(--rule-w) solid var(--ink)}
-.bill-year{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,5.4vw,4rem);line-height:1}
+/* ── the season bill — an open ledger, not a box ─────────────────
+   Same grammar as the wall and the timeline: one strong top rule,
+   hairlines between entries, no frames. Years in the display face,
+   place/date in serif, counts in quiet caps, actions as arrow links. */
+.bill{border-top:var(--rule-w) solid var(--ink);margin-top:clamp(2.5rem,6vw,4.5rem)}
+.bill-row{display:grid;grid-template-columns:1fr;gap:.15rem;padding:clamp(1.5rem,3.2vw,2.2rem) 0;border-bottom:1px solid var(--rule-hair)}
+.bill-year{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,4.6vw,3.4rem);line-height:1}
 .bill-row--next .bill-year{color:var(--forest)}
-.bill-what{flex:1 1 16rem}
-.bill-link{color:var(--ink-faint);transition:color .3s}
-.bill-link:hover{color:var(--forest)}
+.bill-place{font-family:var(--serif);font-weight:380;font-size:clamp(1.2rem,1.8vw,1.55rem);letter-spacing:-.008em;margin-top:.35rem}
+.bill-link{color:var(--forest)}
+@media (min-width:760px){
+  .bill-row{grid-template-columns:7rem minmax(0,1fr) auto;gap:1rem 2.5rem;align-items:baseline}
+  .bill-place{margin-top:0}
+}
 .btn{display:inline-block;background:var(--forest);color:var(--paper);padding:.85rem 1.15rem;border:0;cursor:pointer;font-family:var(--sans);transition:background .3s var(--lift),transform .3s var(--lift)}
 .btn:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px)}
 
@@ -280,10 +285,9 @@ a{color:inherit;text-decoration:none}
 .wall li{list-style:none;font-family:var(--serif);font-weight:380;font-size:clamp(1.15rem,1.6vw,1.5rem);letter-spacing:-.008em;border-bottom:1px solid var(--rule-hair);padding:1.05rem 0}
 .wall-note{font-family:var(--serif);font-style:italic;font-weight:310;font-size:1.15rem;color:var(--ink-faint);margin-top:1.6rem}
 
-/* artist bill */
-.artist-bill{border:var(--rule-w) solid var(--ink);margin-top:clamp(2rem,5vw,3.5rem)}
-.artist-row{display:flex;align-items:baseline;gap:.5rem 2rem;flex-wrap:wrap;padding:clamp(1.3rem,2.6vw,1.9rem) clamp(1.1rem,2.2vw,2rem)}
-.artist-row + .artist-row{border-top:var(--rule-w) solid var(--ink)}
+/* artist bill — same open-ledger grammar */
+.artist-bill{border-top:var(--rule-w) solid var(--ink);margin-top:clamp(2rem,5vw,3.5rem)}
+.artist-row{display:flex;align-items:baseline;gap:.5rem 2rem;flex-wrap:wrap;padding:clamp(1.3rem,2.6vw,1.9rem) 0;border-bottom:1px solid var(--rule-hair)}
 .artist-name{font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,3.7vw,2.75rem);line-height:1.05;flex:1 1 14rem}
 
 /* ── the night: masonry, whole frames, no square crops ───────────
