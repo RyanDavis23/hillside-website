@@ -10,7 +10,7 @@
 <link rel="icon" href="/assets/logos/favicon.svg">
 <link rel="preload" href="/assets/fonts/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="marquee.css?v=47">
+<link rel="stylesheet" href="marquee.css?v=48">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -66,13 +66,111 @@
     <p class="prose">This autumn Hillside walks with Shatterproof at the Walk to End Addiction Stigma on the Hudson. Tickets are fifty dollars. We cover the morning; 100% of what's left goes to Shatterproof.</p>
   </section>
 
-  <figure class="plate wipe wrap">
-    <img src="/assets/gallery/full/116.webp" width="1600" height="1067" alt="Four friends in black tie on the terrace, the city behind them.">
-    <figcaption class="plate-cap">
-      <span class="cap-faint">Hillside '26 — The Bowery Hotel</span>
-      <span class="cap-faint">Ricky Rodriguez</span>
-    </figcaption>
-  </figure>
+  <!-- their page, recreated (faithful, like the social embeds on About — the
+       one sanctioned box) + our drawn map of the route. Cursor + scroll are
+       pure CSS keyframes: no JS, no video, nothing that can stall. -->
+  <section class="wrap walk-pair" aria-label="The Shatterproof Walk — their page and the route">
+    <figure class="browser lift" aria-label="fundraise.shatterproof.org/nycwalk, recreated">
+      <div class="bw-chrome" aria-hidden="true">
+        <span class="bw-dots"><i></i><i></i><i></i></span>
+        <span class="bw-url">fundraise.shatterproof.org/nycwalk</span>
+      </div>
+      <div class="bw-view" aria-hidden="true">
+        <div class="bw-page">
+          <div class="sp-announce"><b>*Important Update - New This Year*</b> The Shatterproof New York City Walk will take place on <u>Sunday, October 25.</u><span class="sp-x">×</span></div>
+          <div class="sp-head">
+            <span class="sp-logo"><i class="sp-mark"></i><span><b>Shatterproof</b><em>WALK</em><small>To End Addiction</small></span></span>
+            <span class="sp-nav"><span>Shatterproof Walk</span><span>About ⌄</span><span>Fundraising ⌄</span><span>Get Involved ⌄</span></span>
+            <span class="sp-pill sp-teal">Search &amp; Donate</span><span class="sp-pill sp-navy">Login</span>
+          </div>
+          <div class="sp-menu"><b>Event Menu:</b><span class="on">Home</span><span>Event Details</span><span>FAQ</span></div>
+          <div class="sp-band">
+            <div class="sp-hero">
+              <div class="sp-photo"><i class="sp-mark sp-mark--big"></i></div>
+              <div class="sp-hero-text">
+                <h3>2026 Shatterproof Walk New York City</h3>
+                <p>10/25/2026</p>
+                <div class="sp-btns"><span class="sp-pill sp-teal">Register Now!</span><span class="sp-pill sp-purple sp-donate">Donate</span></div>
+              </div>
+            </div>
+            <div class="sp-thermo"><div class="sp-track"><span class="sp-fill">Raised</span><span class="sp-goal">Goal</span></div></div>
+          </div>
+          <div class="sp-body">
+            <h4>Join the 2026 Shatterproof Walk New York City on 10/25/2026!</h4>
+            <div class="sp-cols">
+              <div><h5>Location</h5><p>Pier 76 Hudson River Park<br>408 12th Avenue<br>New York, NY 10018</p></div>
+              <div><h5>Schedule</h5><p>8:00 AM - Walk Site Opens<br>9:30 AM - Official Walk Program Begins<br>10:00 AM - Walk Kickoff</p></div>
+              <div><h5>Walk Experience</h5><p><b>Walk Route</b><br>The route is accessible &amp; dog-friendly and will have a water station.</p></div>
+            </div>
+            <span class="sp-pill sp-purple sp-register">Register Now</span>
+          </div>
+        </div>
+        <svg class="bw-cursor" viewBox="0 0 24 24" width="24" height="24"><path d="M5 3l14 8.5-6.2 1.3L9.5 20 5 3z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      </div>
+      <figcaption class="plate-cap">
+        <span class="cap-faint">Their page — recreated</span>
+        <a class="cap-faint" href="https://fundraise.shatterproof.org/nycwalk" target="_blank" rel="noopener" style="color:var(--forest)">Open the real one <span>&#8594;</span></a>
+      </figcaption>
+    </figure>
+
+    <figure class="wmap lift" aria-label="Map of the walk along the Hudson at Pier 76">
+      <svg viewBox="0 0 600 660" role="img" aria-label="The Hudson River Park greenway between West 23rd and West 46th Streets, with Pier 76 marked as start and finish and an out-and-back route along the water.">
+        <!-- water -->
+        <g class="mp-water">
+          <path d="M40 90q18 0 36 6M34 150q18 0 36 6M46 210q18 0 36 6M38 270q18 0 36 6M48 330q18 0 36 6M36 390q18 0 36 6M46 450q18 0 36 6M40 510q18 0 36 6M50 570q18 0 36 6"/>
+        </g>
+        <text class="mp-river" transform="translate(96 520) rotate(-90)">Hudson River</text>
+        <!-- shoreline -->
+        <path class="mp-shore" d="M212 20 C214 120 208 220 212 320 S216 520 210 640"/>
+        <!-- piers -->
+        <g class="mp-pier">
+          <rect x="104" y="52" width="106" height="14"/>
+          <rect x="118" y="101" width="92" height="12"/>
+          <rect x="94" y="288" width="116" height="30"/>
+          <rect x="128" y="540" width="82" height="12"/>
+        </g>
+        <text class="mp-lbl" x="86" y="44">Intrepid · Pier 86</text>
+        <text class="mp-lbl" x="120" y="94">Pier 84</text>
+        <text class="mp-lbl" x="130" y="534">Pier 66</text>
+        <text class="mp-lbl mp-lbl--dark" x="102" y="281">Pier 76</text>
+        <!-- greenway + west side highway -->
+        <path class="mp-green" d="M232 20 C234 120 228 220 232 320 S236 520 230 640"/>
+        <path class="mp-hwy" d="M262 20 C264 120 258 220 262 320 S266 520 260 640"/>
+        <path class="mp-hwy" d="M276 20 C278 120 272 220 276 320 S280 520 274 640"/>
+        <text class="mp-lbl" transform="translate(292 636) rotate(-90)">12th Ave · West Side Hwy</text>
+        <text class="mp-lbl" transform="translate(250 200) rotate(-90)">Greenway</text>
+        <!-- cross streets -->
+        <g class="mp-street">
+          <path d="M276 60H600M276 108H600M276 157H600M276 303H600M276 352H600M276 449H600M276 546H600M276 619H600"/>
+        </g>
+        <g class="mp-lbl">
+          <text x="560" y="54">W 46</text><text x="560" y="102">W 44</text><text x="560" y="151">W 42</text>
+          <text x="560" y="297">W 36</text><text x="560" y="346">W 34</text><text x="560" y="443">W 30</text>
+          <text x="560" y="540">W 26</text><text x="560" y="613">W 23</text>
+        </g>
+        <!-- landmarks -->
+        <rect class="mp-block" x="300" y="222" width="120" height="118"/>
+        <text class="mp-lbl" x="310" y="286">Javits Center</text>
+        <rect class="mp-block" x="330" y="370" width="150" height="72"/>
+        <text class="mp-lbl" x="340" y="411">Hudson Yards</text>
+        <!-- the route: out and back along the water -->
+        <path class="mp-route" d="M230 303 C228 380 233 460 230 546 C233 460 228 380 230 303 C232 240 229 170 232 108"/>
+        <g class="mp-arrow"><path d="M226 430l4 9 4-9"/><path d="M226 200l4-9 4 9"/></g>
+        <!-- start / finish -->
+        <circle class="mp-start" cx="230" cy="303" r="7"/>
+        <circle class="mp-start-in" cx="230" cy="303" r="2.6"/>
+        <text class="mp-lbl mp-lbl--dark" x="94" y="334">Start · Finish</text>
+        <!-- compass + scale -->
+        <g class="mp-compass"><path d="M60 596v36M60 596l-6 10h12z"/><text class="mp-lbl" x="52" y="650">N</text></g>
+        <path class="mp-scale" d="M300 640h97"/>
+        <text class="mp-lbl" x="300" y="656">½ mile</text>
+      </svg>
+      <figcaption class="plate-cap">
+        <span class="cap-faint">The route — Hudson River Park, from Pier 76</span>
+        <span class="cap-faint">Illustrative · Shatterproof sets the final route</span>
+      </figcaption>
+    </figure>
+  </section>
 
   <!-- the ticket — one open ledger row, the price centered against the text -->
   <section class="section wrap" id="tickets">
@@ -164,6 +262,6 @@
   </div>
 </footer>
 
-<script src="marquee.js?v=47"></script>
+<script src="marquee.js?v=48"></script>
 </body>
 </html>

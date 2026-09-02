@@ -405,7 +405,7 @@ body.has-hill .hero{margin-top:calc(clamp(1.6rem,4vw,2.5rem) - var(--hill-h))}
 
 .plate{margin-top:clamp(2.5rem,6vw,5rem)}
 .plate img{object-fit:cover}
-.plate-cap{display:flex;justify-content:space-between;gap:.3rem 1.5rem;flex-wrap:wrap;padding-top:.75rem}
+.plate-cap{display:flex;justify-content:space-between;align-items:center;gap:.3rem 1.5rem;flex-wrap:wrap;padding-top:.75rem}
 
 /* timeline (foundation) */
 .timeline{border-top:var(--rule-w) solid var(--ink)}
@@ -559,6 +559,110 @@ body.has-hill .hero{margin-top:calc(clamp(1.6rem,4vw,2.5rem) - var(--hill-h))}
 .cta-band .btn:hover{background:var(--ink);color:var(--paper)}
 .cta-band .plain{color:var(--paper);opacity:.8;display:inline-flex;align-items:center;min-height:44px}
 .cta-band .plain:hover{opacity:1}
+
+
+/* ── the walk: their page in a window + our map ────────────────────
+   The browser is a faithful recreation (the same sanctioned exception
+   as the social embeds); the cursor and the page scroll are CSS
+   keyframes only. The map is line-drawn on the paper — no box. */
+.walk-pair{display:grid;gap:clamp(1.5rem,3vw,2.5rem);margin-top:clamp(2.5rem,6vw,4.5rem);align-items:start}
+@media (min-width:660px){.walk-pair{grid-template-columns:7fr 5fr}}
+.browser{margin:0}
+.bw-chrome{display:flex;align-items:center;gap:.9rem;background:#e9e6df;border:1px solid rgba(25,24,19,.22);border-bottom:0;border-radius:10px 10px 0 0;padding:.55rem .8rem}
+.bw-dots{display:inline-flex;gap:.38rem}
+.bw-dots i{width:.68rem;height:.68rem;border-radius:50%;background:#c9c4b8;display:block}
+.bw-url{flex:1;background:#fff;border-radius:6px;font:500 .72rem/1.6 var(--sans);color:rgba(25,24,19,.6);padding:.15rem .7rem;letter-spacing:.01em}
+.bw-view{position:relative;aspect-ratio:16/10;overflow:hidden;background:#fff;border:1px solid rgba(25,24,19,.22);border-radius:0 0 10px 10px;container-type:inline-size}
+/* the recreated page is laid out in em; 1em = 16px at 1100px wide,
+   and cqw keeps that ratio at every container width */
+.bw-page{position:absolute;inset:0 0 auto 0;font-size:1.4545cqw;font-family:"Proxima Nova",Montserrat,"Helvetica Neue",Arial,sans-serif;color:#041e42;line-height:1.3;animation:bwScroll 14s ease-in-out infinite}
+.bw-page *{font-family:inherit}
+.sp-announce{background:#9543ff;color:#fff;font-size:.82em;text-align:center;padding:1em 3em;position:relative;font-weight:500}
+.sp-announce b{font-weight:700}
+.sp-x{position:absolute;right:1.3em;top:.9em;font-weight:700}
+.sp-head{display:flex;align-items:center;gap:1.4em;padding:1.1em 1.6em;background:#fff}
+.sp-logo{display:flex;align-items:center;gap:.5em;line-height:1.05;flex:none}
+.sp-logo b{display:block;font-size:1.25em;font-weight:800;letter-spacing:-.01em}
+.sp-logo em{display:block;font-style:normal;font-weight:800;font-size:1.05em;color:#9543ff}
+.sp-logo small{display:block;font-size:.5em;font-weight:700;color:#fff;background:#9543ff;padding:.1em .3em;margin-top:.15em;width:max-content}
+.sp-mark{width:1.7em;height:1.7em;display:block;background:
+  conic-gradient(from 0deg,#2cd5c4 0 12deg,transparent 12deg 45deg,#2cd5c4 45deg 57deg,transparent 57deg 90deg,#2cd5c4 90deg 102deg,transparent 102deg 135deg,#2cd5c4 135deg 147deg,transparent 147deg 180deg,#2cd5c4 180deg 192deg,transparent 192deg 225deg,#2cd5c4 225deg 237deg,transparent 237deg 270deg,#2cd5c4 270deg 282deg,transparent 282deg 315deg,#2cd5c4 315deg 327deg,transparent 327deg 360deg);
+  -webkit-mask:radial-gradient(circle,transparent 22%,#000 23%);mask:radial-gradient(circle,transparent 22%,#000 23%);border-radius:50%}
+.sp-nav{display:flex;gap:1.3em;margin-left:auto;font-weight:700;font-size:.95em}
+.sp-pill{display:inline-block;border-radius:999px;font-weight:700;font-size:1.05em;padding:.62em 1.25em;white-space:nowrap}
+.sp-teal{background:#2cd5c4;color:#041e42}
+.sp-navy{background:#041e42;color:#fff}
+.sp-purple{background:#9543ff;color:#fff;transition:background .2s}
+.sp-menu{background:#041e42;color:#fff;display:flex;align-items:center;justify-content:center;gap:0;font-size:.95em;font-weight:600}
+.sp-menu b{padding:0 1.4em}
+.sp-menu span{padding:1em 1.1em}
+.sp-menu .on{background:#2cd5c4;color:#041e42}
+.sp-band{background:#e6ecf4;padding:1.5em 1.5em 2.4em}
+.sp-hero{background:#041e42;border-radius:1.4em;display:grid;grid-template-columns:47% 1fr;overflow:hidden;min-height:20em}
+.sp-photo{background:linear-gradient(160deg,#0b3c8a,#041e42 70%);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.sp-mark--big{width:15em;height:15em;opacity:.25;transform:rotate(15deg)}
+.sp-hero-text{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:1.5em 2em}
+.sp-hero-text h3{font-size:2.35em;font-weight:700;line-height:1.1;margin:0}
+.sp-hero-text p{font-size:1.1em;margin:.9em 0 1.2em}
+.sp-btns{display:flex;gap:.9em}
+.sp-thermo{margin:-1.5em 1.5em 0;background:#fff;border-radius:1em;padding:1.1em;box-shadow:0 .6em 1.6em rgba(4,30,66,.12);position:relative}
+.sp-track{background:#cfd7e2;border-radius:.5em;height:2.6em;display:flex;align-items:center;justify-content:space-between;overflow:hidden;font-weight:700}
+.sp-fill{background:#2cd5c4;color:#041e42;height:100%;display:flex;align-items:center;padding:0 1em;width:22%}
+.sp-goal{padding:0 1em}
+.sp-body{padding:2.2em 3em 3em;text-align:center}
+.sp-body h4{font-size:1.5em;font-weight:700;margin:0 0 1.4em}
+.sp-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5em;text-align:left;font-size:.95em}
+.sp-cols h5{font-size:1.15em;margin:0 0 .4em;font-weight:700}
+.sp-cols p{margin:0;color:#333}
+.sp-register{margin-top:2em}
+/* the cursor: arrives, the page scrolls to the details and back,
+   then it lands on Donate and clicks */
+/* positions are all in cqw — the view is a fixed 16:10, and cqh would
+   fall back to the viewport (the view is an inline-size container) */
+.bw-cursor{position:absolute;left:0;top:0;width:5%;height:auto;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35));animation:bwCursor 14s ease-in-out infinite;transform:translate(96cqw,45cqw)}
+@keyframes bwCursor{
+  0%,8%{transform:translate(96cqw,45cqw)}
+  18%,52%{transform:translate(60cqw,36cqw)}
+  64%,70%{transform:translate(79cqw,38.4cqw)}
+  72%{transform:translate(79cqw,38.4cqw) scale(.82)}
+  74%,86%{transform:translate(79cqw,38.4cqw)}
+  100%{transform:translate(96cqw,45cqw)}
+}
+@keyframes bwScroll{
+  0%,24%{transform:translateY(0)}
+  34%,48%{transform:translateY(-24em)}
+  58%,100%{transform:translateY(0)}
+}
+.sp-donate{animation:bwDonate 14s ease-in-out infinite}
+@keyframes bwDonate{
+  0%,66%{background:#9543ff;transform:none}
+  70%,72%{background:#7a2ee6;transform:none}
+  73%,75%{background:#5f1fc2;transform:scale(.94)}
+  78%,84%{background:#7a2ee6;transform:none}
+  88%,100%{background:#9543ff;transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .bw-page,.bw-cursor,.sp-donate{animation:none}
+  .bw-cursor{display:none}
+}
+/* the map — one weight of forest line on the paper, caps labels */
+.wmap{margin:0}
+.wmap svg{display:block;width:100%;height:auto;overflow:visible}
+.wmap text{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;fill:var(--ink-faint)}
+.mp-lbl--dark{fill:var(--ink)}
+.mp-river{font-size:13px!important;fill:var(--forest)!important;letter-spacing:.3em!important;opacity:.7}
+.mp-water{fill:none;stroke:var(--forest);stroke-width:1.2;opacity:.45;stroke-linecap:round}
+.mp-shore{fill:none;stroke:var(--ink);stroke-width:2}
+.mp-pier rect{fill:var(--paper);stroke:var(--ink);stroke-width:1.4}
+.mp-green{fill:none;stroke:var(--forest);stroke-width:1.2;stroke-dasharray:2 4;stroke-linecap:round}
+.mp-hwy{fill:none;stroke:var(--ink);stroke-width:1;opacity:.6}
+.mp-street path{fill:none;stroke:var(--ink);stroke-width:1;opacity:.28}
+.mp-block{fill:none;stroke:var(--ink);stroke-width:1;opacity:.5;stroke-dasharray:3 3}
+.mp-route{fill:none;stroke:var(--forest);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:7 7}
+.mp-arrow path{fill:none;stroke:var(--forest);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mp-start{fill:var(--forest)}
+.mp-start-in{fill:var(--paper)}
+.mp-compass path,.mp-scale{fill:none;stroke:var(--ink);stroke-width:1.2;stroke-linecap:round}
 
 /* ── footer ──────────────────────────────────────────────────────── */
 footer{padding-top:clamp(3rem,7vw,5rem);padding-bottom:clamp(2rem,4vw,3rem)}
