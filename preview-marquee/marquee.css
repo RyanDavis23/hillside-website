@@ -44,10 +44,20 @@
   --lift:cubic-bezier(.22,.61,.36,1);
 }
 
-/* ── the hill, watching from behind the page (homepage only) ─────── */
-body.has-hill::before{
-  content:"";position:fixed;z-index:0;pointer-events:none;
-  right:max(7vw,calc(50vw - var(--page)/2));top:11vh;width:min(66vw,960px);aspect-ratio:1493/1116;
+/* ── the hill, watching from behind the page (homepage only) ───────
+   A real element, first child of <main>, sticky at 11vh: it follows
+   the reader down the page exactly like a fixed watermark, then stops
+   with the email capture (where <main> ends) and lets the footer scroll
+   in beneath it. It keeps its real height in flow (sticky constrains
+   the MARGIN box, so a negative margin here would let it stick past
+   main's end) and the hero pulls up over it instead. --hill-h = width ×
+   1116/1493. z-index -1 inside main's stacking context keeps it under
+   every word and frame. */
+body.has-hill{--hill-h:min(49.33vw,717.6px)}
+.hill{
+  position:sticky;top:11vh;z-index:-1;pointer-events:none;
+  width:min(66vw,960px);height:var(--hill-h);
+  margin-left:auto;margin-right:max(7vw,calc(50vw - var(--page)/2));
   background-color:var(--forest);opacity:.15;
   -webkit-mask:url('/assets/logos/hillside-hill-mark.png') center / contain no-repeat;
   mask:url('/assets/logos/hillside-hill-mark.png') center / contain no-repeat;
@@ -156,10 +166,13 @@ a{color:inherit;text-decoration:none}
 /* --hero is capped so the headline's longest line ("showing up." in
    italic, ~4.6em) always clears the right column. */
 .hero{margin-top:clamp(1.6rem,4vw,2.5rem)}
+/* the hill is in flow above the hero; the hero climbs back over it */
+body.has-hill .hero{margin-top:calc(clamp(1.6rem,4vw,2.5rem) - var(--hill-h))}
 .hero-kicker{display:block;color:var(--ink-faint);margin-bottom:clamp(1.2rem,2.6vw,1.8rem)}
 .hero h1{font-family:var(--display);font-weight:400;font-size:var(--hero);line-height:.94;letter-spacing:-.02em;text-transform:uppercase}
 .hero h1 em{font-style:italic;color:var(--forest)}
 .hero-note{margin-top:clamp(1.8rem,3.6vw,3rem);max-width:34ch;color:var(--ink-soft)}
+.hero-founded{display:block;margin-top:1.1rem}
 
 /* the TG monogram holds the hero's right column — the memorial at the
    top of the page, without a word. White-on-transparent PNG recolored
@@ -179,7 +192,8 @@ a{color:inherit;text-decoration:none}
 }
 @media (max-width:659.98px){
   .hero h1{font-size:clamp(2.9rem,17vw,7rem)}
-  body.has-hill::before{width:88vw;right:4vw;top:9vh}
+  body.has-hill{--hill-h:65.8vw}
+  .hill{width:88vw;margin-right:4vw;top:9vh}
 }
 
 /* ── the season bill — an open ledger, not a box ─────────────────
