@@ -1,191 +1,148 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <script>document.documentElement.classList.add("js");</script>
-
-  <title>Make a gift · Hillside</title>
-  <meta name="description" content="Make a gift to Hillside — a 501(c)(3) public charity. 100% of proceeds go to charity, granted to the partners doing the work.">
-  <link rel="canonical" href="https://hillsidenewyork.com/donate.html">
-  <meta name="theme-color" content="#F4EFE6">
-
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Hillside">
-  <meta property="og:title" content="Make a gift · Hillside">
-  <meta property="og:description" content="100% of proceeds go to charity, granted to the partners doing the work.">
-  <meta property="og:url" content="https://hillsidenewyork.com/donate.html">
-  <meta property="og:image" content="https://hillsidenewyork.com/assets/logos/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/logos/apple-touch-icon.png">
-
-  <link rel="preload" href="assets/fonts/Newsreader-Variable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/site.css?v=20260809b">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Donate · Hillside</title>
+<meta name="description" content="Make a gift to Hillside — a New York 501(c)(3) public charity. 100% of proceeds go to charity.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hillside">
+<meta property="og:title" content="Donate · Hillside">
+<meta property="og:description" content="Make a gift to Hillside — a New York 501(c)(3) public charity. 100% of proceeds go to charity.">
+<meta property="og:url" content="https://hillsidenewyork.com/donate.html">
+<link rel="canonical" href="https://hillsidenewyork.com/donate.html">
+<meta property="og:image" content="https://hillsidenewyork.com/assets/logos/og-film.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="960">
+<meta property="og:image:alt" content="Hillside — In memory of Tyler Gwozdz. A still from the 2026 film.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F1EBDE">
+<link rel="icon" href="/assets/logos/favicon.svg">
+<link rel="preload" href="/assets/fonts/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="marquee.css?v=50">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
 
-  <header class="site-header is-solid">
-    <div class="container">
-      <a class="site-header__mark" href="index.html" aria-label="Hillside — home">
-        <img class="wordmark--cream" src="assets/logos/hillside-wordmark-white.png" alt="Hillside" width="1024" height="154">
-        <img class="wordmark--ink" src="assets/logos/hillside-wordmark-forest.png" alt="Hillside" width="1024" height="154">
-      </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="tyler-g-foundation.html">The Foundation</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="sponsors.html">Sponsors</a>
-        <a class="nav-cta" href="donate.html" aria-current="page">Donate</a>
-      </nav>
-      <button class="menu-btn" aria-expanded="false" aria-controls="mobile-menu">
-        Menu <span class="menu-btn__icon" aria-hidden="true"></span>
-      </button>
-    </div>
-  </header>
-
-  <div class="mobile-menu" id="mobile-menu">
-    <button class="mobile-menu__close">Close</button>
-    <nav class="mobile-menu__links" aria-label="Menu">
-      <a href="index.html">Home</a>
-      <a href="tyler-g-foundation.html">The Foundation</a>
-      <a href="gallery.html">Gallery</a>
+<header class="mast wrap">
+  <div class="mast-row">
+    <a class="wordmark" href="index.html" aria-label="Hillside — home"><span class="wordmark-img"></span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="about.html">About</a>
+      <a href="foundation.html">TG Foundation</a>
       <a href="sponsors.html">Sponsors</a>
-      <a href="donate.html">Donate</a>
+      <a href="artists.html">Artists</a>
+      <a href="night.html">2026</a>
+      <a href="walk.html">Walk</a>
+      <a class="give" href="donate.html" aria-current="page">Donate</a>
     </nav>
-    <p class="mobile-menu__foot">A New York charity · est. 2026</p>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menuPanel">
+      Menu <span class="bars" aria-hidden="true"></span>
+    </button>
   </div>
+  <div class="rule"></div>
+</header>
 
-  <main id="main">
-    <section class="subhero">
-      <div class="container">
-        <p class="label" data-reveal>Make a gift</p>
-        <h1 class="t-display" data-reveal>Do the right thing.</h1>
-        <p class="lede subhero__lede" data-reveal>Hillside is a 501(c)(3) public charity. <em>100% of proceeds go to charity</em> — gifts are donated in support of the Tyler G. Foundation.</p>
-      </div>
-    </section>
+<div class="menu-panel" id="menuPanel">
+  <div class="wrap menu-inner">
+    <div class="menu-top">
+      <span class="wordmark-img"></span>
+      <button class="menu-close" data-close>Close</button>
+    </div>
+    <nav class="menu-links" aria-label="Menu">
+      <a href="index.html" data-close>Home</a>
+      <a href="about.html" data-close>About</a>
+      <a href="foundation.html" data-close>TG Foundation</a>
+      <a href="sponsors.html" data-close>Sponsors</a>
+      <a href="artists.html" data-close>Artists</a>
+      <a href="night.html" data-close>2026</a>
+      <a href="walk.html" data-close>Walk</a>
+      <a href="donate.html" aria-current="page" data-close>Donate</a>
+    </nav>
+    <div class="menu-foot">
+      <span class="cap-faint">events@hillsidenewyork.com</span>
+      <span class="cap-faint">@hillsidenewyork</span>
+    </div>
+  </div>
+</div>
 
-    <section class="section bg-deep" aria-labelledby="zelle-h" style="padding-block: clamp(2.5rem, 6vw, 4.5rem)">
-      <div class="container container--text">
-        <p class="label" data-reveal>Preferred · Zelle</p>
-        <h2 class="t-title" id="zelle-h" data-reveal>The fastest way to give.</h2>
-        <p data-reveal>Send your gift by Zelle to <strong>events@hillsidenewyork.com</strong> — it arrives in full, with no processing fees, and a receipt follows by email.</p>
-        <p data-reveal style="margin-top: var(--s4)">
-          <button class="btn" type="button" data-zelle-copy data-handle="events@hillsidenewyork.com">Copy our Zelle address</button>
-        </p>
-      </div>
-    </section>
+<main id="main">
 
-    <section class="section" aria-labelledby="partners-h" style="padding-block: clamp(2.5rem, 6vw, 4.5rem)">
-      <div class="container container--text">
-        <p class="label" data-reveal>2026 · In support of the Tyler G. Foundation</p>
-        <h2 class="t-title" id="partners-h" data-reveal>Where this year's giving went.</h2>
-        <div class="partner-cards" data-reveal>
-          <a class="partner-card" href="https://www.shatterproof.org" target="_blank" rel="noopener">
-            <span class="partner-card__name">Shatterproof</span>
-            <span class="partner-card__desc">A national nonprofit working to reverse the addiction crisis in the U.S. — transforming addiction care, ending stigma, and advancing prevention, treatment, and recovery.</span>
-            <span class="partner-card__more">shatterproof.org <span class="arrow" aria-hidden="true">→</span></span>
-          </a>
-          <a class="partner-card" href="https://generationsos.org" target="_blank" rel="noopener">
-            <span class="partner-card__name">Generation S.O.S.</span>
-            <span class="partner-card__desc">Helping teens make life-saving choices — peer-to-peer programs that bring honest conversations about substance misuse and mental health into schools and communities.</span>
-            <span class="partner-card__more">generationsos.org <span class="arrow" aria-hidden="true">→</span></span>
-          </a>
-        </div>
-      </div>
-    </section>
+  <section class="page-head wrap">
+    <span class="cap-faint">Donate</span>
+    <h1>Do the <em>right</em> thing.</h1>
+    <p class="prose">Hillside is a 501(c)(3) public charity. 100% of proceeds go to charity — in 2026, granted to Shatterproof and Generation&nbsp;S.O.S.</p>
+  </section>
 
-    <section class="section bg-deep" aria-labelledby="direct-h">
-      <div class="container container--text">
-        <p class="label" data-reveal>Other ways</p>
-        <h2 class="t-title" id="direct-h" data-reveal>By wire, by hand,<br>or by sponsorship.</h2>
-        <dl class="give-ledger" data-reveal>
-          <div>
-            <dt>Wire or stock transfer</dt>
-            <dd>For larger or appreciated gifts. Email us for instructions and our broker details.</dd>
-          </div>
-          <div>
-            <dt>Donor-advised fund</dt>
-            <dd>Hillside is a 501(c)(3) public charity. Recommend a grant through your DAF.</dd>
-          </div>
-          <div>
-            <dt>Sponsorship</dt>
-            <dd>Underwrite a future gathering so every dollar raised in the room reaches the partner.</dd>
-          </div>
-        </dl>
-        <p style="margin-top: var(--s6)">
-          <a class="arrow-link" href="mailto:events@hillsidenewyork.com">events@hillsidenewyork.com <span class="arrow" aria-hidden="true">→</span></a>
-        </p>
-      </div>
-    </section>
+  <figure class="plate wipe wrap">
+    <img src="/assets/gallery/full/261.webp" width="1600" height="1067" style="aspect-ratio:21/9;object-position:50% 60%" alt="The whole room gathered in a circle on the terrace at night.">
+    <figcaption class="plate-cap">
+      <span class="cap-faint">Hillside '26 — The Bowery Hotel</span>
+      <span class="cap-faint">Ricky Rodriguez</span>
+    </figcaption>
+  </figure>
 
-    <section class="section" aria-label="Fine print" style="padding-block: var(--s8)">
-      <div class="container container--text">
-        <p class="meta">Hillside is a 501(c)(3) public charity. Gifts are tax-deductible to the extent allowed by law. A receipt will follow your donation by email.</p>
-      </div>
-    </section>
-  </main>
+  <section class="section wrap">
+    <div class="section-head lift">
+      <h2>The fastest way to give.</h2>
+      <span class="cap-faint">Preferred · Zelle</span>
+    </div>
+    <p class="prose">Send your gift by Zelle to <strong>events@hillsidenewyork.com</strong> — it arrives in full, with no processing fees, and a receipt follows by email.</p>
+    <button class="btn cap" id="zelleBtn" type="button" style="margin-top:1.75rem">Copy our Zelle address</button>
+  </section>
 
-  <footer class="site-footer on-forest">
-    <div class="container">
-      <div class="site-footer__grid">
-        <div class="site-footer__brand">
-          <img src="assets/logos/hillside-wordmark-white.png" alt="Hillside" width="1024" height="154">
-          <p>A New York charity, built in memory of Tyler Gwozdz. Est. 2026.</p>
-        </div>
-        <div class="site-footer__col">
-          <h3>Explore</h3>
-          <ul role="list">
-            <li><a class="link" href="tyler-g-foundation.html">The Foundation</a></li>
-            <li><a class="link" href="gallery.html">Gallery</a></li>
-            <li><a class="link" href="sponsors.html">Sponsors</a></li>
-            <li><a class="link" href="donate.html">Donate</a></li>
-          </ul>
-        </div>
-        <div class="site-footer__col">
-          <h3>Contact</h3>
-          <ul role="list">
-            <li><a class="link" href="mailto:events@hillsidenewyork.com">events@hillsidenewyork.com</a></li>
-            <li><a class="link" href="https://instagram.com/hillsidenewyork" target="_blank" rel="noopener">Instagram</a></li>
-          </ul>
-        </div>
-        <div class="site-footer__col">
-          <h3>The charity</h3>
-          <ul role="list">
-            <li>501(c)(3) public charity</li>
-            <li>100% of proceeds to charity</li>
-          </ul>
-        </div>
+  <section class="section wrap">
+    <div class="section-head lift">
+      <h2>Where the giving goes.</h2>
+      <span class="cap-faint">2026 grantees</span>
+    </div>
+    <div class="artist-bill lift" style="margin-top:0">
+      <div class="artist-row">
+        <span class="artist-name">Shatterproof</span>
+        <a class="cap-faint" href="https://www.shatterproof.org" target="_blank" rel="noopener">shatterproof.org <span>&#8594;</span></a>
       </div>
-      <div class="site-footer__base">
-        <span>© <span data-year>2026</span> Hillside. All rights reserved.</span>
-        <span>Photography by Ricky Rodriguez · Film by Henry Asker</span>
+      <div class="artist-row">
+        <span class="artist-name">Generation S.O.S.</span>
+        <a class="cap-faint" href="https://generationsos.org" target="_blank" rel="noopener">generationsos.org <span>&#8594;</span></a>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="assets/js/main.js?v=20260705o" defer></script>
-  <script>
-    // Zelle copy button — clipboard with a visible confirmation.
-    (function () {
-      var btn = document.querySelector("[data-zelle-copy]");
-      if (!btn) return;
-      var original = btn.textContent;
-      btn.addEventListener("click", function () {
-        var handle = btn.getAttribute("data-handle") || "";
-        var done = function () {
-          btn.textContent = "Copied — thank you";
-          setTimeout(function () { btn.textContent = original; }, 2500);
-        };
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(handle).then(done, done);
-        } else { done(); }
-      });
-    })();
-  </script>
+  <section class="section wrap">
+    <div class="section-head lift">
+      <h2>By wire, by hand, or by sponsorship.</h2>
+      <span class="cap-faint">Other ways</span>
+    </div>
+    <ul class="timeline lift" role="list" style="border-top:0">
+      <li>
+        <span class="year" style="font-family:var(--serif);font-weight:380;font-size:1.1rem">Wire or stock</span>
+        <div><p>For larger or appreciated gifts. Email us for instructions and our broker details.</p></div>
+      </li>
+      <li>
+        <span class="year" style="font-family:var(--serif);font-weight:380;font-size:1.1rem">DAF</span>
+        <div><p>Hillside is a 501(c)(3) public charity. Recommend a grant through your donor-advised fund.</p></div>
+      </li>
+      <li>
+        <span class="year" style="font-family:var(--serif);font-weight:380;font-size:1.1rem">Sponsorship</span>
+        <div><p>Underwrite a future gathering so the room's giving goes further. <a href="sponsors.html" style="color:var(--forest)">Become a sponsor <span>&#8594;</span></a></p></div>
+      </li>
+    </ul>
+    <p class="cap-faint" style="margin-top:2rem">Hillside in Support of the Tyler Gwozdz Foundation is a 501(c)(3) public charity — EIN 41-3847336. Gifts are tax-deductible to the extent allowed by law. A receipt follows every donation by email.</p>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div class="foot-row">
+    <span class="cap-faint"><a href="mailto:events@hillsidenewyork.com">events@hillsidenewyork.com</a> · <a href="https://instagram.com/hillsidenewyork" target="_blank" rel="noopener">@hillsidenewyork</a></span>
+    <span class="cap-faint">Photography — Ricky Rodriguez · Film — Henry Asker</span>
+    <span class="cap-faint">© 2026 Hillside · 501(c)(3) · EIN 41-3847336</span>
+    <span class="cap-faint"><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
+  </div>
+</footer>
+
+<script src="marquee.js?v=50"></script>
 </body>
 </html>
