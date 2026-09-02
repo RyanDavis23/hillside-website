@@ -58,6 +58,11 @@ body.has-hill{--hill-h:min(49.33vw,717.6px)}
   position:sticky;top:11vh;z-index:-1;pointer-events:none;
   width:min(66vw,960px);height:var(--hill-h);
   margin-left:auto;margin-right:max(7vw,calc(50vw - var(--page)/2));
+  /* the stop point: sticky constrains the margin box, so this negative
+     margin lets the hill ride 6rem PAST main's end before it anchors —
+     Ryan wanted it to sit a little lower on the capture. It collapses
+     into the hero's (larger) negative margin, so the layout doesn't move. */
+  margin-bottom:-6rem;
   background-color:var(--forest);opacity:.15;
   -webkit-mask:url('/assets/logos/hillside-hill-mark.png') center / contain no-repeat;
   mask:url('/assets/logos/hillside-hill-mark.png') center / contain no-repeat;
@@ -645,24 +650,22 @@ body.has-hill .hero{margin-top:calc(clamp(1.6rem,4vw,2.5rem) - var(--hill-h))}
   .bw-page,.bw-cursor,.sp-donate{animation:none}
   .bw-cursor{display:none}
 }
-/* the map — one weight of forest line on the paper, caps labels */
+/* the map — public-domain USGS imagery (Apple-Maps bright), the route
+   as a vector overlay so it stays crisp at every size: white casing,
+   blue line, white-ringed pin at Pier 76, labels haloed like Apple's */
 .wmap{margin:0}
-.wmap svg{display:block;width:100%;height:auto;overflow:visible}
-.wmap text{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;fill:var(--ink-faint)}
-.mp-lbl--dark{fill:var(--ink)}
-.mp-river{font-size:13px!important;fill:var(--forest)!important;letter-spacing:.3em!important;opacity:.7}
-.mp-water{fill:none;stroke:var(--forest);stroke-width:1.2;opacity:.45;stroke-linecap:round}
-.mp-shore{fill:none;stroke:var(--ink);stroke-width:2}
-.mp-pier rect{fill:var(--paper);stroke:var(--ink);stroke-width:1.4}
-.mp-green{fill:none;stroke:var(--forest);stroke-width:1.2;stroke-dasharray:2 4;stroke-linecap:round}
-.mp-hwy{fill:none;stroke:var(--ink);stroke-width:1;opacity:.6}
-.mp-street path{fill:none;stroke:var(--ink);stroke-width:1;opacity:.28}
-.mp-block{fill:none;stroke:var(--ink);stroke-width:1;opacity:.5;stroke-dasharray:3 3}
-.mp-route{fill:none;stroke:var(--forest);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:7 7}
-.mp-arrow path{fill:none;stroke:var(--forest);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.mp-start{fill:var(--forest)}
-.mp-start-in{fill:var(--paper)}
-.mp-compass path,.mp-scale{fill:none;stroke:var(--ink);stroke-width:1.2;stroke-linecap:round}
+.sat{position:relative;overflow:hidden;background:#3d5a4a}
+.sat img{display:block;width:100%;height:auto}
+.sat-ov{position:absolute;inset:0;width:100%;height:100%;display:block}
+.sat-route-case{fill:none;stroke:#fff;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;opacity:.95}
+.sat-route{fill:none;stroke:#2f7cf6;stroke-width:8.5;stroke-linecap:round;stroke-linejoin:round}
+.sat-turn{fill:#fff;stroke:#2f7cf6;stroke-width:4}
+.sat-pin-ring{fill:rgba(255,255,255,.55)}
+.sat-pin{fill:#2f7cf6;stroke:#fff;stroke-width:5}
+.sat-lbl{font-family:var(--sans);font-size:28px;font-weight:600;fill:#fff;letter-spacing:.01em;paint-order:stroke fill;stroke:rgba(0,0,0,.55);stroke-width:6px;stroke-linejoin:round}
+.sat-lbl--big{font-size:34px;font-weight:700}
+.sat-lbl--water{font-style:italic;font-weight:500;fill:#dbeafe;font-size:30px}
+.sat-lbl--n{font-size:26px;font-weight:700}
 
 /* ── footer ──────────────────────────────────────────────────────── */
 footer{padding-top:clamp(3rem,7vw,5rem);padding-bottom:clamp(2rem,4vw,3rem)}
