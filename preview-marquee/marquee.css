@@ -59,10 +59,10 @@ body.has-hill{--hill-h:min(49.33vw,717.6px)}
   width:min(66vw,960px);height:var(--hill-h);
   margin-left:auto;margin-right:max(7vw,calc(50vw - var(--page)/2));
   /* the stop point: sticky constrains the margin box, so this negative
-     margin lets the hill ride 6rem PAST main's end before it anchors —
+     margin lets the hill ride 4rem PAST main's end before it anchors —
      Ryan wanted it to sit a little lower on the capture. It collapses
      into the hero's (larger) negative margin, so the layout doesn't move. */
-  margin-bottom:-6rem;
+  margin-bottom:-4rem;
   background-color:var(--forest);opacity:.15;
   -webkit-mask:url('/assets/logos/hillside-hill-mark.png') center / contain no-repeat;
   mask:url('/assets/logos/hillside-hill-mark.png') center / contain no-repeat;
