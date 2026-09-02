@@ -366,10 +366,10 @@ a{color:inherit;text-decoration:none}
 
 /* landscape | portrait | landscape — column ratios chosen so all
    three run at their NATIVE ratios and the row stays flush */
-.trio{display:grid;grid-template-columns:2.25fr 1fr 2.25fr;gap:clamp(.35rem,.9vw,.7rem);margin-top:clamp(.35rem,.9vw,.7rem)}
+.trio{display:grid;grid-template-columns:2.25fr 1fr 1fr;gap:clamp(.35rem,.9vw,.7rem);margin-top:clamp(.35rem,.9vw,.7rem)}
 .trio a{display:block;overflow:hidden}
 .trio img{aspect-ratio:3/2;object-fit:cover;transition:transform 1.1s var(--ease)}
-.trio a:nth-child(2) img{aspect-ratio:2/3}
+.trio a:nth-child(2) img,.trio a:nth-child(3) img{aspect-ratio:2/3}
 .trio a:hover img{transform:scale(1.03)}
 @media (max-width:659.98px){
   .trio{grid-template-columns:1fr}
