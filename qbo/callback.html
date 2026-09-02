@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>Connecting QuickBooks · Hillside</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>body{font-family:-apple-system,system-ui,sans-serif;background:#F1EBDE;color:#191813;display:grid;place-items:center;min-height:100vh;margin:0}main{max-width:36rem;padding:2rem;text-align:center}code{display:block;word-break:break-all;background:#fff;padding:1rem;margin-top:1rem;font-size:.85rem}</style>
+</head>
+<body>
+<main>
+  <h1>Connecting QuickBooks…</h1>
+  <p id="msg">Handing off to the Hillside CFO agent on this computer.</p>
+  <div id="fallback" hidden>
+    <p>If nothing happened, the authorize script isn't running. Start it and reopen this link, or paste this into the terminal when it asks:</p>
+    <code id="code"></code>
+  </div>
+</main>
+<script>
+  (function () {
+    var q = location.search || '';
+    if (!q) { document.getElementById('msg').textContent = 'No authorization code was received.'; return; }
+    document.getElementById('code').textContent = q.slice(1);
+    setTimeout(function () { document.getElementById('fallback').hidden = false; }, 4000);
+    location.replace('http://localhost:8123/callback' + q);
+  })();
+</script>
+</body>
+</html>
