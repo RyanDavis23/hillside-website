@@ -21,10 +21,10 @@
 <link rel="apple-touch-icon" href="/assets/logos/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="marquee.css?v=53">
+<link rel="stylesheet" href="marquee.css?v=54">
 <script>document.documentElement.classList.add('js')</script>
 </head>
-<body class="has-hill">
+<body class="has-hill has-film">
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="mast wrap">
@@ -70,10 +70,26 @@
 </div>
 
 <main id="main">
-  <div class="hill" aria-hidden="true"></div>
 
+  <!-- the film — a window onto the terrace at dusk, Hillside '26. Real
+       footage (stabilized, looped), silent. Wordmark only; the headline is
+       the next pane. marquee.js picks the phone cut and honors
+       reduced-motion / data-saver by leaving the poster in place. -->
+  <section class="fhero" aria-label="Hillside — the terrace at dusk, from the 2026 film">
+    <video class="fhero-v" poster="/assets/video/hero-terrace-poster.webp" muted loop playsinline preload="metadata"
+           data-src="/assets/video/hero-terrace.mp4" data-src-phone="/assets/video/hero-terrace-720.mp4"
+           aria-label="The terrace at the Bowery Hotel at dusk, vines moving in the breeze."></video>
+    <div class="fhero-scrim" aria-hidden="true"></div>
+    <div class="fhero-type">
+      <span class="fhero-mark" role="img" aria-label="Hillside"></span>
+      <span class="fhero-est">Est. 2025</span>
+    </div>
+    <a class="fhero-cue cap" href="#story">Scroll <span aria-hidden="true">&#8595;</span></a>
+  </section>
+
+  <div class="hill" aria-hidden="true"></div>
   <!-- hero -->
-  <section class="hero wrap">
+  <section class="hero wrap" id="story">
     <div class="hero-type">
       <span class="cap-faint hero-kicker">Built to bring people together —</span>
       <h1>A new generation <em>showing up.</em></h1>
@@ -175,6 +191,6 @@
   </div>
 </footer>
 
-<script src="marquee.js?v=53"></script>
+<script src="marquee.js?v=54"></script>
 </body>
 </html>

@@ -264,3 +264,16 @@
     });
   });
 })();
+
+/* ── the film hero: pick the cut, respect the reader ─────────────── */
+(function () {
+  var v = document.querySelector('.fhero-v');
+  if (!v) return;
+  var still = matchMedia('(prefers-reduced-motion: reduce)').matches ||
+              (navigator.connection && navigator.connection.saveData);
+  if (still) return;                       // the poster is the hero
+  var phone = matchMedia('(max-width: 659px)').matches;
+  v.src = (phone && v.getAttribute('data-src-phone')) || v.getAttribute('data-src');
+  v.autoplay = true;
+  var p = v.play(); if (p && p.catch) p.catch(function () {});
+})();
