@@ -342,11 +342,6 @@ body.has-film.has-hill .hero{margin-top:calc(clamp(4rem,9vw,7rem) - var(--hill-h
 .fhero-type{position:absolute;left:0;right:0;bottom:clamp(3.5rem,9vh,6rem);bottom:calc(100lvh - 100svh + clamp(3.5rem,9vh,6rem));display:flex;flex-direction:column;align-items:center;gap:.9rem;padding-inline:var(--gut)}
 .fhero-mark{display:block;width:min(46vw,300px);aspect-ratio:447/71;background-color:var(--paper);-webkit-mask:url('/assets/logos/hillside-wordmark-tight.png?v=2') center/contain no-repeat;mask:url('/assets/logos/hillside-wordmark-tight.png?v=2') center/contain no-repeat;filter:drop-shadow(0 2px 18px rgba(0,0,0,.35))}
 .fhero-est{font-family:var(--sans);font-size:.75rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;opacity:.85;text-shadow:0 1px 12px rgba(0,0,0,.45)}
-.fhero-cue{position:absolute;left:50%;transform:translateX(-50%);bottom:1.1rem;bottom:calc(100lvh - 100svh + 1.1rem);color:var(--paper);opacity:.7;display:inline-flex;align-items:center;gap:.4em;min-height:44px}
-.fhero-cue:hover{opacity:1}
-.fhero-cue span{display:inline-block;animation:cue 1.8s ease-in-out infinite}
-@keyframes cue{0%,100%{transform:translateY(0)}50%{transform:translateY(.3em)}}
-@media (prefers-reduced-motion:reduce){.fhero-cue span{animation:none}}
 
 /* ── the media grid ──────────────────────────────────────────────
    A composed 12-column system, one gap token, aligned edges. Rows
