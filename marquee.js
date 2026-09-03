@@ -240,22 +240,26 @@
     });
   }
 
-  /* ── email capture ───────────────────────────────────────────── */
+  /* ── email capture → Airtable via the worker, Formspree as fallback ── */
   var form = document.getElementById('stayForm');
   if (!form) return;
-  form.setAttribute('novalidate', '');   /* JS owns validation now; without JS the form's action/method still work */
+  form.setAttribute('novalidate', '');
   var status = document.getElementById('stayStatus');
+  var endpoint = form.getAttribute('data-endpoint') || '';
+  function post(url, payload) {
+    return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) })
+      .then(function (r) { if (!r.ok) throw new Error(url); return r; });
+  }
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
     var email = form.email.value.trim();
+    var name = form.name ? form.name.value.trim() : '';
     if (!email || email.indexOf('@') < 0) { status.textContent = 'Please enter your email.'; return; }
     status.textContent = 'Sending…';
-    fetch('https://formspree.io/f/xdeneakp', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ email: email, list: 'Hillside 2027 updates' })
-    }).then(function (r) {
-      if (!r.ok) throw new Error();
+    var payload = { email: email, name: name, page: location.pathname, company: form.company ? form.company.value : '' };
+    var attempt = endpoint ? post(endpoint, payload).catch(function () { return post('https://formspree.io/f/xdeneakp', { email: email, name: name, list: 'Hillside 2027 updates' }); })
+                           : post('https://formspree.io/f/xdeneakp', { email: email, name: name, list: 'Hillside 2027 updates' });
+    attempt.then(function () {
       status.textContent = 'You’re on the list — thank you.';
       form.reset();
     }).catch(function () {

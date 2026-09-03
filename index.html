@@ -21,7 +21,7 @@
 <link rel="apple-touch-icon" href="/assets/logos/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="marquee.css?v=55">
+<link rel="stylesheet" href="marquee.css?v=56">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="has-hill has-film">
@@ -170,9 +170,12 @@
 
   <!-- capture -->
   <section class="capture wrap lift" id="stay">
-    <form class="capture-form" id="stayForm" action="https://formspree.io/f/xdeneakp" method="POST">
+    <form class="capture-form" id="stayForm" action="https://formspree.io/f/xdeneakp" method="POST" data-endpoint="https://hillside-signup.events-ecc.workers.dev">
+      <label class="skip" for="stayName">Name</label>
+      <input id="stayName" type="text" name="name" placeholder="Your name" autocomplete="name">
       <label class="skip" for="stayEmail">Email address</label>
       <input id="stayEmail" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+      <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button type="submit">Be the first to know →</button>
     </form>
     <p class="cap-faint capture-note">Tickets and the guest list open here first · beneficiary to be announced</p>
@@ -190,6 +193,6 @@
   </div>
 </footer>
 
-<script src="marquee.js?v=55"></script>
+<script src="marquee.js?v=56"></script>
 </body>
 </html>

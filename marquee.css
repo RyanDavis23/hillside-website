@@ -377,6 +377,8 @@ body.has-film.has-hill .hero{margin-top:calc(clamp(4rem,9vw,7rem) - var(--hill-h
 /* ── email capture ───────────────────────────────────────────────── */
 .capture{padding-bottom:clamp(3.5rem,8vw,7rem)}
 .capture-form{display:flex;border:var(--rule-w) solid var(--ink);align-items:stretch;flex-wrap:wrap}
+.capture-form .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
+.capture-form #stayName{border-right:var(--rule-w) solid var(--ink)}
 .capture-form input{
   flex:1 1 14rem;min-width:0;border:0;background:transparent;
   font-family:var(--sans);font-size:1.0625rem;color:var(--ink);
