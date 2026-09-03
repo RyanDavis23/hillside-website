@@ -221,6 +221,7 @@ body.has-hill .hero{margin-top:calc(clamp(1.6rem,4vw,2.5rem) - var(--hill-h))}
 /* a ledger row may carry a real button (the walk ticket) — it sits
    where the arrow link would, centered on the row like everything else */
 .bill-row .btn{justify-self:start;font-size:.8125rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:1rem 1.75rem}
+@media (max-width:759px){.bill-row .btn{grid-column:1 / -1;justify-self:stretch;text-align:center;margin-top:.4rem}}
 .btn{display:inline-block;background:var(--forest);color:var(--paper);padding:.85rem 1.15rem;border:0;cursor:pointer;font-family:var(--sans);transition:background .3s var(--lift),transform .3s var(--lift)}
 .btn:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px)}
 
@@ -288,7 +289,7 @@ body.has-hill .hero{margin-top:calc(clamp(1.6rem,4vw,2.5rem) - var(--hill-h))}
   .afig:nth-of-type(17){left:46%;top:344vh;width:min(280px,26vw)}
 }
 @media (max-width:659.98px){
-  .afield{height:449vh}
+  .afield{height:432vh}
   .afield + .band{margin-top:-12vh}
   .afig:nth-of-type(1){left:64%;top:2vh;width:32vw}
   .afig:nth-of-type(2){left:4%;top:4vh;width:46vw}
@@ -325,8 +326,13 @@ body.has-hill .hero{margin-top:calc(clamp(1.6rem,4vw,2.5rem) - var(--hill-h))}
 .m-full img,.m-full video{aspect-ratio:21/9}
 .mgrid + .mgrid{margin-top:clamp(1.25rem,2.6vw,2.5rem)}
 @media (max-width:659px){
-  .m-w,.m-t{grid-column:1 / -1}
-  .m-t img,.m-t video{aspect-ratio:4/5}
+  /* phone: photos full width; the two film pockets share one row so the
+     column gets rhythm instead of eight stacked tiles; the third pocket
+     (same film) steps out */
+  .m-w{grid-column:1 / -1}
+  .m-t{grid-column:span 6 / span 6}
+  .m-t img,.m-t video{aspect-ratio:3/4}
+  .mgrid figure.m-t:last-of-type{display:none}
   .m-full img,.m-full video{aspect-ratio:16/9}
 }
 
@@ -666,10 +672,16 @@ body.has-hill .hero{margin-top:calc(clamp(1.6rem,4vw,2.5rem) - var(--hill-h))}
 .sat-lbl--big{font-size:34px;font-weight:700}
 .sat-lbl--water{font-style:italic;font-weight:500;fill:#dbeafe;font-size:30px}
 .sat-lbl--n{font-size:26px;font-weight:700}
+@media (max-width:659px){
+  .sat-lbl{font-size:44px;stroke-width:9px}.sat-lbl--big{font-size:52px}.sat-lbl--water{font-size:46px}.sat-lbl--n{font-size:40px}
+  .sat-route-case{stroke-width:20}.sat-route{stroke-width:12}.sat-turn{r:13;stroke-width:6}.sat-pin{r:18;stroke-width:7}.sat-pin-ring{r:30}
+}
 
 /* ── footer ──────────────────────────────────────────────────────── */
 footer{padding-top:clamp(3rem,7vw,5rem);padding-bottom:clamp(2rem,4vw,3rem)}
 .foot-row{border-top:var(--rule-w) solid var(--ink);padding-top:1.25rem;display:flex;justify-content:space-between;gap:.7rem 2.5rem;flex-wrap:wrap}
+.nw{white-space:nowrap}
+@media (max-width:659px){.foot-row{gap:.45rem 2rem}}
 .foot-row a:hover{color:var(--forest)}
 
 /* ── motion ───────────────────────────────────────────────────────
@@ -688,8 +700,9 @@ footer{padding-top:clamp(3rem,7vw,5rem);padding-bottom:clamp(2rem,4vw,3rem)}
 .plate img,.strip img{transition:transform 1.2s var(--ease)}
 .plate a:hover img,.strip a:hover img{transform:scale(1.015)}
 .plate a,.strip a{display:block;overflow:hidden}
-.more span,.bill-link span,.ask a span{display:inline-block;transition:transform .4s var(--lift)}
-.more:hover span,.bill-link:hover span,.ask a:hover span{transform:translateX(.3em)}
+/* inline-flex links drop the space before the arrow — give it back */
+.more span,.bill-link span,.ask a span,.plate-cap a span{display:inline-block;margin-left:.4em;transition:transform .4s var(--lift)}
+.more:hover span,.bill-link:hover span,.ask a:hover span,.plate-cap a:hover span{transform:translateX(.3em)}
 
 @media (prefers-reduced-motion:reduce){
   .js .lift.armed,.js .wipe.armed{opacity:1;transform:none;clip-path:none;transition:none}

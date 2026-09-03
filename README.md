@@ -23,3 +23,10 @@ Zero-dependency static site: `marquee.css` (tokens at the top are the tweak
 surface — see `DESIGN.md`), `marquee.js` (menu, reveals, clip windows). Fonts
 self-hosted in `assets/fonts`. Cache-bust `?v=` on every css/js link — bump
 it on all pages whenever either file changes.
+
+## QA
+
+`node tools/mobile-capture.js <outdir>` — full-page iPhone-size captures of every
+page (dev server on :8137). Desktop composition holds to 660px; the menu panel
+takes over below 860px. Test phones at 393×852 (Playwright) or 390×660 in the
+pane; the pane never runs rAF or lazy-load, so trust DOM measurements there.
