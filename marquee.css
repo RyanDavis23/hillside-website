@@ -445,8 +445,15 @@ body.has-hill .hero{margin-top:calc(clamp(1.6rem,4vw,2.5rem) - var(--hill-h))}
 
 /* artist bill — same open-ledger grammar */
 .artist-bill{border-top:var(--rule-w) solid var(--ink);margin-top:clamp(2rem,5vw,3.5rem)}
-.artist-row{display:flex;align-items:baseline;gap:.5rem 2rem;flex-wrap:wrap;padding:clamp(1.3rem,2.6vw,1.9rem) 0;border-bottom:1px solid var(--rule-hair)}
-.artist-name{font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,3.7vw,2.75rem);line-height:1.05;flex:1 1 14rem}
+/* the medium sits on the right on desktop, always; under the name on
+   phones, always — never sometimes-right, sometimes-wrapped */
+.artist-row{display:flex;align-items:baseline;gap:.5rem 2rem;flex-wrap:nowrap;padding:clamp(1.3rem,2.6vw,1.9rem) 0;border-bottom:1px solid var(--rule-hair)}
+.artist-name{font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,3.7vw,2.75rem);line-height:1.05;flex:1 1 auto;min-width:0}
+.artist-row .cap-faint{flex:none;margin-left:auto;white-space:nowrap}
+@media (max-width:659px){
+  .artist-row{flex-direction:column;align-items:flex-start;gap:.35rem}
+  .artist-row .cap-faint{margin-left:0}
+}
 
 /* ── the night: masonry, whole frames, no square crops ───────────
    Photographs keep their own proportions — a uniform square crop
