@@ -49,7 +49,9 @@
 @media (max-width:659px){
   .mk-switch{max-width:calc(100vw - 1rem);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .mk-switch a,.mk-switch button{padding:.55rem .6rem;font-size:.6rem}
-  .mk-b .fhero-v{object-position:62% 50%}
-  .mk-a .fhero-v{object-position:55% 40%}
+  .mk-b .fhero-v{object-position:62% 50% !important}
+  /* phone: the cover crop shows ~26% of the frame's width — sit it on the
+     fire escape, the red building and the bar (64%), not the white wall */
+  .mk-a .fhero-v,.mk-c .fhero-v{object-position:64% 40% !important}
 }
 .mk-a .hill,.mk-b .hill,.mk-d .hill{margin-top:0}
